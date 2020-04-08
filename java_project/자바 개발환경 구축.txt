@@ -1,0 +1,10 @@
+﻿1. 운영체제 확인
+2. JDK 다운로드
+3. 설치
+   경로 확인 :   C:\Program Files\Java\jdk1.8.0_241\
+4. 설치확인
+5. 환경설정 : 환경변수 설정
+   JAVA_HOME = java jdk 가 설치된 경로
+   PATH = ;%JAVA_HOME%\bin
+6. CMD -> cmd 환경에서 java 버전을 확인
+7. 이클립스 통합개발환경 설치
