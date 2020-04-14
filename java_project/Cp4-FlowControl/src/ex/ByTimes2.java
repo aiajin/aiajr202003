@@ -29,6 +29,8 @@ public class ByTimes2 {
 			
 		}
 		
+		char c = 'a'+1;
+		
 		
 		
 		
