@@ -7,5 +7,26 @@ public class Card {
 	
 	String kind;
 	int number;
+	
+	
+	Card(){}
+	
+	Card(String type, int num){
+		kind=type;
+		number=num;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
