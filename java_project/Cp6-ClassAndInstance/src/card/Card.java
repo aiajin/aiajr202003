@@ -9,7 +9,7 @@ public class Card {
 	int number;
 	
 	
-	Card(){}
+	public Card(){}
 	
 	Card(String type, int num){
 		kind=type;

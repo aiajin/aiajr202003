@@ -1,6 +1,9 @@
 package test;
 
-public class Boy {
+import card.Card;
+
+public class Boy {	// test.Boy
+	
 	
 	// 구슬의 개수
 	int numOfMarble;
