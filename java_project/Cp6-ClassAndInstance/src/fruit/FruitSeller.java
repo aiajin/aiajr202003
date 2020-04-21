@@ -24,15 +24,34 @@ public class FruitSeller {
 	
 	// 생성자 
 	FruitSeller(){
-		numOfApple = 20;
-		myMoney = 0;
-		APPLE_PRICE = 1000;
+		//numOfApple = 20;
+		//myMoney = 0;
+		//APPLE_PRICE = 1000;
+		
+		this(20, 0, 1000);
 	}
 	
-	FruitSeller(int num, int money, int price){
-		numOfApple = num;
-		myMoney = money;
-		APPLE_PRICE = price;
+	FruitSeller(int price){
+		this(20,0,price);
+	}
+	
+//	FruitSeller(int numOfApple, int myMoney, int price){
+//		this.numOfApple = numOfApple;
+//		this.myMoney = myMoney;
+//		APPLE_PRICE = price;
+//	}
+	
+
+	
+	FruitSeller(
+			
+			int numOfApple, int myMoney, int aPPLE_PRICE
+			
+			) {
+
+		this.numOfApple = numOfApple;
+		this.myMoney = myMoney;
+		APPLE_PRICE = aPPLE_PRICE;
 	}
 	
 	
@@ -52,7 +71,7 @@ public class FruitSeller {
 		myMoney += money;   // myMoney = myMoney + money
 		return num;		
 	}
-	
+
 	void showResult() {
 		System.out.println("현재 보유금액 : " + myMoney + " 이고, 현재 보유한 사과의 개수는 "+ numOfApple + "개 입니다.");
 	}
