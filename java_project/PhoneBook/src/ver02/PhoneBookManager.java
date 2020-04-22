@@ -10,6 +10,14 @@ import java.util.Scanner;
 */
 public class PhoneBookManager {
 	
+	int add() {
+		
+		int num =1;
+		
+		String str = new String("abc");
+		
+		return num;
+	}
 	
 	
 	PhoneInfor createInstance() {
