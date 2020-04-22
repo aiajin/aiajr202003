@@ -19,21 +19,23 @@ import java.util.Scanner;
 public class PhoneBookManager {
 	
 	
-	PhoneInfor[] pBooks;
+	final PhoneInfor[] pBooks;
 	
 	// 입력된 친구의 정보 개수 --> 입력된 배열의 요소 개수
 	// 1. 참조할 때 반복의 횟수
 	// 2. 새로운 객체를 저장할때 index 로 사용
-	int cnt=0;
+	int cnt;
 	
-	Scanner sc = new Scanner(System.in);
+	Scanner sc;
 	
 	
-	public PhoneBookManager() {
-		
+	public PhoneBookManager() {		
 		// 배열 초기화
 		pBooks = new PhoneInfor[100];
-		
+		// 저장개수 초기화
+		cnt = 0;
+		// Scanner 객체 초기화
+		sc = new Scanner(System.in);
 	}
 	
 	
@@ -43,6 +45,16 @@ public class PhoneBookManager {
 		
 		// 배열에 요소 대입
 		pBooks[cnt] = info;
+		
+		// 등록된 정보의 개수를 증가
+		cnt++;
+		
+	}
+	
+	void addInfo() {
+		
+		// 배열에 요소 대입
+		pBooks[cnt] = createInstance();
 		
 		// 등록된 정보의 개수를 증가
 		cnt++;
@@ -95,13 +107,8 @@ public class PhoneBookManager {
 	}
 	
 	
-	
-	// 검색 : 이름을 기준으로 데이터를 찾아서 해당 데이터의 정보를 출력
-	// 배열의 요소(PhoneInfor)의 name 속성 값으로 배열의 요소
-	void searchInfo() {
-		
-		System.out.println("검색하고자하는 이름을 입력해주세요");
-		String name = sc.nextLine();
+	// 배열에서 이름을 기준으로 검색후 index 값을 반환
+	int searchIndex(String name) {
 		
 		int searchIndex = -1;
 		
@@ -112,6 +119,23 @@ public class PhoneBookManager {
 				break;
 			}
 		}
+		
+		return searchIndex;
+		
+	}
+	
+	
+	
+	
+	// 검색 : 이름을 기준으로 데이터를 찾아서 해당 데이터의 정보를 출력
+	// 배열의 요소(PhoneInfor)의 name 속성 값으로 배열의 요소
+	void searchInfo() {
+		
+		System.out.println("검색하고자하는 이름을 입력해주세요");
+		String name = sc.nextLine();
+		
+		int searchIndex = searchIndex(name);
+		
 		
 		if(searchIndex<0) {
 			System.out.println("찾으시는 이름의 데이터가 존재하지 않습니다.");
@@ -128,15 +152,9 @@ public class PhoneBookManager {
 		System.out.println("삭제하고자하는 이름을 입력해주세요");
 		String name = sc.nextLine();
 		
-		int searchIndex = -1;
+		int searchIndex = searchIndex(name);
 		
-		// 사용자가 입력한 이름으로 배열에 요소를 검색 -> index
-		for(int i=0; i<cnt; i++) {
-			if(pBooks[i].checkName(name)) {
-				searchIndex = i;
-				break;
-			}
-		}
+		
 		
 		// 삭제
 		// pBooks[2] : 삭제 , pBooks[2] = null
