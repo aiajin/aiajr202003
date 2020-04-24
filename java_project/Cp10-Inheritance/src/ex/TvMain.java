@@ -6,9 +6,31 @@ public class TvMain {
 		
 		Tv tv1 = new Tv();
 		
+		IpTv itv =(IpTv) tv1;
+		
+		
+		
+		
 		CaptionTv cTv1 = new CaptionTv();
 		
+		Tv t = cTv1;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		Tv tv2 = new CaptionTv();
+		
+		IpTv itv3 = (IpTv)tv2;
+		
+		CaptionTv ctv2 = (CaptionTv)tv2; 
+		
+		ctv2.caption();
 		
 		//System.out.println(tv2.power);
 		tv2.power();
