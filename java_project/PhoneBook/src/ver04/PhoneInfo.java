@@ -33,6 +33,8 @@ public class PhoneInfo {
 	// 전체 정보 출력 메서드
 	void showAllInfo() {
 		// 상속 후 오버라이딩을 통해 재 구성
+		showBasicInfo();
+		
 	}
 
 }
