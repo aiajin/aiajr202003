@@ -214,10 +214,7 @@ public class PhoneBookManager {
 			PhoneInfo info = null;
 			
 			// 저장된 인스턴스가 : 기본, 대학, 회사, 동호회
-			if(books[index] instanceof PhoneInfo) {
-				info = new PhoneInfo(editName, phoneNumber, addr, email);
-				
-			} else if(books[index] instanceof PhoneUnivInfo) {
+			if(books[index] instanceof PhoneUnivInfo) {
 				System.out.println("전공을 입력해주세요.");
 				String major = kb.nextLine();
 				System.out.println("학년을 입력해주세요.");
@@ -246,6 +243,8 @@ public class PhoneBookManager {
 				
 				info = new PhoneCafeInfo(editName, phoneNumber, addr, email, cafeName, nickName);
 				
+			} else if(books[index] instanceof PhoneInfo) {
+				info = new PhoneInfo(editName, phoneNumber, addr, email);
 			}
 			
 			// 배열에 새로운 인스턴스를 저장
