@@ -1,0 +1,12 @@
+﻿1. manager 클래스의 싱글톤 패턴 처리
+
+   1. 생성자 접근제어지시자 : private
+           인스턴스 생성 막는다.
+   2. 공동으로 사용할 인스턴스 생성 : static private
+   3. 참조변수 반환 메서드 : static public
+
+
+
+2. interface 기반의 상수 표현
+   메뉴 표현
+3. interface -> 추상클래스 -> 상속 관계 구조로 변경
