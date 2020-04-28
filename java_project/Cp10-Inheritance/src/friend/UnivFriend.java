@@ -14,7 +14,7 @@ public class UnivFriend extends Friend {
 	}
 
 	@Override
-	void showData() {
+	public void showData() {
 		showBasicInfo();
 		System.out.println("학년 : " + grade);
 	}
