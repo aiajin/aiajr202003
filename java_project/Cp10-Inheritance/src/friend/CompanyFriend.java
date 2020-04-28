@@ -8,7 +8,7 @@ public class CompanyFriend extends Friend {
 	}
 	
 	
-	void showData() {
+	public void showData() {
 		
 	}
 	
