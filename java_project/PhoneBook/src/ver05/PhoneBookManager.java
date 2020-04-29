@@ -14,7 +14,7 @@ public class PhoneBookManager {
 	Scanner kb;
 
 	// 생성자를 통해서 배열 생성, 요소의 개수 초기화
-	PhoneBookManager(int num) {
+	private PhoneBookManager(int num) {
 		// 배열의 생성
 		books = new PhoneInfo[num];
 		// 요소 개수의 초기화
@@ -22,6 +22,13 @@ public class PhoneBookManager {
 		// Scanner 초기화
 		kb = new Scanner(System.in);
 	}
+	
+	private static PhoneBookManager manager = new PhoneBookManager(100);
+	
+	public static PhoneBookManager getInstance() {
+		return manager;
+	}
+	
 
 	// 2. 배열에 정보 저장
 	// 2.1 배열에 추가
@@ -49,10 +56,10 @@ public class PhoneBookManager {
 		// 사용자 선택 번호
 		int select = Integer.parseInt(kb.nextLine());
 		
-		if(!(select>0 && select<5)) {
-			System.out.println("정상적인 메뉴 선택이 아닙니다.\n메뉴를 다시 선택해주세요.");
-			return;
-		}
+//		if(!(select>0 && select<5)) {
+//			System.out.println("정상적인 메뉴 선택이 아닙니다.\n메뉴를 다시 선택해주세요.");
+//			return;
+//		}
 
 		// 2.2.1 기본 정보 수집 : 이름, 전번, 주소, 이메일
 		System.out.println("이름을 입력해주세요.");
