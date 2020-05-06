@@ -8,6 +8,8 @@ public class ThreadMain1 {
 		ShowThread st1 = new ShowThread("          멋진 쓰래드");
 		ShowThread st2 = new ShowThread("예쁜 쓰래드");
 		
+		st1.setPriority(Thread.MAX_PRIORITY);
+		
 		// 쓰래드의 실행 : 새로운 프로그램 코드 실행의 흐름
 		st1.start();
 		st2.start();
