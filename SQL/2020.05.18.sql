@@ -61,6 +61,23 @@ select ename, job, sal, nvl(comm, 100), sal*12 as sal,
        sal*12+nvl(comm,100) as total
 from emp;
 
+-- 데이터베이스의 문자열 표현 -> 작은 따움표를 이용
+-- '문자열'
+-- 문자열을 붙여서 출력하는 연산 -> ||
+
+select ename || ' is a ' || job as msg
+from emp;
+
+select ename, job from emp;
+
+-- 출력 컬럼의 중복을 제거하고 하나씩만 출력 : distinct
+select deptno from emp;
+
+select distinct deptno from emp;
+
+select deptno, job from emp order by deptno;
+select distinct deptno, job from emp order by deptno;
+
  
 
 
