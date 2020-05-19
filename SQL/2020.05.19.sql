@@ -114,7 +114,8 @@ where hiredate between '1981-01-01' and '1981-12-31'
 select *
 from emp
 --where comm=300 or comm=500 or comm=1400
-where comm in(300, 500, 1400)
+-- where comm in(300, 500, 1400)
+where comm not in(300, 500, 1400)
 ;
 
 -- 패턴 검색 : like 연산자 
@@ -132,7 +133,8 @@ from emp
 --where ename like 'S' -- ename='S'
 --where ename like 'A%'
 --where ename like '%IN'
-where ename like '%AR%'
+--where ename like '%AR%'
+where ename not like '%A%'
 ;
 
 
@@ -143,4 +145,63 @@ from emp
 --where ename like '__A%'
 where ename like '%L__'
 ;
+
+-- null 값 홛인을 위한 연산자 : is null, is not null
+-- 컬럼명 is null : 해당 컬럼의 값이 null 인경우 true
+-- 컬럼명 is not null : 해당 컬럼의 값이 null이 아닌경우 true
+select ename, comm
+from emp
+--where comm is null
+where comm is not null
+;
+
+
+-- row의 정렬
+-- 오름차순 : 작은쪽 -> 큰쪽 , asc (생략 가능, 기본 값)
+-- 내림차순 : 큰쪽 -> 작은쪽 , desc (명시적 사용)
+select ename, sal, hiredate, comm
+from emp
+--where empno>0
+--order by ename asc -- 문자의 오름차순
+--order by ename  -- 문자의 오름차순, asc 생략
+--order by ename desc -- 문자의 내림차순
+--order by sal asc -- 숫자의 오름차순
+--order by sal desc -- 숫자의 내림차순
+--order by hiredate asc -- 날짜의 오름차순
+--order by hiredate desc -- 날짜의 내림차순
+--order by comm asc -- null의 오름차순
+order by comm desc -- null의 내림차순
+;
+
+select ename, sal 
+from emp
+order by sal desc, ename asc
+;
+select ename, deptno
+from emp
+order by deptno, ename
+;
+
+select ename, hiredate
+from emp
+where hiredate like ''
+;
+
+select ename, sal, deptno
+from emp
+where sal between 2000 and 3000 and deptno=20 or deptno=30
+order by ename;
+
+select ename, job, sal
+from emp
+where job='CLERK' or job='SALESMAN' and sal not in(1600, 950, 1300)
+;
+
+select ename, sal from emp where not sal<=3000 or not sal>=2000;
+
+select ename, job, sal from emp where  not sal in (1300,950) and job ='CLERK' or job = 'SALESMAN'and not sal = 1600;
+ 
+
+
+
 
