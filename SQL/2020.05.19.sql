@@ -203,5 +203,12 @@ select ename, job, sal from emp where  not sal in (1300,950) and job ='CLERK' or
  
 
 
+select * from tab;
+desc book;
+desc customer;
+desc orders;
+select * from book;
+select * from customer;
+select * from orders;
 
 
