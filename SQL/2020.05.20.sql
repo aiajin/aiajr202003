@@ -218,7 +218,54 @@ from emp
 group by deptno
 ;
 
+-- 소속 부서별
+-- 최대 급여와 최소 급여를 구하자
 
+select deptno, max(sal), min(sal)
+from emp
+group by deptno
+;
+
+
+-- 부서별로 
+-- 사원 수와 커미션을 받는 사원들의 수를 계산하자
+select deptno, count(*), count(comm)
+from emp
+where comm <> 0
+group by deptno
+;
+
+-- 부서별 
+-- 평균 급여가 2000 이상인(HAVING) 
+-- 부서번호와 부서별 평균 급여를 출력
+select deptno, avg(sal), count(*), count(comm), sum(comm)
+from emp
+group by deptno
+having avg(sal)<=2000
+;
+
+
+-- 직급별 , 지표 출력
+select job, count(*) as "직급별 인원",
+            sum(sal) as "직급별 월 총 급여",
+            trunc(avg(sal)) as "직급별 월 평균 급여",
+            nvl(sum(comm), 0) as "직급별 수령 커미션의 총 합",
+            max(sal) as "직급별 최고 급여 금액"
+from emp
+group by job
+--having  count(*)>=2   -- 직급의 인원이 2명 이상인 직급
+having avg(sal) >= 2000 and count(*)>1
+;
+
+select  deptno, job
+from emp
+group by deptno, job
+order by job
+;
+
+-- substr(원본 데이터, 시작 인덱스, 개수)
+select substr(hiredate, 0,5) from emp;  -- 81/02
+select substr(hiredate, 4,2) from emp;  -- 
 
 
 
