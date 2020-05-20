@@ -4,7 +4,7 @@
 -- select 컬럼명 from 테이블 이름 where 조건(true/false)
 
 -- 전체 사원중의 월 급여가 3000 이상인 사원의 이름 리스트
-select ename, sal
+select ename--, sal
 from emp 
 where sal >= 3000
 ;
@@ -179,28 +179,8 @@ order by sal desc, ename asc
 ;
 select ename, deptno
 from emp
-order by deptno, ename
+order by deptno, ename, empno
 ;
-
-select ename, hiredate
-from emp
-where hiredate like ''
-;
-
-select ename, sal, deptno
-from emp
-where sal between 2000 and 3000 and deptno=20 or deptno=30
-order by ename;
-
-select ename, job, sal
-from emp
-where job='CLERK' or job='SALESMAN' and sal not in(1600, 950, 1300)
-;
-
-select ename, sal from emp where not sal<=3000 or not sal>=2000;
-
-select ename, job, sal from emp where  not sal in (1300,950) and job ='CLERK' or job = 'SALESMAN'and not sal = 1600;
- 
 
 
 select * from tab;
