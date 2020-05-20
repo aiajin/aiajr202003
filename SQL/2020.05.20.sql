@@ -267,6 +267,15 @@ order by job
 select substr(hiredate, 0,5) from emp;  -- 81/02
 select substr(hiredate, 4,2) from emp;  -- 
 
+select job,count(*)
+from emp
+where job = 'MANAGER'
+group by job
+;
+
+select count(distinct mgr)
+from emp;
+
 
 
 
