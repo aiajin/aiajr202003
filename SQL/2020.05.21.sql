@@ -37,6 +37,7 @@ using(deptno)
 
 
 
+
 select ename, dname, e.deptno, d.deptno
 from emp e, dept d
 where e.deptno = d.deptno
@@ -77,7 +78,7 @@ where sal between losal and hisal
 -- 관리자의 이름을 알아보자
 select * from emp;
 
-select e.ename || '의 상사는 ' || m.ename || '입니다.'
+select *--e.ename || '의 상사는 ' || m.ename || '입니다.'
 from emp e, emp m
 where e.mgr = m.empno
 ;
@@ -94,6 +95,15 @@ from emp e, emp m
 where e.mgr = m.empno(+)
 ;
 
+select *
+from emp e left outer join emp m
+on e.mgr=m.empno
+;
+
+
+select ename, dname
+from emp natural join dept
+;
 
 
 
