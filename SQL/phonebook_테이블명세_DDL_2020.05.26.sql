@@ -36,31 +36,42 @@ create table phoneInfo_com(
 ---------------------------------------------------------------------------------
 -- 입력 DML
 ---------------------------------------------------------------------------------
-
 -- 학교 친구 정보 입력 순서
 -- 1. 기본 친구 정보 테이블 데이터 입력
 -- 2. 학교 친구 정보 테이블 데이터 입력
-
-
-
+insert into phoneinfo_basic (idx, fr_name, fr_phonenumber, fr_email, fr_address) 
+VALUES (1, '박지성', '010-9999-0000', 'park@gmail.com', 'London')
+;
+insert into phoneinfo_univ 
+values (1, 'computer', 1, 1)
+;
 
 -- 회사 친구 정보 입력 순서
 -- 1. 기본 친구 정보 테이블 데이터 입력
 -- 2. 학교 친구 정보 테이블 데이터 입력
-
+insert into phoneinfo_basic (idx, fr_name, fr_phonenumber, fr_email, fr_address) 
+VALUES (2, '손흥민', '010-7777-5555', 'son@gmail.com', 'London')
+;
+insert into phoneinfo_com 
+values (1, 'NAVER', 2)
+;
 
 ---------------------------------------------------------------------------------
 -- 친구 정보 출력 질의
 ---------------------------------------------------------------------------------
-
--- 1. 전체 친구 목록 출력
---    테이블 3개 JOIN
-
-
+-- 1. 전체 친구 목록 출력 : 테이블 3개 JOIN
+select * from phoneinfo_basic pb, phoneinfo_univ pu, phoneinfo_com pc
+--where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
+where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
+;
 -- 2. 학교 친구 목록 출력
-
-
+select * from phoneinfo_basic pb, phoneinfo_univ pu
+where pb.idx=pu.fr_ref
+;
 -- 3. 회사 친구 목록 출력
+select * from phoneinfo_basic pb, phoneinfo_com pc
+where pb.idx=pc.fr_ref
+;
 
 
 
