@@ -69,6 +69,10 @@ select * from user_constraints where table_name='PHONEBOOK';
 
 desc phonebook;
 
+select * from phonebook;
+
+TRUNCATE TABLE phonebook;
+
 -- 기본정보 입력
 insert into phonebook 
 (pbidx, pbname, pbnumber, pbaddr, pbmail, pbtype)
@@ -116,12 +120,24 @@ select * from phonebook;
 
 -- 1. 기본 정보 출력 질의
 
+select pbidx, pbname, pbnumber from phonebook;
+
+select * from phonebook;
+
 -- 2. 대학 친구 정보 출력 질의
+
+select pbname, pbnumber, pbmajor, pbgrade from phonebook where pbtype='univ';
+
 
 -- 3. 회사 친구 정보 출력 질의
 
+select pbname, pbnumber, pbcomname, pbcomdept, pbcomjob from phonebook where pbtype='com';
+
+
 -- 4. 모임 친구 정보 출력 질의
 
+
+select pbname, pbnumber, pbcafename, pbcafenickname from phonebook where pbtype='cafe';
 
 
 
