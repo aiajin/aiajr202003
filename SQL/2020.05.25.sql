@@ -42,7 +42,7 @@ create table emp01(
 select * from tab;
 desc emp01;
 
--- 테이블의 복사 : 서브 쿼리 이용 
+-- 테이블의 복사 : 서브 쿼리 이용 -> as 서브쿼리
 -- 스키마 복사, 행 복사, 제약조건의 복사는 되지 않는다.
 
 create table emp02
@@ -80,6 +80,10 @@ select * from emp where 1<0
 ;
 
 select * from emp05;
+
+
+
+
 
 -- 테이블에 컬럼 추가
 -- alter table 테이블 이름 add (컬럼정의)
@@ -232,15 +236,16 @@ INSERT INTO EMP06 VALUES(2222, 'TEST123', 'MANAGER', 50);
 SELECT * FROM EMP06;
 
 
--- 사원번호, 사원명, 직급, 부서번호, 직급, 성별, 생일 7개의 칼럼으로 
+-- 사원번호, 사원명, 직급, 부서번호, 성별, 생일 7개의 칼럼으로 
 -- 구성된 테이블을 생성하되 
 -- 기본 키 제약 조건, 외래키 제약 조건은 물론 
 -- CHECK 제약 조건도 설정해 봅시다.
 -- DEFAULT 제약 조건으로 BIRTHDAY  SYSDATE로 입력되도록 처리
+drop table emp07;
 CREATE TABLE EMP07(
     EMPNO NUMBER(4) CONSTRAINT EMP07_EMPNO_PK PRIMARY KEY,
     ENAME VARCHAR2(10) CONSTRAINT EMP07_ENAME_NN NOT NULL,
-    JOB VARCHAR2(10) DEFAULT 'MANAGER',
+    JOB VARCHAR2(10) DEFAULT 'MANAGER' not null,
     DEPTNO NUMBER(2) CONSTRAINT EMP07_DEPTNO_FK REFERENCES DEPT(DEPTNO),
     GENDER CHAR(1) CONSTRAINT EMP07_GENDER_CK CHECK (GENDER='M' OR GENDER='F'),
     SAL NUMBER(7,2) CONSTRAINT EMP07_SAL_CK CHECK (SAL BETWEEN 500 AND 5000),
@@ -248,12 +253,38 @@ CREATE TABLE EMP07(
 );
 
 INSERT INTO EMP07 VALUES (1111, 'TEST', NULL, 10, 'F', 600, NULL);
-INSERT INTO EMP07 VALUES (1112, 'TEST', NULL, 10, 'M', 600, NULL);
+INSERT INTO EMP07 VALUES (1119, 'TEST', '', 10, 'M', 600, '');
 
 INSERT INTO EMP07 (EMPNO, ENAME, DEPTNO, GENDER, SAL) 
-           VALUES (1113, 'TEST', 10, 'F', 1600);
+           VALUES (1118, 'TEST', 10, 'F', 1600);
 
 SELECT * FROM EMP07;
+
+
+
+-- 테이블 레벨에서의 제약 조건 정의
+
+drop table emp02;
+create table emp02(
+    empno number(4),
+    ename varchar2(10) constraint emp02_ename_nn not null,
+    job varchar2(10) not null, 
+    deptno number(2),
+    constraint emp02_empno_pk primary key(empno),
+    constraint emp02_ename_uk unique(ename),
+    constraint emp02_deptno_fk foreign key(deptno) REFERENCES dept(deptno)
+)
+
+-- 전화번호 관리 프로그램
+
+-- 이름, 전화번호, 생일, 이메일, 
+-- 전공, 학년
+-- 부서이름, 직급
+-- 모임이름, 닉네임
+-- 대리키 : 일련번호 -> pIdx
+
+-- 전화번호 부( Contact )
+
 
 
 
