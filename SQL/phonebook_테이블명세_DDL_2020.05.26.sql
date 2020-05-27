@@ -60,6 +60,13 @@ insert into phoneinfo_univ
 values (1, 'computer', 1, 1)
 ;
 
+insert into phoneinfo_basic (idx, fr_name, fr_phonenumber, fr_email, fr_address) 
+VALUES (PB_BASIC_IDX_SEQ.nextval, '박지성', '010-9999-0000', 'park@gmail.com', 'London')
+;
+insert into phoneinfo_univ 
+values (PB_UNIV_IDX_SEQ.nextval, 'computer', 1, pb_basic_idx_seq.currval)
+;
+
 -- 회사 친구 정보 입력 순서
 -- 1. 기본 친구 정보 테이블 데이터 입력
 -- 2. 회사 친구 정보 테이블 데이터 입력
@@ -69,6 +76,14 @@ VALUES (2, '손흥민', '010-7777-5555', 'son@gmail.com', 'London')
 insert into phoneinfo_com 
 values (1, 'NAVER', 2)
 ;
+
+insert into phoneinfo_basic (idx, fr_name, fr_phonenumber, fr_email, fr_address) 
+VALUES (PB_BASIC_IDX_SEQ.nextval, '손흥민', '010-7777-5555', 'son@gmail.com', 'London')
+;
+insert into phoneinfo_com 
+values (PB_COM_IDX_SEQ.nextval, 'NAVER', PB_BASIC_IDX_SEQ.currval)
+;
+
 
 ---------------------------------------------------------------------------------
 -- 친구 정보 출력 질의
@@ -178,7 +193,7 @@ where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
 ;
 
 -- select view 
-select * from pb_all_view;
+select * from pb_all_view where name='박지성';
 
 
 -- 2. 학교 친구 목록 출력
@@ -223,6 +238,24 @@ where pb.idx=pc.fr_ref
 ;
 
 select * from pb_com_view;
+
+
+
+---------------------------------------------------------
+-- sequence 생성
+---------------------------------------------------------
+-- 1. basic 테이블 seq
+create sequence pb_basic_idx_seq
+start with 0
+MINVALUE 0
+;
+
+-- 2. com 테이블 seq
+create sequence pb_com_idx_seq start with 0 MINVALUE 0;
+
+-- 3. univ 테이블 seq
+create sequence pb_univ_idx_seq start with 0 MINVALUE 0;
+
 
 
 
