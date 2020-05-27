@@ -4,6 +4,18 @@ drop table phoneInfo_basic;
 drop table phoneInfo_univ;
 drop table phoneInfo_com;
 
+
+-- 왜래키 설정시 부모의 행이 삭제 될 때 설정
+-- REFERENCES phoneInfo_basic(idx) on delete 설정 옵션
+-- no action : 모두 삭제 불가
+-- cascade : 참조를 하고 있는 자식 테이블의 모든 행도 삭제
+-- set null : 참조를 하고 있는 자식 테이블의 모든 행의 외래키 컬럼의 값을 null 로 변경
+-- set default : 참조를 하고 있는 자식 테이블의 모든 행의 외래키 컬럼의 값을 기본값 로 변경
+
+drop table phoneInfo_basic;
+drop table phoneInfo_univ;
+drop table phoneInfo_com;
+
 create table phoneInfo_basic (
     idx number(6),
     fr_name varchar2(20) not null,
@@ -22,7 +34,8 @@ create table phoneInfo_univ (
     fr_ref number(6),
     constraint pu_idx_pk primary key(idx),
     constraint pu_fr_u_year_ck check (fr_u_year between 1 and 4),
-    constraint pu_fr_ref_fk foreign key(fr_ref) REFERENCES phoneInfo_basic(idx)    
+    constraint pu_fr_ref_fk 
+    foreign key(fr_ref) REFERENCES phoneInfo_basic(idx) on delete cascade   
 );
  
 create table phoneInfo_com(
@@ -30,7 +43,8 @@ create table phoneInfo_com(
     fr_c_company varchar2(20) default 'N' not null,
     fr_ref number(6),
     constraint pc_idx_pk primary key(idx),
-    constraint pc_fr_ref_fk foreign key(fr_ref) REFERENCES phoneInfo_basic(idx)  
+    constraint pc_fr_ref_fk 
+    foreign key(fr_ref) REFERENCES phoneInfo_basic(idx) on delete cascade
 );
 
 ---------------------------------------------------------------------------------
@@ -69,6 +83,9 @@ where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
 select * from phoneinfo_basic pb, phoneinfo_univ pu
 where pb.idx=pu.fr_ref
 ;
+
+select * from phoneinfo_univ;
+
 -- 3. 회사 친구 목록 출력
 select * from phoneinfo_basic pb, phoneinfo_com pc
 where pb.idx=pc.fr_ref
@@ -79,10 +96,41 @@ where pb.idx=pc.fr_ref
 -- 수정을 위한 SQL
 ---------------------------------------------------
 --1. 회사 친구의 정보 변경
+--   기본 정보 + 회사정보 수정
+-- 기본 정보 수정
+-- 회사 정보 수정
 
+update phoneinfo_basic
+set fr_name='SCOTT', 
+    fr_phonenumber='010-0000-0000', 
+    fr_address='SEOUL', 
+    fr_email='scott@gmail.com'
+where idx=2
+;
+update phoneinfo_com
+set fr_c_company='KAKAO'
+where fr_ref=2
+;
 
 
 --2. 학교 친구의 정보 변경 
+-- 기본정보 + 학교정보 수정
+-- 기본 정보 수정
+-- 학교 정보 수정
+
+
+update phoneinfo_basic
+set fr_name='KING', 
+    fr_phonenumber='010-0000-0000', 
+    fr_address='SEOUL', 
+    fr_email='KING@gmail.com'
+where idx=1
+;
+
+update phoneinfo_univ
+set fr_u_major='DATA', fr_u_year=3
+where fr_ref=1
+;
 
 
 
@@ -91,11 +139,46 @@ where pb.idx=pc.fr_ref
 -- 삭제를 위한 sql
 ---------------------------------------------------
 --1. 회사 친구 정보를 삭제
+delete from phoneinfo_com where fr_ref=2;
+delete from phoneinfo_univ where fr_ref=2;
 
+delete from phoneinfo_basic where idx=2;
 
 --2. 학교 친구 정보를 삭제
+delete from phoneinfo_com where fr_ref=1;
+delete from phoneinfo_univ where fr_ref=1;
+
+delete from phoneinfo_basic where idx=1;
 
 
+-----------------------------------------------------------
+-- VIEW 생성
+-----------------------------------------------------------
+
+-- 1. 전체 친구 목록 출력 : 테이블 3개 JOIN
+select * 
+from phoneinfo_basic pb, phoneinfo_univ pu, phoneinfo_com pc
+where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
+;
+
+-- VIEW : pb_all_view
+
+
+
+-- 2. 학교 친구 목록 출력
+select * from phoneinfo_basic pb, phoneinfo_univ pu
+where pb.idx=pu.fr_ref
+;
+
+-- view : pb_univ_view
+
+
+-- 3. 회사 친구 목록 출력
+select * from phoneinfo_basic pb, phoneinfo_com pc
+where pb.idx=pc.fr_ref
+;
+
+-- view : pb_com_view
 
 
 
