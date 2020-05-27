@@ -72,7 +72,7 @@ desc emp_mgr;
 
 -- 두개 테이블에 emp 테이블의 데이터를 기반으로 삽입
 insert all
-into emp_hir values (empno, ename, hiredate)
+into emp_hir values (empno, ename)
 into emp_mgr values (empno, ename, mgr)
 select empno, ename, hiredate, mgr
 from emp
