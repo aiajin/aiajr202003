@@ -162,7 +162,23 @@ where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
 ;
 
 -- VIEW : pb_all_view
+create or replace view pb_all_view
+(name, phonenumber, address, email, major, grade, company, regdate)
+as
+select pb.fr_name, 
+       pb.fr_phonenumber, 
+       pb.fr_address, 
+       pb.fr_email,
+       pu.fr_u_major,
+       pu.fr_u_year,
+       pc.fr_c_company,
+       pb.fr_regdate
+from phoneinfo_basic pb, phoneinfo_univ pu, phoneinfo_com pc
+where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
+;
 
+-- select view 
+select * from pb_all_view;
 
 
 -- 2. 학교 친구 목록 출력
@@ -172,6 +188,20 @@ where pb.idx=pu.fr_ref
 
 -- view : pb_univ_view
 
+create or replace view pb_univ_view 
+(name, phonenumber, address, email, major, grade, regdate)
+as
+select pb.fr_name, 
+       pb.fr_phonenumber, 
+       pb.fr_address, 
+       pb.fr_email,
+       pu.fr_u_major,
+       pu.fr_u_year
+from phoneinfo_basic pb, phoneinfo_univ pu
+where pb.idx=pu.fr_ref
+;
+
+select * from pb_univ_view;
 
 -- 3. 회사 친구 목록 출력
 select * from phoneinfo_basic pb, phoneinfo_com pc
@@ -179,7 +209,20 @@ where pb.idx=pc.fr_ref
 ;
 
 -- view : pb_com_view
+create or replace view pb_com_view
+(name, phonenumber, address, email, company, regdate)
+as
+select pb.fr_name, 
+       pb.fr_phonenumber, 
+       pb.fr_address, 
+       pb.fr_email,
+       pc.fr_c_company,
+       pb.fr_regdate
+from phoneinfo_basic pb, phoneinfo_com pc
+where pb.idx=pc.fr_ref
+;
 
+select * from pb_com_view;
 
 
 
