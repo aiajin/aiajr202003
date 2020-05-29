@@ -120,7 +120,7 @@ select * from phonebook;
 
 -- 1. 기본 정보 출력 질의
 
-select pbidx, pbname, pbnumber from phonebook;
+select * from phonebook;
 
 select * from phonebook;
 
