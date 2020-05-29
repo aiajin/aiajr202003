@@ -2,13 +2,16 @@ package ex;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
-public class JDBCTest1 {
+public class JDBCTest2 {
 
 	public static void main(String[] args){
 		
 		Connection conn = null;
+		ResultSet rs = null;
 		
 		//1. DB 드라이버 로드
 		try {
@@ -24,14 +27,29 @@ public class JDBCTest1 {
 			conn = DriverManager.getConnection(url, user, pw);
 			System.out.println("데이터베이스에 접속했습니다.");
 			
-			// 트랜젝션 설정
-			conn.setAutoCommit(false);
+			//3. Statement : Connection
+			Statement stmt = conn.createStatement();
 			
-			//3. sql 로 데이터 처리....
+			String sql = "select * from dept order by deptno";			
 			
+			// Select 의 결과는 ResultSet 이 받는다.
+			// executeQuery(sql문) -> ResultSet
+			rs = stmt.executeQuery(sql);
 			
-			// commit : 처리 완료
-			conn.commit();
+			// ResultSet : next() -> 행의 존재 유무 확인
+			
+			while(rs.next()) {
+//				System.out.print(rs.getInt("deptno") + "\t");
+//				System.out.print(rs.getString("dname") + "\t");
+//				System.out.print(rs.getString("loc") + "\n");
+				System.out.print(rs.getInt(1) + "\t");
+				System.out.print(rs.getString(2) + "\t");
+				System.out.print(rs.getString(3) + "\n");
+			}
+			
+			rs.close();
+			stmt.close();
+			
 			//4. close
 			conn.close();
 			
@@ -39,14 +57,6 @@ public class JDBCTest1 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
 			e.printStackTrace();
 		}
 		
