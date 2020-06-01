@@ -58,10 +58,7 @@ public class JDBCTest6 {
 				System.out.println("입력이 되지않았습니다. 확인후 재 시도해주세요.");
 			}
 			
-			
-			
-			
-			
+		
 			//4. 데이터베이스 연결 종료			
 			//pstmt.close();
 			//conn.close();
