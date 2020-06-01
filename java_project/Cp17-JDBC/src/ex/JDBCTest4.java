@@ -40,8 +40,6 @@ public class JDBCTest4 {
 			
 			System.out.println(resultCnt + "개 행이 입력되었습니다.");
 			
-			
-			
 
 			//4. close
 			conn.close();
