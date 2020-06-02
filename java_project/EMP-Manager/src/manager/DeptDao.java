@@ -21,32 +21,19 @@ public class DeptDao {
 	
 	
 
-	public void deptEdit() {
+	public int deptEdit(Dept newDept, Connection conn) {
 
 		// JDBC 사용 객체
-		Connection conn = null;
+		//Connection conn = null;
 		Statement stmt = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		int resultCnt = 0;
 
 		
 		try {
-			// 0. 드라이버 LIB 추가
-			// 1. 데이터베이스 드라이버 로드
-			// Class.forName(드라이버 클래스 전체이름)
-			// Oracle : oracle.jdbc.driver.OracleDriver
-			//Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			// 2. 데이터베이스 연결
-
-			// String url = "jdbc:oracle:thin:@주소:포트:데이터베이스이름";
-			// 주소 : localhost or 127.0.0.1
-			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-			String user = "scott";
-			String pw = "tiger";
-
 			// Connection 객체 생성
-			conn = DriverManager.getConnection(url, user, pw);
+			//conn = ConnectionProvider.getConnection();
 
 			// 3. SQL 처리
 			// Statement or PreparedStatement
@@ -57,61 +44,17 @@ public class DeptDao {
 			// 그리고 이름의 데이터는 유일조건이 있어야 합니다.
 			// 유일조건이 아니라면 여러개의 행에 수정 처리가 이루어집니다.
 			// 현재 버전에서는 유일한 값으로 생각하고 처리합니다.
-
-			stmt = conn.createStatement();
-
-			String selectSql = "select * from dept where dname='" + searchName + "'";
-
-			rs = stmt.executeQuery(selectSql);
-
-			int sDeptno = 0;
-			String sDname = "";
-			String sLoc = "";
-
-			if (rs.next()) {
-				sDeptno = rs.getInt("deptno");
-				sDname = rs.getString("dname");
-				sLoc = rs.getString("loc");
-			} else {
-				System.out.println("검색하신 이름의 데이터가 존재하지 않습니다.");
-				return;
-			}
-
-			// 사용자 입력정보 변수
-			System.out.println("부서 정보를 입력해주세요.");
-
-			System.out.println("부서 번호 : " + sDeptno);
-			System.out.println("부서 번호는 수정되지 않습니다.");
-
-			System.out.println("부서 이름 ( " + sDname + "  ) : ");
-			String dname = sc.nextLine();
-
-			System.out.println("지역 ( " + sLoc + "  ) : ");
-			String loc = sc.nextLine();
-
-			// 공백 입력에 대한 예외처리가 있어야 하나 이번 버전에서는 모두 잘 입력된것으로 처리합니다.
-
+	
 			String sql = "update dept  set  dname=?, loc=? " + " where deptno=?";
 
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dname);
-			pstmt.setString(2, loc);
-			pstmt.setInt(3, sDeptno);
+			pstmt.setString(1, newDept.getDname());
+			pstmt.setString(2, newDept.getLoc());
+			pstmt.setInt(3, newDept.getDeptno());
 
-			int resultCnt = pstmt.executeUpdate();
-
-			if (resultCnt > 0) {
-				System.out.println("정상적으로 수정 되었습니다.");
-				System.out.println(resultCnt + "행이 수정되었습니다.");
-			} else {
-				System.out.println("수정이 되지않았습니다. 확인후 재 시도해주세요.");
-			}
-
-			// 4. 데이터베이스 연결 종료
-			// pstmt.close();
-			// conn.close();
+			resultCnt = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -155,6 +98,8 @@ public class DeptDao {
 			}
 
 		}
+		
+		return resultCnt;
 
 	}
 
@@ -466,15 +411,15 @@ public class DeptDao {
 	
 	
 	
-	public int deptSearchName(String searchName) {
+	public int deptSearchCount(String searchName, Connection conn) {
 		
-		Connection conn = null;
+		//Connection conn = null;
 		PreparedStatement pstmt =null;
 		ResultSet rs = null;
 		int rowCnt = 0;
 		
 		try {
-			conn = ConnectionProvider.getConnection();
+			//conn = ConnectionProvider.getConnection();
 			
 			String sql = "select count(*) from dept where dname=?";
 			
@@ -500,6 +445,41 @@ public class DeptDao {
 	}
 	
 	
+	public Dept deptSearchName(String searchName, Connection conn) {
+		
+		
+		Dept dept = null;
+		
+		//Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			//conn = ConnectionProvider.getConnection();
+			
+			String sql = "select * from dept where dname=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchName);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dept = new Dept(rs.getInt(1), rs.getString(2), rs.getString(3));
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return dept;
+		
+		
+	}
 	
 	
 	
