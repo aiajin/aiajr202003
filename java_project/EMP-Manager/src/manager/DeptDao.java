@@ -21,7 +21,7 @@ public class DeptDao {
 	
 	
 
-	public int deptEdit(Dept newDept, Connection conn) {
+	public int deptEdit(Dept newDept, Connection conn) throws SQLException {
 
 		// JDBC 사용 객체
 		//Connection conn = null;
@@ -56,8 +56,7 @@ public class DeptDao {
 
 			resultCnt = pstmt.executeUpdate();
 
-		} catch (SQLException e) {
-			e.printStackTrace();
+		
 		} finally {
 
 			// 4. 데이터베이스 연결 종료
