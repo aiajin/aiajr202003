@@ -88,14 +88,14 @@ public class DeptDao {
 				}
 			}
 
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
+//			if (conn != null) {
+//				try {
+//					conn.close();
+//				} catch (SQLException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
+//			}
 
 		}
 		
@@ -394,14 +394,14 @@ public class DeptDao {
 				}
 			}
 
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
+//			if (conn != null) {
+//				try {
+//					conn.close();
+//				} catch (SQLException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
+//			}
 
 		}
 		return deptList;
