@@ -66,6 +66,8 @@ public class DEPTManager {
 
 			// 1. 수정하고자 하는 데이터 유무 확인
 			int rowCnt = dao.deptSearchCount(searchName, conn);
+			
+			
 			// System.out.println(rowCnt);
 
 			if (rowCnt > 0) {
@@ -126,6 +128,15 @@ public class DEPTManager {
 			
 			
 			e.printStackTrace();
+		} finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 
 	}
