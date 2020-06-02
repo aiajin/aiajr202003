@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionProvider {
 
-	public static Connection getConnection() {
+	public static Connection getConnection() throws SQLException {
 		// 2. 데이터베이스 연결
 		Connection conn = null;
 
@@ -17,13 +17,9 @@ public class ConnectionProvider {
 		String pw = "tiger";
 
 		// Connection 객체 생성
-		try {
-			conn = DriverManager.getConnection(url, user, pw);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+
+		conn = DriverManager.getConnection(url, user, pw);
+
 		return conn;
 	}
 
