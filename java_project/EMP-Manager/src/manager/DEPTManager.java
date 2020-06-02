@@ -1,5 +1,7 @@
 package manager;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class DEPTManager {
@@ -47,30 +49,84 @@ public class DEPTManager {
 
 	public void deptEdit() {
 
-		// 1. 수정하고자 하는 데이터 유무 확인 -> 2.사용자로부터 데이터 받아서 전달
+		Connection conn = null;
+		
+		try {
+			conn = ConnectionProvider.getConnection();
 
-		// 사용자 입력정보 변수
+			conn.setAutoCommit(false); // 기본값은 true : 자동 커밋
 
-		System.out.println("수정하고자 하는 부서 이름 : ");
-		ManageMain.sc.nextLine();
-		String searchName = ManageMain.sc.nextLine();
-		
-		// 1. 수정하고자 하는 데이터 유무 확인
-		
-		int rowCnt = dao.deptSearchName(searchName);
-		System.out.println(rowCnt);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			// 1. 수정하고자 하는 데이터 유무 확인 -> 2.사용자로부터 데이터 받아서 전달
+
+			// 사용자 입력정보 변수
+
+			System.out.println("수정하고자 하는 부서 이름 : ");
+			ManageMain.sc.nextLine();
+			String searchName = ManageMain.sc.nextLine();
+
+			// 1. 수정하고자 하는 데이터 유무 확인
+			int rowCnt = dao.deptSearchCount(searchName, conn);
+			// System.out.println(rowCnt);
+
+			if (rowCnt > 0) {
+
+				Dept dept = dao.deptSearchName(searchName, conn);
+
+				if (dept == null) {
+					System.out.println("찾으시는 이름의 정보가 존재하지않습니다.");
+					return;
+				}
+
+				// 사용자 입력정보 변수
+				System.out.println("부서 정보를 입력해주세요.");
+
+				System.out.println("부서 번호 : " + dept.getDeptno());
+				System.out.println("부서 번호는 수정되지 않습니다.");
+
+				System.out.println("부서 이름 ( " + dept.getDname() + "  ) : ");
+				String dname = ManageMain.sc.nextLine();
+
+				System.out.println("지역 ( " + dept.getLoc() + "  ) : ");
+				String loc = ManageMain.sc.nextLine();
+
+				// 공백 입력에 대한 예외처리가 있어야 하나 이번 버전에서는 모두 잘 입력된것으로 처리합니다.
+
+				Dept newDept = new Dept(dept.getDeptno(), dname, loc);
+
+				int resultCnt = dao.deptEdit(newDept, conn);
+
+				if (resultCnt > 0) {
+					System.out.println("정상적으로 수정 되었습니다.");
+					System.out.println(resultCnt + "행이 수정되었습니다.");
+				} else {
+					System.out.println("수정이 되지않았습니다. 확인후 재 시도해주세요.");
+				}
+
+			} else {
+				System.out.println("찾으시는 이름의 정보가 존재하지않습니다.");
+			}
+			
+
+
+			conn.commit();
+			
+			
+
+		} catch (SQLException e) {
+			
+			if(conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					System.out.println("conn.close()");
+					e1.printStackTrace();
+				}
+			}
+			
+			
+			
+			e.printStackTrace();
+		}
 
 	}
 
