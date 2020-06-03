@@ -23,6 +23,13 @@ update emp01
 set deptno=30
 ;
 
+select * from tab;
+
+SELECT
+    *
+FROM emp join dept
+USING(deptno)
+
 -- 2. 이번엔 모든 사원의 급여를 10% 인상시키는 UPDATE 문을 보겠습니다.
 update emp01
 -- set sal = sal+sal*0.1

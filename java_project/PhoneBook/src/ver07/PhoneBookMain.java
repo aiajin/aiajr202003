@@ -9,8 +9,11 @@ public class PhoneBookMain {
 		
 			// 1. 오라클 드라이버 라이브러리 추가 : ojdbc6.jar
 			// 2. 드라이버 로드
-			Class.forName("oracle.jdbc.driver.OrcaleDriver");
-		
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			PhoneBookManager pbm = new PhoneBookManager();
+			
+			pbm.insetUnivInfo();
+			
 		
 		
 		} catch (ClassNotFoundException e) {

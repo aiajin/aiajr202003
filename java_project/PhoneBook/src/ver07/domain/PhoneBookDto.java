@@ -87,7 +87,7 @@ public class PhoneBookDto {
 	}
 
 	public String getFr_u_year() {
-		return fr_u_year;
+		return fr_u_year.equals("0") ?"1":fr_u_year;
 	}
 
 	public void setFr_u_year(String fr_u_year) {
