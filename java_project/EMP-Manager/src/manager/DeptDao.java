@@ -250,7 +250,7 @@ public class DeptDao {
 
 	}
 
-	public int deptInsert(Dept dept) {
+	public int deptInsert(Dept dept) throws SQLException {
 
 		// JDBC 사용 객체
 		Connection conn = null;
@@ -283,8 +283,7 @@ public class DeptDao {
 			// pstmt.close();
 			// conn.close();
 
-		} catch (SQLException e) {
-			e.printStackTrace();
+		
 		} finally {
 
 			// 4. 데이터베이스 연결 종료
@@ -341,9 +340,11 @@ public class DeptDao {
 			// 2. 데이터베이스 연결
 			conn = ConnectionProvider.getConnection();
 
-			String sql = "select * from dept  order by dname";
+			
 
 			stmt = conn.createStatement();
+			
+			String sql = "select * from dept  order by dname";
 
 			rs = stmt.executeQuery(sql);
 

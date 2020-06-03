@@ -142,6 +142,8 @@ public class DEPTManager {
 	}
 
 	public void deptInsert() {
+		
+		
 
 		// 사용자 입력정보 변수
 		System.out.println("부서 정보를 입력해주세요.");
@@ -158,7 +160,13 @@ public class DEPTManager {
 
 		Dept dept = new Dept(deptno, dname, loc);
 
-		int resultCnt = dao.deptInsert(dept);
+		int resultCnt = 0;;
+		try {
+			resultCnt = dao.deptInsert(dept);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		if (resultCnt > 0) {
 			System.out.println("정상적으로 입력 되었습니다.");
