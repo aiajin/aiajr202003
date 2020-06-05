@@ -49,7 +49,7 @@ public class PhoneBookDao {
 					   + " values (pb_univ_idx_seq.nextval, ?, ?, pb_basic_idx_seq.currval)";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1,pbDto.getFr_u_major());
-			//ps.setString(2,pbDto.getFr_u_year());
+			ps.setString(2,pbDto.getFr_u_year());
 			resultCnt = ps.executeUpdate();
 			
 		} finally {

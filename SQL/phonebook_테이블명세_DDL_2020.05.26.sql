@@ -94,6 +94,7 @@ from phoneinfo_basic pb, phoneinfo_univ pu, phoneinfo_com pc
 --where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
 where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+)
 ;
+
 -- 2. 학교 친구 목록 출력
 select * from phoneinfo_basic pb, phoneinfo_univ pu
 where pb.idx=pu.fr_ref

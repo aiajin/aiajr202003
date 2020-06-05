@@ -42,6 +42,7 @@ public class PhoneBookManager {
 			if(conn != null) {
 				try {
 					conn.rollback();
+					
 				} catch (SQLException e1) {
 					System.out.println("rollback 에러!!");
 					e1.printStackTrace();
