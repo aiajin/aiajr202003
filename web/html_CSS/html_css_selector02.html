@@ -7,7 +7,7 @@
     <style>
         
         * {
-            color : red;
+            color : aliceblue;
         }
         
         h1 {
@@ -18,15 +18,102 @@
             font-size: 24px;
             font-style: italic;
         }
+        
+        
+        h1, p {
+            border : 3px solid blue;
+           
+        }
+        
+        body, h1, p {
+             margin:0;
+            padding:0;
+        }
        
-
-
+        
+        /*
+        #아아디{
+        
+        }
+        */
+        #header {
+            
+            width : 300px;
+            background-color: red;
+            margin: 0 auto;
+        }
+        
+        #aside {
+            width : 400px;
+            background-color: blue;
+            margin: 10px auto;
+        }
+        
+        #content {
+            width : 500px;
+            background-color: green;
+            margin: 0 auto;
+        }
+        
+        li{
+            color: black;
+        }
+        
+        /*
+        
+        클래스 선택자   
+        . 클래스 이름 {
+        
+        }
+        
+        */
+        
+        .font_color {
+            color:blueviolet;            
+        }
+        
+        .font_bold {
+            font-weight: lighter;
+        }
+        
+        li.font_size {
+            font-size : 150%;
+        }
+        
+        div.font_size {
+            font-size : 200%;
+        }
+        
 
 
     </style>
 </head>
 
 <body>
+    
+    
+    <ul>
+        <li class="font_color font_size">사과</li>
+        <li>바나나</li>
+        <li>오렌지</li>
+        <li class="font_color font_bold font_size">키위</li>
+    </ul>
+    
+    
+    
+    <hr>
+    
+    <div id="header" class="font_size">header header header header header header header header header header header header header header</div>
+    <div id="aside">aside</div>
+    <div id="content">content</div>
+    
+    
+    
+    
+    <hr>
+    
+    
+    
     
     <h1>빅테크·테크핀, 금융시장 공습 …은행권 “지켜보겠다” 대응 주목</h1>
     
