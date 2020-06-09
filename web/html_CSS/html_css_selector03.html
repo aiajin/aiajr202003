@@ -169,6 +169,56 @@
             padding: 5px 15px;
         }
         
+        #nav>li:nth-child(2n+1){
+            background-color: aquamarine;
+        }
+
+        
+        #nav>li:nth-child(2n){
+            background-color: aqua;
+        }
+        
+        #nav>li:first-child {
+            /*border : 1px solid gray;*/
+            border-radius: 10px 0 0 10px;
+        }
+        
+        #nav>li:last-child {
+            /*border : 1px solid gray;*/
+            border-radius: 0 10px 10px 0;
+        }
+
+        p::first-letter {
+            font-size : 3em;
+        }
+        
+        p::first-line {
+            color: blueviolet;
+            font-weight: bold;
+        }
+        
+        p::selection {
+            background-color: black;
+            color : yellow;
+        }
+        
+        a:link {
+            color: cornflowerblue;
+            text-decoration:none;
+            font-weight: bold;
+        }
+        
+        a:hover {
+           /*text-decoration: underline;*/ 
+        }
+        
+        a:active{
+            color: cornflowerblue;            
+        }
+        
+        a:visited {
+            color: cornflowerblue;            
+        }
         
         
         
@@ -177,15 +227,25 @@
 </head>
 
 <body>
+
+    
+    <h1>Lorem ipsum dolor sit amet</h1> 
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+    <p>Aenean ac erat et massa vehicula laoreet consequat et sem. <br>Aenean ac erat et massa vehicula laoreet consequat et sem.</p>
+    
+    
+    
+    <hr>
+    
     
     <ul id="nav">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>    
+        <li><a href="link.html">home</a></li>
+        <li><a href="#1">company</a></li>
+        <li><a href="#1">service</a></li>
+        <li><a href="#1">product</a></li>
+        <li><a href="#1">notice</a></li>
+        <li><a href="#1">contacus</a></li>
+        <li><a href="#1">eng</a></li>    
     </ul>
     
     
