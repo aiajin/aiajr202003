@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS 속성</title>
+    <meta charset="utf-8">
+    <style>
+        /*
+        
+        CSS 에서 사용하는 단위 : px, %, em
+        px : 정대 단위s
+        % : 비율
+        em : 배수
+        
+        16px = 1em = 100%
+        32px = 2em = 200%
+        
+        */
+        
+        tr:nth-child(1)>td:nth-child(2) {
+            font-size:16px;
+            color: red;
+            
+        }
+        tr:nth-child(1)>td:nth-child(3) {
+            font-size: 24px;
+            color:blue;
+        }
+        tr:nth-child(1)>td:nth-child(4) {
+            font-size:32px;
+            color: greenyellow;
+        }
+        
+        tr:nth-child(2)>td:nth-child(2) {
+            font-size:1em;
+            color: #FF0000;
+        }
+        tr:nth-child(2)>td:nth-child(3) {
+            font-size: 1.5em;
+            color:#0000FF;
+        }
+        tr:nth-child(2)>td:nth-child(4) {
+            font-size: 2em;
+            color: #00ff00;
+        }
+        
+        tr:nth-child(3)>td:nth-child(2) {
+            font-size:100%;
+            color: rgb(255,0,0);
+        }
+        tr:nth-child(3)>td:nth-child(3) {
+            font-size: 150%;
+            color : rgb(0,0,255);
+        }
+        tr:nth-child(3)>td:nth-child(4) {
+            font-size: 200%;
+            color:rgb(0,255,0);
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    
+    <table border="1">       
+        <tr>
+            <td>px</td>
+            <td>HTML5-16px</td>
+            <td>HTML5-24px</td>
+            <td>HTML5-32px</td>
+        </tr>
+        <tr>
+            <td>em</td>
+            <td>HTML5-1em</td>
+            <td>HTML5-1.5em</td>
+            <td>HTML5-2em</td>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>HTML5-100%</td>
+            <td>HTML5-150%</td>
+            <td>HTML5-200%</td>
+        </tr>
+    </table>
+
+</body>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</html>
