@@ -16,7 +16,7 @@
         
         input {
             height: 30px;
-            margin : 10px;
+            margin : 10px 0;
             
         }
         input[type] {
@@ -56,9 +56,78 @@
         }
         
 */
-        #header h1.title {
+        #header h1 , #header h2 {
             color : red;
         }
+        
+        form input {
+            width : 100%;
+        }
+        
+/*
+        
+        자손선택자
+        
+        선택자>선택자
+        
+        div > h1 { 
+            
+        } 
+        
+*/
+        
+        #header>h1 {
+            background-color: aquamarine;
+        }
+        
+        
+        table>tbody>tr>td {
+            color: red;
+        }
+        
+/*
+        
+        동위선택자 : 간은 레벨의(형제) 테그들을 기준으로 선택
+        
+        + : 바로뒤의 요소 선택
+        
+        ~ : 같은 레벨의 형제 테그들중 선택
+        
+        
+*/
+        h3+h4 {
+            color: blue;
+        }
+        
+        h3~h4.aa {
+            background-color: antiquewhite;
+        }
+/*
+        반응선택자
+        
+        선택자:hover
+        -> 마우스 커서가 선택된 요소의 영역으로 들어갔을 때
+        
+        선택자:active
+        -> 마우스 커서는 선택된 요소 위에 존재하고, 마스스 왼쪽 버튼을 클릭한 상태
+        
+*/
+        
+        h3 {
+            background-color: aqua;
+        }
+        
+        h3:hover{
+            color : red;
+            font-size: 32px;
+        }
+        
+        h3:active{
+            color: blue;
+            font-style: italic;
+        }
+        
+        
         
         
         
@@ -67,6 +136,35 @@
 </head>
 
 <body>
+    
+    <h4 class="aa">header-4</h4>
+    <h3>header-3</h3>
+    <h4 class="aa">header-4</h4>
+    <h4 class="aa">header-4</h4>
+    <h4 class="aa">header-4</h4>
+    <h4 class="aa">header-4</h4>
+    
+    
+    
+    
+    <hr>
+    
+    
+    <table border="1">
+        <tr>
+            <td>아이디</td>
+            <td><input></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input></td>
+        </tr>
+    </table>
+    
+    
+    
+    
+    <hr>
     
     <div id="header">
         
@@ -79,6 +177,8 @@
         </div>
         
         <h1> etc </h1>
+        
+        <h2> h2 tag </h2>
                 
     </div>
     
@@ -91,8 +191,14 @@
     </div>
     
     
+    <h2> h2 tag </h2>
+    
+    
     
     <hr>
+    
+    
+    <h4>header-4</h4>
     
     <form>
         <input>
@@ -103,7 +209,10 @@
     
     </form>
         
-    <br><input><input><input>
+    <br>
+    <input>
+    <input>
+    <input>
     
     <img src="../images/starwars.jpg">
     <img src="../images/starwars.jpg" alt="스타워즈">
