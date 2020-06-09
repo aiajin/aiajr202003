@@ -20,7 +20,7 @@
             
         }
         input[type] {
-            border: 1px solid blue;
+            /*border: 1px solid blue;*/
         }
         
         input[type=text] {
@@ -61,7 +61,7 @@
         }
         
         form input {
-            width : 100%;
+            /*width : 100%;*/
         }
         
 /*
@@ -128,6 +128,47 @@
         }
         
         
+        #myform input {
+            background-color: white;
+        }
+        
+        #myform input:disabled {
+            background-color: darkslategray;
+        }
+        
+        #myform input:enabled {
+            background-color: azure;
+        }
+        
+        #myform input[type=checkbox] {
+            width : 30px;
+            height : 30px;
+        }
+        
+        #myform input[type=checkbox]:checked {
+           /* width : 50px;
+            height : 50px;*/
+        }
+        
+        
+        #viewmenu+div {
+            display: none;
+        }
+        
+        #viewmenu:checked+div {
+            display: block;
+        }
+        
+        #nav {
+            overflow: hidden;
+        }
+        
+        #nav>li {
+            list-style: none;          
+            float : left;
+            padding: 5px 15px;
+        }
+        
         
         
         
@@ -136,6 +177,72 @@
 </head>
 
 <body>
+    
+    <ul id="nav">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>    
+    </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    <hr>
+    
+    
+    <form id="myform">
+        
+        <div>
+            약관보기 
+            <input type="checkbox" id="viewmenu"> 
+            <div>
+                <h4>이용 약관</h4>
+                <p>
+                    문제가 생기면 바로 강퇴됩니다.
+                </p>
+            </div>
+        
+        </div>
+        
+        <div>
+            약관동의 <input type="checkbox" checked> 
+        </div>        
+        
+        <div>
+            마케팅동의 <input type="checkbox"> 
+        </div>
+        
+        <div>
+            <input type="text" >
+        </div>
+    
+        <div>
+            <input type="text" disabled >
+        </div>
+        
+        <div>
+            <input type="text" readonly >
+        </div> 
+        
+        <div>
+            <input type="number" required >
+        </div>   
+        
+        <input type="submit">
+    
+    </form>
+    
+    
+    
+    <hr>
     
     <h4 class="aa">header-4</h4>
     <h3>header-3</h3>
