@@ -4,6 +4,10 @@
 <head>
     <title>CSS 속성</title>
     <meta charset="utf-8">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    
+    
     <style>
         /*
         
@@ -57,11 +61,142 @@
             color:rgb(0,255,0);
         }
         
+        body {
+            background-image: url('../images/mini1.jpg');
+            /*background-size: 50%;*/
+            /*background-size : 50% 300px;*/
+            background-size: 25%;
+            background-repeat: no-repeat;
+            
+            background-position: right bottom ;
+            
+            background-attachment: fixed;
+            
+        }
+        
+        
+        
+        hr {
+            border: 0;
+            border-top: thin solid #AAAAAA;
+        }
+        
+        div.box {
+            width : 300px;
+            height : 300px;
+            /*border : 1px solid gray;*/
+        } 
+        
+        #box1 {
+            background-color: red;
+            
+            border-width: 10px;
+            border-style: solid;
+            border-color: #DDDDDD;
+            
+            padding:10px ;
+            /*padding-top : 100px;*/
+            
+            margin : 10px;
+            margin-top:100px;
+                
+        }
+        
+        #box2 {
+            background-color: blue;
+            
+            border: 1px solid #EEEEEE;
+            
+            
+            /*border-radius: 100px;*/
+            border-radius: 50%;
+                
+                
+        }
+        
+        img {
+            width: 200px;
+            
+            border-radius: 50%;
+        }
+        
+        span {
+            border : 1px solid red;
+        }
+        #box{
+            border : 1px solid blue;
+            /*display: none;*/
+            display : inline;
+        }
+        
+        #sp {
+            display: block;
+        }
+        
+        #bg {
+            height : 300px;
+            width : 100%;
+            background-image: url('../images/starwars.jpg');
+            background-size: cover;
+            
+            color : yellow;
+            font-size : 5em;
+            
+            line-height: 300px;
+            text-align: center;
+            
+        }
+        
+        .font_kor {
+            font-family: '궁서체', '돋음', '돋음체';
+            
+        }
+        
+        .font_web {
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+        
+        .font_penscript {
+            font-family: 'Nanum Pen Script', cursive;
+        }
+        
+        
+        
+        
 
     </style>
 </head>
 
 <body>
+    
+    <div id="bg" class="font_penscript">스타워즈</div>
+    
+    <hr>
+    
+    <span id="sp">Dummy</span>
+    <div id="box">
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+    </div>
+    <span>Dummy</span>
+    
+    
+    
+    <hr>
+    
+    
+    <img src="../images/darthvader.jpg">
+    
+    
+    <div class="box" id="box1">
+        TEXT
+    </div>
+    
+    <div class="box" id="box2">
+    
+    </div>
+    
+    
+    <hr>
     
     <table border="1">       
         <tr>
