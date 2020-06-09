@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS3 선택자 Selector</title>
+    <meta charset="utf-8">
+
+    <style>
+        /*        
+        속성선택자
+        선택자[속성이름] : 특성속성을 가지는 테그들을 선택
+        ex) input[type] 
+        선택자[속성이름=속성값] : 특정 속성을 가지며, 속성에 특정 값을 가지는 테그들을 선택
+        ex) input[type=password]        
+        */
+        
+        input {
+            height: 30px;
+            margin : 10px;
+            
+        }
+        input[type] {
+            border: 1px solid blue;
+        }
+        
+        input[type=text] {
+            background-color: aqua;
+        }
+        
+        input[type=password]  {
+            background-color: aquamarine;
+        }
+        
+/*
+        img[alt] {
+            width: 100px;
+        }
+*/
+        
+        img[src$=jpg] {
+            border: 3px solid red;
+        }
+        
+        img[src$=png] {
+            border : 3px solid green;
+        }
+        
+/*
+        
+        후손선택 : 선택의 범위를 제한
+        
+        선택자 범위안의선택자
+        ex)
+        div h1 {
+            
+        }
+        
+*/
+        #header h1.title {
+            color : red;
+        }
+        
+        
+        
+        
+    </style>
+</head>
+
+<body>
+    
+    <div id="header">
+        
+        <h1 class="title">Title</h1>
+        
+        <div id="nav">
+        
+            <h1> Navigation </h1>
+            
+        </div>
+        
+        <h1> etc </h1>
+                
+    </div>
+    
+    <div id="section">
+    
+        <h1 class="title"> Title </h1>
+        
+        <p>안녕하세요</p>
+        
+    </div>
+    
+    
+    
+    <hr>
+    
+    <form>
+        <input>
+        <br>
+        <input type="text">
+        <br>
+        <input type="password">
+    
+    </form>
+        
+    <br><input><input><input>
+    
+    <img src="../images/starwars.jpg">
+    <img src="../images/starwars.jpg" alt="스타워즈">
+    <img src="../images/starw.png">
+    
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
