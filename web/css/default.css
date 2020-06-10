@@ -1,4 +1,173 @@
-h1 {
-    color: yellow;
-    background-color: black;
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color: beige;
+}
+
+#mainWrap {
+    /*표현 영역*/
+    width:898px;
+    /*height : 300px;*/
+    
+    border:1px solid #666666;
+    border-radius: 5px;
+    
+    background-color: white;
+    
+    /*정렬*/
+    margin:20px auto;
+    
+    padding : 10px;
+}
+
+header {
+    padding: 15px 50px;
+}
+
+header>h1 {
+    margin-bottom: 10px;
+}
+
+nav {
+    overflow: hidden;
+    
+    border-top:1px solid #AAA;
+    border-bottom:1px solid #AAA;
+    
+    height : 30px;
+}
+
+nav>ul.menu {
+    overflow: hidden;
+    float:left;
+    
+    list-style: none;
+}
+
+nav>ul.menu>li {
+    float : left;
+    padding : 0 20px;
+    
+    height : 30px;
+    line-height: 30px;
+}
+
+nav>div.search {
+    
+    float:right;
+    height : 30px;
+    
+    
+}
+
+
+nav>div.search>input[type=text] {
+    
+    height : 20px;
+    
+    border: 1px solid #AAA;    
+    border-radius: 10px 0 0 10px;
+    
+    margin-top:4px;
+    
+    /*vertical-align: middle;*/
+    
+}
+
+nav>div.search>input[type=submit] {
+    height : 22px;
+    width : 50px;
+    
+    border-radius: 0 11px 11px 0;
+    border : 1px solid #AAA;
+    
+    margin-left: -6px;
+    margin-top:1px;
+    
+    /*vertical-align: middle;*/
+    
+}
+
+
+#content {
+    overflow: hidden;
+}
+
+section {
+    width : 690px;
+    float:left;
+}
+
+aside {
+    width : 160px;
+    float:right;
+}
+
+
+#content>section>article {
+    margin:15px 5px;
+}
+
+
+aside>h4 {
+    margin-top: 30px;
+}
+
+h1.atitle {
+    margin:10px 0;
+}
+
+h4.date {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+img.aimg {
+    margin : 10px 0;
+}
+
+p.ap {
+    font-size : 14px;
+    line-height: 180%;
+}
+
+hr.al {
+    border: 0;
+    border-top: thin solid #AAA;
+    margin-top:10px;
+    margin-bottom:30px;
+}
+
+
+footer {
+    font-size : 12px;
+    text-align: center;
+    
+    border-top: 1px solid #AAA;
+    
+    line-height: 180%;
+    
+    padding : 15px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
