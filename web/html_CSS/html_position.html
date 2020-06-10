@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>절대 좌표 위치 지정</title>
+    <meta charset="utf-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+
+            border: 1px solid;
+
+            font-size: 1.5em;
+
+            text-align: center;
+
+            line-height: 100px;
+
+            /*위치 속성*/
+            position: absolute;
+
+        }
+
+        .red {
+            background-color: red;
+            left: 10px;
+            top: 0px;
+            z-index: 100;
+        }
+
+        .green {
+            background-color: green;
+            left: 60px;
+            /*right : 10px;*/
+            top: 50px;
+
+            /*
+                화면에 노출되는 순서 : z-index 
+                : 값이 높을수록 맨 위에 노출
+                */
+            z-index: 50;
+        }
+
+        .blue {
+            background-color: blue;
+            left: 110px;
+            top: 100px;
+            /*right : 10px;*/
+            /*bottom: 10px;*/
+
+            z-index: 10;
+
+        }
+        
+        #wrap {
+            width : 50%;
+            height : 100px;
+            border : 3px solid;
+            
+            position: relative;
+            
+            overflow: auto;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <h1>Title : 블록 안에 절대 좌표로 블록을 위치합니다.</h1>
+
+    <div id="wrap">
+        <div class="box red">red</div>
+        <div class="box green">green</div>
+        <div class="box blue">blue</div>
+    </div>
+
+    <h1>페이지의 하단 입니다.</h1>
+
+
+</body>
+
+</html>
