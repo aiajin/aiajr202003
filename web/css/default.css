@@ -156,6 +156,11 @@ footer {
     padding : 15px 0;
 }
 
+span.point {
+    color: red;
+    font-weight: bold;
+}
+
 
 
 
