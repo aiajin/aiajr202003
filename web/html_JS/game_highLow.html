@@ -8,6 +8,7 @@
         while(true){
             if(confirm('게임을 시작하시겠습니까?')){
 
+                // 승 패
                 var result = false;
 
                 // 1~100 까지의 랜덤한 숫자를 생성
@@ -17,9 +18,11 @@
 
                 
 
-                for(var cnt=1; cnt<10; cnt++){
+                for(var cnt=1; cnt<11; cnt++){
                     var uNum = prompt(cnt+'번째 입니다. 숫자를 입력해주세요.');
                     var cNum = parseInt(uNum);
+
+                    console.log('사용자 입력 데이터 : '+cNum);
 
                     if(uNum>number) {
                         alert('입력하신 숫자보다 작은 숫자 입니다.');
