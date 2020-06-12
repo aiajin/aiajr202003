@@ -7,8 +7,68 @@
     <script>
         window.onload = function(){
 
-            alert("page load !!");
         };
+        
+
+        // 함수 : 기능
+/* 
+        functino 함수이름(매개변수){
+
+            처리코드;
+
+            [return [데이터]]
+
+        }
+
+        var 변수이름 = function(매개변수) {
+            처리코드;
+            [return [데이터];]
+        };
+
+
+ */
+
+        // 숫자 두개를 받아서   -> 매개변수
+        // 두 수의 + 연산을 한 후      -> 데이터 처리
+        // 결과를 반환하는 함수         -> return
+        function func_add1(num1, num2){
+            var result = num1 + num2;
+            return result;
+        }
+
+        var func_add2 = function(n1, n2){
+            return n1+n2;
+        };
+
+        //alert(func_add1(10,20));
+        //alert(func_add2(100,200));
+
+        // 가변 매개변수 : arguments 배열을 이용
+        function sumAll(){
+            //arguments는 가변 매개변수에 전달되는 값들을 배열로 저장하고 있는 변수
+            var output = 0;
+            for(var i=0; i<arguments.length;i++){
+                output += arguments[i];
+                console.log('output + '+arguments[i] + ' =>  ' + output );
+            }            
+
+            return output;
+        }
+
+        alert(sumAll(1,2,3,4,5,6,7,8,9,10));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </script>
