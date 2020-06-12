@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,16 @@
     <script>
 
         var obj = {};  // 기본 객체 생성 new Object()
-        
-        console.log(typeof(obj));
+
+        console.log(typeof (obj));
 
         var obj = {
-            number:1000,
-            str:'String',
-            check:false,
-            method:function(){},
+            number: 1000,
+            str: 'String',
+            check: false,
+            method: function () { },
             object: {},
-            arr:[1,2,3]
+            arr: [1, 2, 3]
         };
 
         console.log(obj.number);
@@ -24,14 +25,14 @@
 
 
         var person = {
-            name:'손흥민',
-            age:27,
-            hello:function(){
-                alert('안녕하세요. 저는 '+ this.name + '입니다.');
+            name: '손흥민',
+            age: 27,
+            hello: function () {
+                alert('안녕하세요. 저는 ' + this.name + '입니다.');
                 alert(this.age + '세 입니다.');
                 this.bye();
             },
-            bye:function(){
+            bye: function () {
                 alert('bye~!!');
             }
         };
@@ -46,11 +47,11 @@
         // new 키워드를 이용해서 객체를 생성
         // 생성자 함수의 이름은  대문자로 시작
 
-        function Student(uname, kor_score, math_score, eng_score){
-            this.name=uname;
-            this.kor=kor_score;
-            this.math=math_score;
-            this.eng=eng_score;
+        function Student(uname, kor_score, math_score, eng_score) {
+            this.name = uname;
+            this.kor = kor_score;
+            this.math = math_score;
+            this.eng = eng_score;
 
             // this.getSum = function(){
             //     return this.kor+this.math+this.eng;
@@ -62,12 +63,14 @@
 
         }
 
-        Student.prototype.getSum = function(){
-            return this.kor+this.math+this.eng;
+        // 생성자 함수에 공통 속성을 부여할때는 prototype을 이용
+        // 모든 함수는 prototype을 가지고 있다.
+        Student.prototype.getSum = function () {
+            return this.kor + this.math + this.eng;
         };
 
-        Student.prototype.getAvg = function(){
-            return this.getSum()/3;
+        Student.prototype.getAvg = function () {
+            return this.getSum() / 3;
         }
 
 
@@ -86,7 +89,14 @@
         students.push(new Student('A7', 79, 87, 76));
         students.push(new Student('A8', 97, 94, 67));
         students.push(new Student('A9', 99, 86, 98));
-        students.push(new Student('A10', 99, 97,79));
+        students.push(new Student('A10', 99, 97, 79));
+
+        //students[0].kor=9;
+
+        //alert(students[0].kor);
+
+
+
         // students.push({name:'A1',kor:90,math:10,eng:90});
         // students.push({name:'A2',kor:69,math:80,eng:80});
         // students.push({name:'A3',kor:92,math:70,eng:70});
@@ -115,7 +125,13 @@
         //console.log(students);
 
 
+        // 배열의 정렬
+        // array.sort()
+        students.sort(function (left, right) {
+            return right.getSum() - left.getSum();
+        });
 
+        students = students.slice(0, 3);
 
 
 
@@ -124,18 +140,40 @@
 
         var list = '';
 
-        for(var i=0; i<students.length; i++){
+        for (var i = 0; i < students.length; i++) {
 
             list += '<h4> ';
-            list += '이름:'+students[i].name;
-            list += ', 총점:'+students[i].getSum();
-            list += ', 평균:'+students[i].getAvg();
-            list += '</h4>' ;
+            list += '이름:' + students[i].name;
+            list += ', 총점:' + students[i].getSum();
+            list += ', 평균:' + students[i].getAvg();
+            list += '</h4>';
 
         }
 
         document.write(list);
 
+
+        function Rectangle(w, h) {
+            var width = w;
+            var height = h;
+
+            this.getWidth = function () {
+                return width;
+            };
+            this.setWidth = function (w) {
+                width = w;
+            }
+
+            this.getArea = function () {
+                return width * height;
+            }
+        }
+
+        var rac = new Rectangle(10, 4);
+
+        //alert(rac.width);
+
+        //alert(rac.getArea());
 
 
 
@@ -154,7 +192,9 @@
 
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
