@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object</title>
+    <script>
+
+        window.onload = function () {
+            // Tag Element 생성
+            var h1 = document.createElement('h1'); // <h1></h1>
+            // Text Node 생성
+            var text = document.createTextNode('js에서 동적으로 만든 테그입니다.');
+
+            // <h1>안녕하세요</h1>
+            h1.appendChild(text);
+
+            // Tag Element 생성
+            var img = document.createElement('img');
+            // img.src='../images/starw.png';
+             img.width=200;
+             img.height=100;
+            // img.alt='js img test';
+            img.setAttribute('src', '../images/starw.png');
+            img.setAttribute('data-role', 'test-Image');
+            
+
+
+            
+            //document.body.appendChild(h1);
+            //document.body.appendChild(img);
+
+
+            // 정적 문서에서 문서객체로 캐스팅 방법
+            // document.getElementById('아이디의 속성값');
+
+            var title = document.getElementById('title');
+            console.log(title.innerHTML);
+
+            title.innerHTML += '<i>안녕하세요</i>';
+
+            var jobs = document.getElementsByName('job');
+            console.log(jobs[0].value);
+            console.log(jobs[1].value);
+
+            var inputs = document.getElementsByTagName('input');
+            //console.log(inputs);
+            console.log(inputs[0].value);
+            console.log(inputs[1].value);
+
+            inputs[0].value='프로그래머가 새로운 데이터를 입력합니다.';
+            inputs[1].value='test ok!!!!';
+
+
+            var h1 = document.querySelector('#title');
+
+            console.log(h1.innerHTML);
+            console.log(h1.innerText);
+
+            var h1s = document.querySelectorAll('input[type=text]')
+            console.log(h1s);
+            console.log(h1s[0].value);
+            console.log(h1s[1].value);
+
+        };
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <h1 id="title">html 문서 내부에 정의된 h1 테그입니다.</h1>
+    <!-- <h2 id="title">html 문서 내부에 정의된 h2 테그입니다.</h2> -->
+
+    <input type="text" name="job" value="tester" readonly>
+    <input type="text" name="job" value="modeler">
+
+</body>
