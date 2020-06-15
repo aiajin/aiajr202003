@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Event</title>
+    <style>
+        h1{
+            border : 3px solid;
+        }        
+    </style>
+    <script>
+
+        window.onload = function() {
+
+            var header1 = document.getElementById('header1');
+
+            header1.onclick = function(e) {
+
+                var event = e || window.event;
+
+                console.log(event);
+
+
+                alert(this.innerText);
+
+                this.style.color='red';
+                this.style.backgroundColor='black';
+            };
+
+
+            /* setTimeout(function(){
+                header1.onclick();
+            },3000); */
+
+
+            var myForm = document.getElementById('my-form');
+
+            myForm.onsubmit = function(){
+
+                var uid = document.getElementById('uid');
+
+                console.log(uid.value);
+                
+                if(uid.value==null || uid.value.length<1){
+                    alert('아이디 정보를 입력해주세요.');
+                    return false;
+                }
+                
+
+                
+
+            }
+
+
+
+
+        };
+
+        function show(d){
+            alert(d);
+        }
+
+    </script>
+</head>
+<body>
+
+    <form action="http://www.naver.com" id="my-form">
+
+        <label>아이디</label>
+        <input type="text" name="uid" id="uid">
+        <br>
+        
+        <label>비밀번호</label>
+        <input type="password" name="pw" id="pw">
+        <br>
+        
+        <label>비밀번호 확인</label>
+        <input type="password" name="repw" id="repw">
+        <br>
+
+
+
+        <input type="submit">
+    </form>
+    
+
+
+
+
+
+    <h1 id="header1">HEADER-1</h1>
+
+    <h1 id="header2" 
+        onclick="show('String')" 
+        style="background-color: aquamarine;"> header-2 </h1>
+
+
+
+</body>
+</html>
