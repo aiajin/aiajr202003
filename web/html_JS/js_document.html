@@ -19,15 +19,15 @@
             // Tag Element 생성
             var img = document.createElement('img');
             // img.src='../images/starw.png';
-             img.width=200;
-             img.height=100;
+            img.width = 200;
+            img.height = 100;
             // img.alt='js img test';
             img.setAttribute('src', '../images/starw.png');
             img.setAttribute('data-role', 'test-Image');
-            
 
 
-            
+
+
             //document.body.appendChild(h1);
             //document.body.appendChild(img);
 
@@ -49,11 +49,13 @@
             console.log(inputs[0].value);
             console.log(inputs[1].value);
 
-            inputs[0].value='프로그래머가 새로운 데이터를 입력합니다.';
-            inputs[1].value='test ok!!!!';
+            inputs[0].value = '프로그래머가 새로운 데이터를 입력합니다.';
+            inputs[1].value = 'test ok!!!!';
 
 
             var h1 = document.querySelector('#title');
+
+            h1.style.color = 'red';
 
             console.log(h1.innerHTML);
             console.log(h1.innerText);
@@ -63,8 +65,33 @@
             console.log(h1s[0].value);
             console.log(h1s[1].value);
 
+            var btn_change = document.getElementById('btn');
+
+            btn_change.onclick = function () {
+                var header = document.getElementById('title');
+
+                header.style.color = 'blue';
+            }
+
+            document.getElementById('btn_del').onclick = function(){
+
+                // 삭제 대상 엘리먼트 캐스팅
+                var h1_Del = document.getElementById('title');
+
+                // 삭제 대상의 부모 엘리먼트 캐스팅
+                var wrap = document.getElementById('wrap');
+
+                // 부모 엘리먼트에서 자식 엘리먼트를 삭제
+                wrap.removeChild(h1_Del);
+            };
+
+
         };
 
+        function change() {
+
+
+        }
 
 
 
@@ -73,10 +100,15 @@
 
 <body>
 
-    <h1 id="title">html 문서 내부에 정의된 h1 테그입니다.</h1>
-    <!-- <h2 id="title">html 문서 내부에 정의된 h2 테그입니다.</h2> -->
+    <div id="wrap">
+        <h1 id="title">html 문서 내부에 정의된 h1 테그입니다.</h1>
+        <!-- <h2 id="title">html 문서 내부에 정의된 h2 테그입니다.</h2> -->
+    </div>
 
     <input type="text" name="job" value="tester" readonly>
     <input type="text" name="job" value="modeler">
+    <br>
+    <input type="button" value="change" id="btn">
+    <input type="button" value="h1 tag delete" id="btn_del">
 
 </body>
