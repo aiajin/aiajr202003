@@ -23,6 +23,21 @@
 
         window.onload=function(){
             document.getElementById('json').innerHTML=jsondata;
+
+            // String JSON
+            var newdata = '{"memberid":"cool","membername":"COOL","age":27,"program":["java","python","javascript"]}';
+            console.log('newdata type : ' + typeof(newdata));
+
+            // JSON(String) -> Javascript Object
+            var newObj = JSON.parse(newdata);
+
+            console.log('newObj type : ' + typeof(newObj));
+            console.log(newObj);
+            
+
+            alert(newObj.memberid);
+
+
         };
 
 
