@@ -39,6 +39,8 @@ function createMember() {
     var pw = document.getElementById('pw').value;
     // 배열에 데이터 추가
     addMember(new Member(id, name, pw));
+    // 동기화
+    setStorage();
 
     this.reset();
 
@@ -78,6 +80,7 @@ function displayTable() {
 
 }
 
+// 리스트에서 선택한 회원의 데이터를 수정 폼에 Set
 function editSet(idx){
     // 사용자 입력 데이터 받기, document로 케스팅 후 value 속성 사용
     document.getElementById('eid').value=members[idx].id;
@@ -87,6 +90,7 @@ function editSet(idx){
 
 }
 
+// 사용자 입력 데이터를 배열 요소 객체의 속성 값을 변경
 function editMember() {
     // 사용자 입력 데이터 받기, document로 케스팅 후 value 속성 사용
     var id = document.getElementById('eid').value;
@@ -104,6 +108,8 @@ function editMember() {
 
     // 리스트 테이블 갱신
     displayTable();
+    // 동기화
+    setStorage();
 
 
     alert("수정되었습니다.");
@@ -112,14 +118,43 @@ function editMember() {
 
 }
 
-
+// 배열에서 데이터를 삭제
 function deleteMember(idx){
 
     if(confirm('삭제하시겠습니까?')){
         members.splice(idx,1);
+        // 화면 갱신
         displayTable();
+        // 동기화
+        setStorage();
     }
 }
+
+
+
+// localStorage 에 데이터 저장/수정 시에 업데이트
+function setStorage(){
+    // 데이터의 갱신 : 추가, 수정, 삭제
+    localStorage.setItem('members', JSON.stringify(members));
+}
+
+// localStorage 의 데이터와 배열의 동기화
+function initStorage(){
+    
+    // localStorage 에 저장되어 있는 데이터
+    var storageData = localStorage.getItem('members');
+
+    if(storageData==null){
+        // 프로그램 최초 시작 또는 데이터가 없는 상태
+        localStorage.setItem('members', JSON.stringify(members));
+    } else {
+        // 저장되어 있는 JOSN 데이터를 배열 객체로 변환 
+        members = JSON.parse(storageData);
+    }
+
+}
+
+
 
 
 
@@ -128,6 +163,11 @@ function deleteMember(idx){
 // 저장, 수정 submit 이벤트 처리
 window.onload = function () {
 
+    // 페이지가 로드된것은 프로그램을 시작하는 시점이다.
+    // 저장된 데이터를 배열 객체로 변환
+    initStorage();
+
+    // 로드된 데이터를 테이블로 화면에 출력
     displayTable();
 
 
