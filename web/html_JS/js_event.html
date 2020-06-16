@@ -44,10 +44,40 @@
                 
                 if(uid.value==null || uid.value.length<1){
                     alert('아이디 정보를 입력해주세요.');
+                    uid.focus();
+                    return false;
+                }
+
+                var pw = document.getElementById('pw');
+                var repw = document.getElementById('repw');
+                
+                if(pw.value==null || pw.value.length<1){
+                    alert('비밀번호 정보를 입력해주세요.');
+                    pw.focus();
+                    return false;
+                }
+
+                if(repw.value==null || repw.value.length<1){
+                    alert('비밀번호 체크 정보를 입력해주세요.');
+                    repw.focus();
+                    return false;
+                }
+
+                if(pw.value!=repw.value){
+                    alert('비밀번호와 체크 비밀번호가 일치하지 않습니다.');
+                    return false;
+                }
+
+                var agree = document.getElementById('agree');
+
+                console.log(agree.checked);
+
+                if(!agree.checked){
+                    alert('개인정보 동의에대해 동의 해주세요');
                     return false;
                 }
                 
-
+                
                 
 
             }
@@ -62,23 +92,45 @@
         }
 
     </script>
+    <style>
+        #agree+div{
+            display: none;
+        }
+        #agree:checked+div{
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
     <form action="http://www.naver.com" id="my-form">
 
-        <label>아이디</label>
-        <input type="text" name="uid" id="uid">
+        <label for="uid">아이디</label>
+        <input type="text" name="uid" id="uid" placeholder="아이디를 입력하세요" >
         <br>
+
         
-        <label>비밀번호</label>
+        <label for="pw">비밀번호</label>
         <input type="password" name="pw" id="pw">
         <br>
         
         <label>비밀번호 확인</label>
         <input type="password" name="repw" id="repw">
         <br>
+        
+        <label for="agree">개인정보 동의</label>
+        <input type="checkbox" id="agree" style="display: none;">
+        <div>
+            <textarea>
+                개인정보 활용에 대한 안내입니다.                
+            </textarea>
+            
+        </div>
+        <br>
 
+        <label>체크</label>
+        <input type="radio" name="gender" value="1" >남
+        <input type="radio" name="gender" value="2" checked>여
 
 
         <input type="submit">
