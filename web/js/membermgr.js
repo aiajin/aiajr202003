@@ -40,6 +40,8 @@ function createMember() {
     // 배열에 데이터 추가
     addMember(new Member(id, name, pw));
 
+    this.reset();
+
     // form 테그의 action 실행이 되지 않도록 반드시 return false
     return false;
 
@@ -65,7 +67,7 @@ function displayTable() {
         listHtml += '       <td>' + members[i].id + '</td>';
         listHtml += '       <td>' + members[i].pw + '</td>';
         listHtml += '       <td>' + members[i].name + '</td>';
-        listHtml += '       <td> <a href="javascript:editSet('+i+')">수정</a> | <a>삭제</a> </td>';
+        listHtml += '       <td> <a href="javascript:editSet('+i+')">수정</a> | <a href="javascript:deleteMember('+i+')">삭제</a> </td>';
         listHtml += '   </tr>';
     }
 
@@ -98,13 +100,25 @@ function editMember() {
     members[parseInt(idx)].name=name;
     members[parseInt(idx)].pw=pw;
 
+    document.getElementById('editForm').reset();
+
     // 리스트 테이블 갱신
     displayTable();
+
 
     alert("수정되었습니다.");
 
     return false;
 
+}
+
+
+function deleteMember(idx){
+
+    if(confirm('삭제하시겠습니까?')){
+        members.splice(idx,1);
+        displayTable();
+    }
 }
 
 
