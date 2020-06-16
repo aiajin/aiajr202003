@@ -84,3 +84,7 @@ div.listarea {
 .listtable td {
     text-align: center;
 }
+
+#edit {
+    display: none;
+}

@@ -82,6 +82,10 @@ function displayTable() {
 
 // 리스트에서 선택한 회원의 데이터를 수정 폼에 Set
 function editSet(idx){
+
+    // 수정 폼 영역 출력
+    document.getElementById('edit').style.display='block';
+
     // 사용자 입력 데이터 받기, document로 케스팅 후 value 속성 사용
     document.getElementById('eid').value=members[idx].id;
     document.getElementById('ename').value=members[idx].name;
@@ -112,7 +116,9 @@ function editMember() {
     setStorage();
 
 
-    alert("수정되었습니다.");
+    alert("수정되었습니다.\n수정폼 화면을 숨깁니다.");
+    // 수정 폼 영역 출력
+    document.getElementById('edit').style.display='none';
 
     return false;
 
