@@ -1,0 +1,49 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+header {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #DDD;
+}
+
+header>h1 {
+    margin: 20px;;
+}
+
+#reg {
+    padding:20px;
+}
+
+#reg td {
+    width:150px;
+}
+
+#reg input {
+    width:130px;
+}
+
+#reg label {
+    display: block;
+    background-color: black;
+    color: floralwhite;
+    padding : 5px;
+}
+
+#reg input[type=submit]{
+    font-size: 1.2em;
+    font-weight: bold;
+    height:70px;
+}
+
+#reg input {
+    padding: 10px;
+}
+
+
+h2.title {
+    border-bottom: 1px solid #DDD;
+    padding : 5px;
+    margin : 10px 0;
+}
