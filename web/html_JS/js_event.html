@@ -83,6 +83,47 @@
             }
 
 
+            var div1 = document.getElementById('box1');
+            var div2 = document.getElementById('box2');
+            var h1 = document.getElementById('box3');
+
+            // div1.onclick = function(){
+            //     alert('box1-onclick');
+            // }
+
+            div1.addEventListener('click', function(){
+                alert('box1-onclick');
+            });
+
+            $(선택자).on(이벤트타입, callback)
+
+
+
+            div2.onclick = function(){
+                alert('box2-onclick');
+            }
+
+            h1.onclick = function(e){
+
+                var event = e || window.event;
+
+                alert('H1-onclick');
+
+                // 이벤트의 전달을 막는다.
+                // IE
+                event.cancelBubble = true;
+                // IE 이외의 브라우저
+                if(event.stopPropagation) {
+                    event.stopPropagation();
+                }
+
+
+            }
+
+
+
+
+
 
 
         };
@@ -99,9 +140,44 @@
         #agree:checked+div{
             display: block;
         }
+
+        .box {
+            border: 3px solid;
+            padding: 10px;
+        }
+
+        #box1 {
+            background-color: aquamarine;
+        }
+
+        #box2 {
+            width: 75%;
+            background-color: blueviolet;
+        }
+
+        #box3 {
+            width: 50%;   
+            background-color: cyan;
+            height: 30px;;
+        }
+
     </style>
 </head>
 <body>
+
+
+    <div id="box1" class="box">
+
+        <div id="box2" class="box">
+
+            <h1 id="box3" class="box">클릭 하세요.</h1>    
+
+        </div>
+
+    </div>
+
+
+    <hr>
 
     <form action="http://www.naver.com" id="my-form">
 
