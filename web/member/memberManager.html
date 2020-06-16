@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원관리 프로그램</title>
+    
+    <link href="../css/membermgr.css" rel="stylesheet">
+    <script src="../js/membermgr.js"></script>
+</head>
+<body>
+    <header>
+        <h1>회원관리 프로그램</h1>
+    </header>
+    <div id="content">
+        <div id="reg">
+            <h2 class="title">회원 저장</h2>
+            <form id="regForm">
+                <table>
+                    <tr>
+                        <td>
+                            <label>아이디</label>
+                            <input type="text" id="uid" placeholder="아이디" required>
+                        </td>
+                        <td>
+                            <label>비밀번호</label>
+                            <input type="password" id="pw" placeholder="비밀번호" required>
+                        </td>
+                        <td>
+                            <label>이름</label>
+                            <input type="text" id="uname" placeholder="이름" required>
+                        </td>
+                        <td>
+                            <input type="submit" value="저장">
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>        
+    </div>
+</body>
+</html>
