@@ -12,32 +12,32 @@ header>h1 {
     margin: 20px;;
 }
 
-#reg {
+#reg, #edit {
     padding:20px;
 }
 
-#reg td {
+#reg td, #edit td {
     width:150px;
 }
 
-#reg input {
+#reg input, #edit input {
     width:130px;
 }
 
-#reg label {
+#reg label, #edit label {
     display: block;
     background-color: black;
     color: floralwhite;
     padding : 5px;
 }
 
-#reg input[type=submit]{
+#reg input[type=submit], #edit input[type=submit]{
     font-size: 1.2em;
     font-weight: bold;
     height:70px;
 }
 
-#reg input {
+#reg input, #edit input {
     padding: 10px;
 }
 
