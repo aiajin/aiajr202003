@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selector</title>
+
+    <!-- jQuery CDN  -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            //$('*').css('color','red');
+            //$('div').css('color','red');
+            //$('#wrap').css('color','red');
+            //$('.title').css('color', 'blue');
+            //$('h1.title').css('color', 'blue');
+            //$('.title.item').css('color', 'blue');
+            $('ul>li').css('color', 'green');
+            $('#wrap li').css('background-color', 'black');
+
+            $('#wrap>h1+p').css('font-weight', 'bold');
+            $('#wrap>h1~p').css('font-size', '2em');
+
+            //var val = $('input[type=text]');//.val();
+            var val = $('input:text');
+            //alert(val.val());
+
+            //$('input[type=text]').val('Hello~!!');
+            val.val('change~!!');
+
+            setTimeout(function () {
+                var selectedVal = $('select.loc>option:selected');
+               // alert(selectedVal.val());
+            }, 5000);
+
+
+            
+
+            $('tr:odd').css('background-color', '#F9F9F9');
+            $('tr:even').css('background-color', '#9F9F9F');
+
+            $('tr:first').css('background-color', '#000000').css('color', '#FFFFFF');
+            $('tr:last').css('background-color', '#000000').css('color', '#FFFFFF');
+
+            var arr = [
+                {name:'NAVER', url:'http://www.naver.com'},
+                {name:'Daum', url:'http://www.daum.net'},
+                {name:'KAKAO', url:'http://www.kakao.com'},
+            ];
+
+            var html = '';
+
+            $.each(arr,function(index, item){
+                html += '<h1><a href="'+item.url+'">'+item.name+'</a></h1>'
+            });
+
+            // innerHtml : html('')
+
+            $('#list').html(html);
+
+
+
+
+
+        });
+
+    </script>
+    <style>
+        table {
+            width:80%;
+        }        
+    </style>
+
+</head>
+
+<body>
+
+    <div id="list">
+        
+    </div>
+
+    <table border="1">
+        <tr>
+            <td>1</td>            
+            <td>2</td>            
+        </tr> 
+        <tr>
+            <td>3</td>            
+            <td>4</td>            
+        </tr>
+        <tr>
+            <td>5</td>            
+            <td>6</td>            
+        </tr>
+        <tr>
+            <td>7</td>            
+            <td>8</td>            
+        </tr>
+        <tr>
+            <td>9</td>            
+            <td>10</td>            
+        </tr>
+        <tr>
+            <td>11</td>            
+            <td>12</td>            
+        </tr>
+        <tr>
+            <td>13</td>            
+            <td>14</td>            
+        </tr>       
+    </table>
+
+
+
+    <div id="wrap">
+
+        <select class="loc">
+            <option value="seoul">서울</option>
+            <option value="pusan">부산</option>
+            <option value="jeju">제주</option>
+        </select>
+
+        <input type="text" id="uid" value="jQuery">
+
+        <H1 class="title">안녕하세요</H1>
+        <p class="title item">
+            반갑습니다.
+        </p>
+
+        <ul>
+            <li>10</li>
+            <li>20</li>
+            <li>30</li>
+            <li>40</li>
+        </ul>
+
+        <p> 다음에 만나요. </p>
+
+    </div>
+
+</body>
+
+</html>
