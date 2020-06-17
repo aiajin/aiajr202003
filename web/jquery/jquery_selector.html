@@ -34,11 +34,12 @@
 
             setTimeout(function () {
                 var selectedVal = $('select.loc>option:selected');
-               // alert(selectedVal.val());
+                // alert(selectedVal.val());
+                $('h1').removeClass('title');
             }, 5000);
 
 
-            
+
 
             $('tr:odd').css('background-color', '#F9F9F9');
             $('tr:even').css('background-color', '#9F9F9F');
@@ -47,15 +48,15 @@
             $('tr:last').css('background-color', '#000000').css('color', '#FFFFFF');
 
             var arr = [
-                {name:'NAVER', url:'http://www.naver.com'},
-                {name:'Daum', url:'http://www.daum.net'},
-                {name:'KAKAO', url:'http://www.kakao.com'},
+                { name: 'NAVER', url: 'http://www.naver.com' },
+                { name: 'Daum', url: 'http://www.daum.net' },
+                { name: 'KAKAO', url: 'http://www.kakao.com' },
             ];
 
             var html = '';
 
-            $.each(arr,function(index, item){
-                html += '<h1><a href="'+item.url+'">'+item.name+'</a></h1>'
+            $.each(arr, function (index, item) {
+                html += '<h1><a href="' + item.url + '">' + item.name + '</a></h1>'
             });
 
             // innerHtml : html('')
@@ -63,7 +64,58 @@
             $('#list').html(html);
 
 
+            $('h2').each(function (index, item) {
+                $(item).html($(item).html() + ':' + index);
+                if (index % 2 == 0) {
+                    $(item).css('background-color', 'red');
+                } else {
+                    $(item).css('background-color', 'blue');
+                }
 
+            });
+
+
+            $('h1').addClass('check');
+
+            $('h3').css('background-color', 'orange').filter(':even').css('color', 'white').end().css('font-weight', '100').filter(':odd').css('color', 'blue');
+
+
+
+            var site = '';
+
+            site += '<sites>';
+            site += '   <site>';
+            site += '       <name>NAVER</name>';
+            site += '       <url>http://www.naver.com</url>';
+            site += '   </site>';
+            site += '   <site>';
+            site += '       <name>DAUM</name>';
+            site += '       <url>http://www.daum.net</url>';
+            site += '   </site>';
+            site += '   <site>';
+            site += '       <name>KAKAO</name>';
+            site += '       <url>http://www.kakao.com</url>';
+            site += '   </site>';
+            site += '</sites>';
+
+            var xmlDoc = $.parseXML(site);
+
+            var siteHtml = '';
+
+            $(xmlDoc).find('site').each(function (index) {
+
+                var name = $(this).find('name').text();
+                var url = $(this).find('url').text();
+
+                siteHtml += '<div class="site">';
+                siteHtml += '   <h3>'+name+'</h3>';
+                siteHtml += '   <p>'+url+'</p>';
+                siteHtml += '</div>';
+
+
+            });
+
+            $('#sites').html(siteHtml);
 
 
         });
@@ -71,47 +123,98 @@
     </script>
     <style>
         table {
-            width:80%;
-        }        
+            width: 80%;
+        }
+
+        .check {
+            background-color: yellow;
+        }
+
+        .title {
+            font-style: italic;
+        }
+
+        #sites {
+            overflow:hidden;
+        }
+
+        #sites>div.site{
+            width:200px;
+            padding : 20px;
+
+            border: 1px solid #DDD;
+            border-radius: 5px;
+
+            float:left;
+        }
+
     </style>
 
 </head>
 
 <body>
 
+    <div id="sites">
+
+
+    </div>
+
+
+
+
+
+
+    <h3>heading3 - 0</h3>
+    <h3>heading3 - 1</h3>
+    <h3>heading3 - 2</h3>
+    <h3>heading3 - 3</h3>
+    <h3>heading3 - 4</h3>
+    <h3>heading3 - 5</h3>
+    <h3>heading3 - 6</h3>
+    <h3>heading3 - 7</h3>
+
+
+    <h2>heading2 - 0</h2>
+    <h2>heading2 - 1</h2>
+    <h2>heading2 - 2</h2>
+    <h2>heading2 - 3</h2>
+    <h2>heading2 - 4</h2>
+
+
+
     <div id="list">
-        
+
     </div>
 
     <table border="1">
         <tr>
-            <td>1</td>            
-            <td>2</td>            
-        </tr> 
-        <tr>
-            <td>3</td>            
-            <td>4</td>            
+            <td>1</td>
+            <td>2</td>
         </tr>
         <tr>
-            <td>5</td>            
-            <td>6</td>            
+            <td>3</td>
+            <td>4</td>
         </tr>
         <tr>
-            <td>7</td>            
-            <td>8</td>            
+            <td>5</td>
+            <td>6</td>
         </tr>
         <tr>
-            <td>9</td>            
-            <td>10</td>            
+            <td>7</td>
+            <td>8</td>
         </tr>
         <tr>
-            <td>11</td>            
-            <td>12</td>            
+            <td>9</td>
+            <td>10</td>
         </tr>
         <tr>
-            <td>13</td>            
-            <td>14</td>            
-        </tr>       
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+        </tr>
     </table>
 
 

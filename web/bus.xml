@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<octastatapi248>
+	<list_total_count>1</list_total_count>
+    <RESULT>
+        <CODE>INFO-000</CODE>
+        <MESSAGE>정상 처리되었습니다</MESSAGE>
+    </RESULT>
+    <row>
+        <GIGAN>2017</GIGAN>
+        <GUBUN>구분</GUBUN>
+        <NOSEONSU_1>354</NOSEONSU_1>
+        <CHARYANGDAESU_1>7,405</CHARYANGDAESU_1>
+        <NOSEONSU_2>124</NOSEONSU_2>
+        <CHARYANGDAESU_2>3,662</CHARYANGDAESU_2>
+        <NOSEONSU_3>206</NOSEONSU_3>
+        <CHARYANGDAESU_3>3,406</CHARYANGDAESU_3>
+        <NOSEONSU_4>10</NOSEONSU_4>
+        <CHARYANGDAESU_4>245</CHARYANGDAESU_4>
+        <NOSEONSU_5>3</NOSEONSU_5>
+        <CHARYANGDAESU_5>14</CHARYANGDAESU_5>
+        <NOSEONSU_6>11</NOSEONSU_6>
+        <CHARYANGDAESU_6>78</CHARYANGDAESU_6>
+    </row>
+</octastatapi248>
+
