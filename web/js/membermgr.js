@@ -24,9 +24,14 @@ Member.prototype.toString = function () {
 }
 
 
+
+
 // 데이터 저장함수
 function addMember(member) {
     members.push(member);
+    // 동기화
+    setStorage();
+
     console.log(members);
     displayTable();
 }
@@ -39,10 +44,8 @@ function createMember() {
     var pw = document.getElementById('pw').value;
     // 배열에 데이터 추가
     addMember(new Member(id, name, pw));
-    // 동기화
-    setStorage();
 
-    this.reset();
+    document.getElementById('regForm').reset();
 
     // form 테그의 action 실행이 되지 않도록 반드시 return false
     return false;
@@ -138,7 +141,7 @@ function deleteMember(idx){
 
 
 
-// localStorage 에 데이터 저장/수정 시에 업데이트
+// localStorage 에 데이터 저장/수정/삭제 시에 업데이트
 function setStorage(){
     // 데이터의 갱신 : 추가, 수정, 삭제
     localStorage.setItem('members', JSON.stringify(members));
@@ -154,7 +157,7 @@ function initStorage(){
         // 프로그램 최초 시작 또는 데이터가 없는 상태
         localStorage.setItem('members', JSON.stringify(members));
     } else {
-        // 저장되어 있는 JOSN 데이터를 배열 객체로 변환 
+        // 저장되어 있는 JSON 데이터를 배열 객체로 변환 
         members = JSON.parse(storageData);
     }
 
