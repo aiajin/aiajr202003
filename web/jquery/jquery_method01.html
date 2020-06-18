@@ -30,6 +30,21 @@
             margin: 10px;
             color: blue;
         }
+
+        #imglist {
+            width: 200px;
+            height: 100px;
+            padding:0;
+
+            overflow: hidden;
+        }
+
+        #imglist>img {
+            display: block;
+
+            width: 200px;
+            height: 100px;
+        }
     </style>
 
     <!-- jquery lib CDN을 통해서 로드 -->
@@ -164,30 +179,71 @@
             var btn09 = $('button.btn.rm').eq(1);
 
             // jQuery.empty() : 객체 안의 내용을 지워준다
-            btn08.click(function(){
+            btn08.click(function () {
                 headerDiv.empty();
             });
 
             // jQuery.remove() : 케스팅된 객체를 삭제
-            btn09.click(function(){
+            btn09.click(function () {
                 headerDiv.remove();
             });
 
             var btn10 = $('button.btn.insert:first');
             var btn11 = $('button.btn.insert:last');
+            var btn12 = $('button.btn.insert:eq(1)');
 
-            btn10.click(function(){
+            btn10.click(function () {
 
                 var txt = 'body 테그의 맨 아래에 요소가 추가됩니다.';
 
                 $('<h1></h1>').html(txt).appendTo('body');
             });
 
-            btn11.click(function(){
+            btn11.click(function () {
                 var txt = '제목 요소가 추가됩니다.';
 
                 $('<h3></h3>').html(txt).appendTo('div.header');
             });
+
+            btn12.click(function () {
+                //$('<img>').attr('src', '../images/droid.jpg').appendTo('div.header');
+                // $('<img>',{
+                //     src:'../images/droid.jpg',
+                //     width:100,
+                //     height:100
+                // }).appendTo('div.header');
+                /* $('<img>',{
+                    src:'../images/droid.jpg',
+                    width:100,
+                    height:100
+                }).prependTo('div.header'); */
+                //     $('<img>',{
+                //         src:'../images/droid.jpg',
+                //         width:100,
+                //         height:100
+                //     }).insertAfter('div.header');
+                // });
+                // $('<img>', {
+                //     src: '../images/droid.jpg',
+                //     width: 100,
+                //     height: 100
+                // }).insertBefore('div.header');
+
+                $('div.header').append($('<img>', {
+                    src: '../images/droid.jpg',
+                    width: 100,
+                    height: 100
+                }), $('<div></div>'));
+
+
+            });
+
+
+            setInterval(function () {
+
+                $('#imglist>img').first().appendTo('#imglist');
+
+            }, 3000);
 
         });
 
@@ -198,9 +254,22 @@
 </head>
 
 <body>
- 
+
+    <div id="imglist">
+        <img src="../images/darthvader.jpg">
+        <img src="../images/droid.jpg">
+        <img src="../images/mini1.jpg">
+        <img src="../images/mini2.jpg">
+        <img src="../images/starw.png">
+        <img src="../images/starwars.jpg">
+    </div>
+
+
+
     <button class="btn insert">body tag에 요소 추가</button>
+    <button class="btn insert">div.header에 이미지 요소 추가</button>
     <button class="btn insert">div.header에 요소 추가</button>
+
 
     <hr>
     <button class="btn rm">내용 삭제</button>
