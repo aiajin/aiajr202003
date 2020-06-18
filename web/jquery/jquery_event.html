@@ -45,6 +45,10 @@
             clear: both;
         }
 
+        h2{
+            border: 2px solid;
+        }
+
     </style>
     <script>
 
@@ -56,6 +60,10 @@
                     return html + '!';
                 });
             });
+
+            /* setInterval(function(){
+                $('h1').last().trigger('click');
+            },1000); */
 
 
             // $('h1').on({
@@ -123,6 +131,32 @@
                 alert(name + ' : ' + url);
             });
 
+            $('a').click(function(e){
+                alert(111);
+
+                //e.preventDefault();
+
+                return false;
+
+            });
+
+            // $('h2').click(function(){
+
+            //     var length = $('h2').length;
+            //     var htmlval = $(this).html();
+
+            //     $('#wrap').append('<h2>'+length+'-'+htmlval+'</h2>');
+
+            // });
+
+            $('#wrap').on('click','h2',function(){
+                var length = $('h2').length;
+                var htmlval = $(this).html();
+
+                $('#wrap').append('<h2>'+length+'-'+htmlval+'</h2>');
+            });
+
+
 
         });
 
@@ -130,6 +164,15 @@
 </head>
 
 <body>
+
+    <div id="wrap">
+        <h2>HEADER</h2>
+    </div>
+
+
+
+    <a href="http:www.naver.com">naver</a>
+
 
     <div class="card">
         <h1>naver</h1>
