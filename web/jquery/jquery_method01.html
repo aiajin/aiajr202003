@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 문서객체 다루기</title>
+
+    <style>
+
+        .title {
+            background-color: black;
+            color: cornsilk;
+        }
+
+    </style>
+
+    <!-- jquery lib CDN을 통해서 로드 -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            // 클래스 속성을 추가/삭제
+            // 추가 : addClass(클래스 속성 값)
+            // 삭제 : removeClass(클래스 속성 값)
+            $('h1').addClass('title');
+
+            
+
+        });
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <h1>안녕하세요</h1>
+    
+</body>
+</html>
