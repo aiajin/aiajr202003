@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegExp</title>
+    <style>
+
+        form>input{
+            padding: 15px;
+            font-size: 1.5em;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('form').submit(function(){
+
+                // RegExp 객체를 생성해서 사용
+                var objCheck = new RegExp('[a-z]');
+                var idCheck = /[a-z]/;
+
+                var uid = $('#uid').val();
+
+                if(!idCheck.test(uid)){
+                    alert('영문자중 소문자만 입력이 가능합니다.');
+                    return false;
+                }
+
+                
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+
+    <form>
+
+        ID<input type="text" id="uid"><span></span>
+        <br>
+        <input type="submit">
+
+    </form>
+    
+</body>
+</html>
