@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Form Control</title>
+    
+    <style>
+        
+        #myForm>label {
+            display: block;
+        }
+
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+
+        $(document).ready(function(){
+
+            $('#memo').keyup(function(){
+                //alert($(this).val());
+                var strLength = $(this).val().length;
+
+                if((50-strLength)<0){
+                    alert("50자 까지만 작성이 가능합니다.");
+                    // 사용자가 입력한 데이터에서 50글짜만 저장
+                    var strVal = $(this).val().substr(0,50);
+
+                    $(this).val(strVal);
+                    strLength = 50;
+                }
+
+                $('#memo+div.cnt').text(strLength);
+
+
+
+            });
+
+        });
+
+
+        var text = 'abcd';
+        text.sub
+
+
+
+    </script>
+</head>
+<body>
+
+    <form id="myForm">
+        <label for="memo">memo</label>
+        <textarea id="memo"></textarea>
+        <div class="cnt">0</div>
+
+    </form>
+    
+</body>
+</html>
