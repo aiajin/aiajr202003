@@ -2,6 +2,12 @@
 # Created by https://www.gitignore.io/api/java,eclipse
 # Edit at https://www.gitignore.io/?templates=java,eclipse
 
+# Server Path
+Servers/
+
+
+
+
 ### Eclipse ###
 .metadata
 bin/
