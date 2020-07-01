@@ -51,6 +51,14 @@
 				%>
 			</td>
 		</tr>
+		<tr>
+			<td>요청 정보 URL</td>
+			<td> 
+				<%= request.getProtocol() %> <br>
+				<%= request.getRequestURL() %><br>
+				<%= request.getRequestURI() %>
+			</td>
+		</tr>
 	</table>
 
 
