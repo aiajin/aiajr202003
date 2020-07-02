@@ -32,6 +32,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.or
   
   
   
+  <!-- 상태 코드의 에러 페이지 설정 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error/error_404.jsp</location>
+  </error-page>
+  
   
   
   
