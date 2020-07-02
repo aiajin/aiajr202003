@@ -3,6 +3,7 @@
 
 <%
 	Cookie c = new Cookie("uid", "COOL");
+	c.setMaxAge(60);
 	response.addCookie(c);
 	
 	Cookie c2 = new Cookie("uname", "유영진");
@@ -17,5 +18,8 @@
 </head>
 <body>
 	<h1>쿠키 생성</h1>
+	
+	<a href="viewCookie.jsp">쿠키 확인</a>
+	
 </body>
 </html>
