@@ -1,3 +1,4 @@
+<%@page import="util.CookieBox"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -14,11 +15,11 @@
 <body>
 	<h1>쿠키 정보 수정</h1>
 	<%
-		Cookie cookie = new Cookie("uid", "hot");
-		cookie.setPath("/web/");
+		/* Cookie cookie = new Cookie("uid", "hot");
+		cookie.setPath("/web/"); */
 	
 	
-		response.addCookie(cookie);
+		response.addCookie(CookieBox.createCookie("uid", "HOT", "/web/", -1));
 		
 	%>
 	

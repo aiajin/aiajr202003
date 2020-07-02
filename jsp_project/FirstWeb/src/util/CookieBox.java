@@ -48,5 +48,41 @@ public class CookieBox {
 		return new Cookie(name, value);
 	}
 	
+	public static Cookie createCookie(
+			String name, 
+			String value, 
+			String path, 
+			int maxAge) {
+		
+		Cookie cookie = new Cookie(name, value);
+		// 경로 설정
+		cookie.setPath(path);
+		// maxAge 설정
+		cookie.setMaxAge(maxAge);	
+		
+		return cookie;
+		
+	}
+	
+	public static Cookie createCookie(
+			String name, 
+			String value, 
+			String domain,
+			String path, 
+			int maxAge) {
+		
+		Cookie cookie = new Cookie(name, value);
+		
+		//도메인 설정
+		cookie.setDomain(domain);		
+		// 경로 설정
+		cookie.setPath(path);
+		// maxAge 설정
+		cookie.setMaxAge(maxAge);	
+		
+		return cookie;
+		
+	}
+	
 
 }
