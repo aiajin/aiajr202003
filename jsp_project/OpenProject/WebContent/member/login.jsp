@@ -41,7 +41,7 @@
 		}
 		
 		// 로그인 이 필요했던 이전 페이지
-		response.sendRedirect(rediectUri);
+		r ;
 			
 	} else {
 		%>
