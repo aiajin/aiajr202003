@@ -1,7 +1,24 @@
 <%@page import="util.CookieBox"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	CookieBox cookieBox = new CookieBox(request);
 
+	String cookieUid = cookieBox.getValue("uid");
+	
+	String uidValue = "";
+	String checked = "";
+	
+	if(cookieUid!=null){
+		uidValue = cookieUid;
+		checked = "checked";
+	}
+	
+	
+
+ 
+
+%>
 
 
 <!DOCTYPE html>
@@ -30,7 +47,7 @@
 			<table class="table">
 				<tr>
 					<td> ID </td>
-					<td> <input type="text" name="uid"> </td>
+					<td> <input type="text" name="uid" value="<%= uidValue%>"> </td>
 				</tr>
 				<tr>
 					<td> PW </td>
@@ -38,7 +55,7 @@
 				</tr>				
 				<tr>
 					<td></td>
-					<td> <input type="checkbox" name="remember" value="r" > 아이디 기억하기  </td>
+					<td> <input type="checkbox" name="remember" value="r" <%= checked %> > 아이디 기억하기  </td>
 				</tr>
 				<tr>
 					<td colspan="2"> <input type="submit" value="로그인"> </td>

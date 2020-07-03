@@ -7,6 +7,15 @@
 	String pw = request.getParameter("pw");
 	String chk = request.getParameter("remember"); 
 	
+	String cookieName = "uid";
+	String cookiepath = request.getContextPath();
+	
+	if(chk!=null){
+		response.addCookie(CookieBox.createCookie(cookieName, uid, cookiepath, 60*60*24*365));
+	} else {
+		response.addCookie(CookieBox.createCookie(cookieName, uid, cookiepath, 0));
+	}
+	
 %>
 	
 <!DOCTYPE html>
@@ -33,16 +42,22 @@
 		<table>
 			<tr>
 				<td>ID</td>
-				<td> </td>
+				<td> <%= uid %></td>
 			</tr>
 			<tr>
 				<td>PW</td>
-				<td> </td>
+				<td> <%= pw %> </td>
 			</tr>
 			<tr>
 				<td></td>
 				<td> 
-					
+					<%
+						if(chk!=null){
+							out.println("아이디를 저장합니다.");
+						} else {
+							out.println("아이디를 저장하지 않습니다.");
+						}
+					%>
 				</td>
 			</tr>
 		</table>
