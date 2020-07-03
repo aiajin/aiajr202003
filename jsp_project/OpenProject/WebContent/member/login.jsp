@@ -20,6 +20,8 @@
 		loginChk = true;
 	}
 	
+	System.out.println(loginChk);
+	
 	if(loginChk){
 
 		// 쿠키 설정에 사용한 변수
@@ -38,11 +40,12 @@
 		response.sendRedirect(rediectUri);
 			
 	} else {
-		String resultHtml = "<script>";
-		resultHtml += "alert('아이디 또는 비밀번호를 확인후 다시 로그인해 주세요.')"; 
-		resultHtml += "history.go(-1);";
-		resultHtml += "</script>";
-		out.println(resultHtml);
+		%>
+		<script>
+		alert('아이디 또는 비밀번호를 확인후 다시 로그인해 주세요.') 
+		history.go(-1);
+		</script>
+		<%
 	}
 	
 	
