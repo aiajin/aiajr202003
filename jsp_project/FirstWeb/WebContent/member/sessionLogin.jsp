@@ -1,3 +1,4 @@
+<%@page import="model.MemberInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -15,7 +16,9 @@
 	
 	if(uid.equals(pw)){
 		// 로그인 처리 : 세션의 속성에 데이터 저장
-		session.setAttribute("memberId", uid);
+		//session.setAttribute("memberId", uid);
+		session.setAttribute("memberInfo", new MemberInfo(uid, pw));
+	
 		loginChk = true;
 	}
 	
@@ -37,5 +40,20 @@
 </body>
 </html>
 <%
+	} else {
+%>
+<script>
+	alert("아이디 또는 비밀번호를 확인해주세요");
+	history.go(-1);
+</script>
+<%
 	}
 %>
+
+
+
+
+
+
+
+
