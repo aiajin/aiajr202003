@@ -44,6 +44,7 @@
 		
 		<form action="login.jsp" method="post">
 		
+			<input type="text" name="redirecUri" value="<%= request.getHeader("referer")%>" style=" width : 50% ;" >			
 			<table class="table">
 				<tr>
 					<td> ID </td>
