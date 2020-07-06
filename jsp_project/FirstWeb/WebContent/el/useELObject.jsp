@@ -31,6 +31,7 @@
 	<h1>JSESSIONID 쿠키 값 : ${cookie.JSESSIONID.value}</h1>
 	
 
+	<jsp:include page="useELObject2.jsp"/>
 
 </body>
 </html>

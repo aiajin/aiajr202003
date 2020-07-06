@@ -31,7 +31,7 @@
 	
 	
 %>
-
+test
 <jsp:forward page="objectView.jsp"/>
 
 
