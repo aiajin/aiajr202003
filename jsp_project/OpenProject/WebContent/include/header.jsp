@@ -10,7 +10,7 @@
 		// 로그인 상태에 따라 메뉴가 다르게 노출
 		if(loginCheck){
 	%>
-		<li><a href="<%= request.getContextPath() %>/member/logout.jsp">로그아웃</a></li>
+		<li><a href="${pageContext.request.contextPath}/member/logout.jsp">로그아웃</a></li>
 	<%} else { %>
 		<li><a href="<%= request.getContextPath() %>/member/loginForm.jsp">로그인</a></li>
 	<%} %>
