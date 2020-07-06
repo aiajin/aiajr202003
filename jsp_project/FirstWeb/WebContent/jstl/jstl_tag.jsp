@@ -17,6 +17,12 @@
  		<span style="color:red">이메일 없음</span>
  	</c:out>
  	
+ 	<c:if test="${members[8].email == null}">
+ 		<span style="color:blue">이메일 없음</span>
+ 	</c:if>
+ 	
+ 	
+ 	
  	<c:forEach 
  				items="${applicationScope.members}" 
  				var="member" 
@@ -32,10 +38,28 @@
  		<span style="color:red">이메일 없음</span>
  	</c:out> 
  	
+ 	<c:if test="${member.email == null}">
+ 		<span style="color:blue">이메일 없음</span>
+ 	</c:if>
+ 	
+ 	<c:if test="${ empty member.email}">
+ 		<span style="color:green">이메일 없음</span>
+ 	</c:if>
+ 	
+ 	
  	
  	
  	</h3>
  	</c:forEach>
+ 	
+ 	 
+ 	
+ 	
+ 	<br>
+ 	
+ 	<c:forTokens items="손흥민, 010-7777-1111, 런던" delims="," var="token" >
+ 		${token}<br>
+ 	</c:forTokens>
  	
  	
 
