@@ -35,7 +35,7 @@
 	// 5. close()
 
 	// 1. 데이터베이스 로드 
-	Class.forName("oracle.jdbc.driver.OracleDriver");
+	//Class.forName("oracle.jdbc.driver.OracleDriver");
 
 	Connection conn = null;
 	Statement stmt = null;
