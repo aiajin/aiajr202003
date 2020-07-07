@@ -1,9 +1,13 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	request.setAttribute("price", 10000);
+	
+	request.setAttribute("now", new Date());
+
 %>
 <!DOCTYPE html>
 <html>
@@ -12,6 +16,43 @@
 <title>JSTL TAG</title>
 </head>
 <body>
+
+	날짜 포맷팅 <br>
+	<fmt:formatDate value="${now}" pattern="yyyy.MM.dd H:mm:ss"/> <br>
+	
+	<fmt:formatDate value="${now}" pattern="yyyy.MM.dd H:mm"/> <br>
+
+
+	<fmt:timeZone value="US/Hawaii">
+
+	<br><br>
+
+	날짜와 시간을 동시 표현 <br>
+	<fmt:formatDate value="${now}" type="both"/> <br>
+	<fmt:formatDate value="${now}" type="both" dateStyle="full" timeStyle="full"/> <br>
+	<fmt:formatDate value="${now}" type="both" dateStyle="short" timeStyle="short"/> <br>
+
+	</fmt:timeZone>
+	<br><br>
+	
+	시간 표현 <br>
+	<fmt:formatDate value="${now}" type="time"/> <br>
+	<fmt:formatDate value="${now}" type="time" timeStyle="short"/> <br>
+	<fmt:formatDate value="${now}" type="time" timeStyle="full"/> <br>
+	
+	
+
+	<br><br>
+
+	날짜 표현<br>
+	<fmt:formatDate value="${now}"/> <br>
+	<fmt:formatDate value="${now}" type="date"/> <br>
+	<fmt:formatDate value="${now}" type="date" dateStyle="short"/> <br>
+	<fmt:formatDate value="${now}" type="date" dateStyle="full"/> <br>
+	
+	<br>
+
+	<hr>
 
 	숫자 타입 : <fmt:formatNumber value="${price}" type="number" />,
 	
@@ -30,6 +71,10 @@
 						type="percent"
 						groupingUsed="false"	
 	/>
+	
+	<br>
+	패턴 : <fmt:formatNumber value="${price}" pattern="000000.00"/>,
+	<fmt:formatNumber value="${price}" pattern="000,000"/> 
 	
 
 	<hr>	
@@ -104,7 +149,11 @@
 	<%-- <c:redirect url="${reurl}" >
 		<c:param name="month">7</c:param>
 	</c:redirect> --%>
-
+	
+	
+	<c:forEach var="id" items="<%= java.util.TimeZone.getAvailableIDs() %>">
+	${id}<br/>
+	</c:forEach>
 
 
 
