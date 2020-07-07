@@ -33,6 +33,26 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   </servlet-mapping>
   
   
+  <!-- 데이터베이스 드라이버 로드  -->
+  <servlet>
+  	<servlet-name>Loader</servlet-name>
+  	<servlet-class>jdbc.Loader</servlet-class>
+  	<init-param>
+  		<param-name>jdbcDriver</param-name>
+  		<param-value>oracle.jdbc.driver.OracleDriver,com.mysql.jdbc.Driver</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>msg</param-name>
+  		<param-value>Hello~ JSP~~</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  
+  
+  
+  
+  
   
   <!-- 상태 코드의 에러 페이지 설정 -->
   <error-page>
