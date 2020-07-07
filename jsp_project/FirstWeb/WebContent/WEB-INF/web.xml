@@ -39,7 +39,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   	<servlet-class>jdbc.Loader</servlet-class>
   	<init-param>
   		<param-name>jdbcDriver</param-name>
-  		<param-value>oracle.jdbc.driver.OracleDriver,com.mysql.jdbc.Driver</param-value>
+  		<param-value>oracle.j
+  		dbc.driver.OracleDriver,com.mysql.jdbc.Driver</param-value>
   	</init-param>
   	<init-param>
   		<param-name>msg</param-name>
