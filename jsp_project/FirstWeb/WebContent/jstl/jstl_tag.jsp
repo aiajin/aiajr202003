@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+	request.setAttribute("price", 10000);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +12,28 @@
 <title>JSTL TAG</title>
 </head>
 <body>
+
+	숫자 타입 : <fmt:formatNumber value="${price}" type="number" />,
+	
+	<fmt:formatNumber value="${price}" type="number" var="numberType" />
+
+	${numberType}
+	
+	<br>
+	통화 : <fmt:formatNumber value="${price}" type="currency"/> ,
+	<fmt:formatNumber value="${price}" type="currency" currencySymbol="$"/>
+	
+	<br>
+	퍼센트 : <fmt:formatNumber value="${price/30000}" type="percent"/>, 
+	<fmt:formatNumber 
+						value="${price/30000}" 
+						type="percent"
+						groupingUsed="false"	
+	/>
+	
+
+	<hr>	
+
 
 	<c:out value="jstl tag out -> 데이터를 출력합니다." />
 	<br>
@@ -75,9 +101,9 @@
 
 	</h1>
 
-	<c:redirect url="${reurl}" >
+	<%-- <c:redirect url="${reurl}" >
 		<c:param name="month">7</c:param>
-	</c:redirect>
+	</c:redirect> --%>
 
 
 
