@@ -34,7 +34,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   
   
   <!-- 데이터베이스 드라이버 로드  -->
-  <servlet>
+<!--   <servlet>
   	<servlet-name>Loader</servlet-name>
   	<servlet-class>jdbc.Loader</servlet-class>
   	<init-param>
@@ -46,8 +46,14 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   		<param-value>Hello~ JSP~~</param-value>
   	</init-param>
   	<load-on-startup>1</load-on-startup>
-  </servlet>
+  </servlet> -->
   
+  <!-- 컨텍션 풀 드라이버 등록 -->
+  <servlet>
+  	<servlet-name>DBCPInit</servlet-name>
+  	<servlet-class>jdbc.DBCPInit</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
   
   
   

@@ -18,8 +18,8 @@ public class DBCPInit extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 
-		loadJdbcDriver();
-		initConnectionPool();
+		loadJdbcDriver();		// 데이터베이스 드라이버 로드
+		initConnectionPool();	// Pool 드라이버 로드(설정)
 
 	}
 
@@ -27,8 +27,7 @@ public class DBCPInit extends HttpServlet {
 		try {
 			// 커넥션 풀이 내부에서 사용할 jdbc 드라이버를 로딩함.
 			// Class.forName("com.mysql.jdbc.Driver");
-			//Class.forName("oracle.jdbc.driver.OracleDriver");
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			System.out.println("Oracle 데이터베이스 드라이버 로드 성공...!!!!");
 		} catch (ClassNotFoundException ex) {
 			throw new RuntimeException("fail to load JDBC Driver", ex);
@@ -39,10 +38,10 @@ public class DBCPInit extends HttpServlet {
 		
 		try {
 			
-			//String jdbcDriver = "jdbc:oracle:thin:localhost:1521:orcl";
-			String jdbcDriver = "jdbc:mysql://localhost:3306/project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
-			String username = "bit";
-			String pw = "bit";
+			String jdbcDriver = "jdbc:oracle:thin:@localhost:1521:orcl";
+			//String jdbcDriver = "jdbc:mysql://localhost:3306/project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
+			String username = "scott";
+			String pw = "tiger";
 			
 			
 			//커넥션풀이 새로운 커넥션을 생성할 때 사용할 커넥션팩토리를 생성.
@@ -71,14 +70,20 @@ public class DBCPInit extends HttpServlet {
 			new GenericObjectPool<>(poolableConnFactory, poolConfig);
 			//PoolabeConnectionFactory에도 커넥션 풀을 연결
 			poolableConnFactory.setPool(connectionPool);
+			
 			//커넥션 풀을 제공하는 jdbc 드라이버를 등록.
 			Class.forName("org.apache.commons.dbcp2.PoolingDriver");
 			PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
 			
 			
 			
-			//위에서 커넥션 풀 드라이버에 생성한 커넥션 풀을 등록한다. 이름은 pool 이다.
-			driver.registerPool("pool", connectionPool); //jdbc:apache:commons:dbcp:pool
+			// 위에서 커넥션 풀 드라이버에 생성한 커넥션 풀을 등록한다. 
+			// 이름은 pool 이다.
+			driver.registerPool("pool", connectionPool);
+			
+			//jdbc:apache:commons:dbcp:pool
+			
+			
 			System.out.println("컨넥션 풀 등록 !!!!!");
 			
 		} catch ( Exception e ) {

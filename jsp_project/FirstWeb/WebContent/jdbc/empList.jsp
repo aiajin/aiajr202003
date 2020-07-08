@@ -1,3 +1,4 @@
+<%@page import="dao.EmpDao"%>
 <%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Emp"%>
@@ -53,7 +54,9 @@
 		// 2. Connection 생성
 		//conn = DriverManager.getConnection(dbUrl, user, pw);
 		conn = ConnectionProvider.getConnection();
-
+		
+		empList = EmpDao.getInstance().getEmpList(conn);
+/* 
 		// 3. Statement 생성
 		stmt = conn.createStatement();
 
@@ -81,7 +84,7 @@
 		stmt.close();
 		conn.close();
 	}
-	
+	 */
 	request.setAttribute("empList", empList);
 	
 	%>

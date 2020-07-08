@@ -22,6 +22,14 @@
 			<th>사원 직급</th>
 		</tr>
 		
+		<c:if test="${ empty empList}">
+		<tr>
+			<td colspan="4">데이터가 존재하지 않습니다.</td>
+		</tr>
+		</c:if>
+		
+		
+		<c:if test="${ not empty empList}">
 		<c:forEach items="${empList}" var="emp">
 		<tr>
 			<td>${emp.empno}</td>
@@ -30,6 +38,7 @@
 			<td>${emp.job}</td>
 		</tr>		
 		</c:forEach>
+		</c:if>
 	
 	
 	</table>
