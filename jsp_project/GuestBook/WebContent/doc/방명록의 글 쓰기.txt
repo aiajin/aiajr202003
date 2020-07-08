@@ -1,5 +1,9 @@
-������� �� ����
+﻿방명록의 글 쓰기
 
-1. html : �Է� �� ������
-2. jsp : ���� ���� �ּ�
-         Service���� ��û ������(������� �Է� ������) ����
+1. html : 입력 폼 페이지
+2. jsp : 전달 받을 주소
+         Service에게 요청 데이터(사용자의 입력 데이터) 전송
+3. 요청 정보를 담는 클래스
+   핵심 처리를 하는 Service 클래스
+4. MessageDao 데이터를 전달 받아 insert
+5. view 응답 만들기
