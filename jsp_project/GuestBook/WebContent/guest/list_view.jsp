@@ -23,7 +23,7 @@
 	}
 	
 	form {
-		display: none;
+		/* display: none; */
 	}
 	
 	.currentPage {
