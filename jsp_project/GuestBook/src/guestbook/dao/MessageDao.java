@@ -122,6 +122,60 @@ public class MessageDao {
 		
 		return resultCnt;
 	}
+
+	public Message selectMessage(Connection conn, int mid) throws SQLException {
+		
+		Message message = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "select * from guestbook_message where message_id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mid);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				message = new Message(
+						rs.getInt("message_id"), 
+						rs.getString("guest_name"), 
+						rs.getString("password"), 
+						rs.getString("message"));
+			}
+			
+		} finally {
+			if(rs != null) {
+				rs.close();
+			}
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		return message;
+	}
+
+	public int deleteMessage(Connection conn, int mid) throws SQLException {
+		int resultCnt = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete from guestbook_message where message_id=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mid);
+			
+			resultCnt = pstmt.executeUpdate();
+			
+		} finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		
+		return resultCnt;
+	}
 	
 	
 	
