@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import guestbook.model.Message;
@@ -89,6 +90,36 @@ public class MessageDao {
 		
 		return list;
 		
+	}
+
+	public int selectTotalCount(Connection conn) throws SQLException {
+		
+		int resultCnt = 0;
+		
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			stmt = conn.createStatement();
+			String sql = "select count(*) from guestbook_message";
+			rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+				resultCnt = rs.getInt(1);
+			}
+			
+		} finally {
+			if(rs != null) {
+				rs.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+		
+		
+		
+		return resultCnt;
 	}
 	
 	
