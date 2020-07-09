@@ -19,8 +19,13 @@ public class MessageListView {
 	// 게시물의 마지막 행
 	private int endRow;
 	
-	public MessageListView(int messageTotalCount, int currentPageNumber, List<Message> messageList,
-			int messageCountPerpage, int startRow, int endRow) {
+	public MessageListView(
+			int messageTotalCount, 
+			int currentPageNumber, 
+			List<Message> messageList,
+			int messageCountPerpage, 
+			int startRow, 
+			int endRow) {
 		this.messageTotalCount = messageTotalCount;
 		this.currentPageNumber = currentPageNumber;
 		this.messageList = messageList;

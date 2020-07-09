@@ -2,6 +2,7 @@ package guestbook.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 
 import guestbook.dao.MessageDao;
@@ -29,6 +30,8 @@ public class GetMessageListService {
 		
 		Connection conn=null;
 		
+		MessageListView messageListView = null;
+		
 		try {
 			
 			conn = ConnectionProvider.getConnection();
@@ -40,22 +43,31 @@ public class GetMessageListService {
 			
 			// 전체 메시지의 게수
 			int messageTotalCount = dao.selectTotalCount(conn);
-			
+						
 			int startRow = 0;
 			int endRow = 0;
 			
+			if(messageTotalCount>0) {
+				
+				// 시작 행, 마지마 행
+				startRow = (pageNumber-1)*MESSAGE_COUNT_PER_PAGE + 1;
+				endRow = startRow + MESSAGE_COUNT_PER_PAGE -1;
+				
+				messageList = dao.selectMessageList(conn, startRow, endRow);
+				
+				
+			} else {
+				pageNumber = 0;
+				messageList = Collections.emptyList();
+			}
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			messageListView = new MessageListView(
+					messageTotalCount, 
+					pageNumber, 
+					messageList, 
+					MESSAGE_COUNT_PER_PAGE, 
+					startRow, 
+					endRow);
 			
 			
 			
@@ -63,20 +75,24 @@ public class GetMessageListService {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+			if(conn!=null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
 		}
+		
+		return messageListView;
 		
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
