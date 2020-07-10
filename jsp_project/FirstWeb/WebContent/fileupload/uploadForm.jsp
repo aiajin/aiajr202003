@@ -9,7 +9,7 @@
 <body>
 
 	<h1>과제 제출</h1>
-	<form action="upload.jsp" 
+	<form action="upload2.jsp" 
 	
 			method="post"
 			enctype="multipart/form-data"
