@@ -80,12 +80,34 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   
   
   
+  <filter>
+  	<filter-name>loginCheckFilter</filter-name>
+  	<filter-class>filter.LoginFilter</filter-class>
+  </filter>
   
+  <filter-mapping>
+  	<filter-name>loginCheckFilter</filter-name>
+  	<url-pattern>/mypage/*</url-pattern>
+  </filter-mapping>
   
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>filter.CharacterEncodingFilter</filter-class>
+  </filter>
   
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
   
+  <listener>
+  	<listener-class>listener.TestContextListener</listener-class>
+  </listener>
   
-  
+  <context-param>
+  	<param-name>uploadPath</param-name>
+  	<param-value>/uploadFile/member/photo</param-value>
+  </context-param>
   
   
   
