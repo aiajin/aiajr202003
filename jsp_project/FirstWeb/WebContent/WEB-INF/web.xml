@@ -106,7 +106,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   
   <context-param>
   	<param-name>uploadPath</param-name>
-  	<param-value>/uploadFile/member/photo</param-value>
+  	<!-- <param-value>/uploadFile/member/photo</param-value> -->
+  	<param-value>/file</param-value>
   </context-param>
   
   

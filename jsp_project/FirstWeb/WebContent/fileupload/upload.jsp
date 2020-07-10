@@ -46,13 +46,19 @@
 				System.out.println("파일 타입 : " + contentType);
 				
 				// 서버 내부의 경로
-				String uri = "/file";
+				//String uri = "/file";
+				
+				String uri = request.getSession().getServletContext().getInitParameter("uploadPath");
+				
 				// 시스템의 실제(절대) 경로
-				String realPath = request.getSession().getServletContext().getRealPath(uri);
-				System.out.println(realPath);
+				String realPath = 
+				request.getSession().getServletContext().getRealPath(uri);
+				//System.out.println(realPath);
+				
+				String newFileName = System.nanoTime()+"_"+fileName;
 				
 				// 서버의 저장소에 실제 저장
-				File saveFile = new File(realPath, fileName);
+				File saveFile = new File(realPath, newFileName);
 				item.write(saveFile);
 				System.out.println("저장 완료");
 				
