@@ -11,11 +11,13 @@
 	
 	function check(){
 		
-		if(confirm('삭제하시겠습니까?')){
+		/* if(confirm('삭제하시겠습니까?')){
 			return true;
 		}
 		
-		return false;
+		return false; */
+		
+		return confirm('삭제하시겠습니까?');
 		
 		
 	};
@@ -29,7 +31,7 @@
 	<form 
 			id="delForm" 
 			action="deletMessage.jsp" 
-			onsubmit="return check();" 
+			onsubmit="return confirm('삭제하시겠습니까?');" 
 			method="post">
 		비밀번호 <input type="password" name="pw">
 		<input type="hidden" name="mid" value="${param.mid}">
