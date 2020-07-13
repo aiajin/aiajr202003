@@ -12,3 +12,7 @@ create SEQUENCE report_seq;
 insert into report values (report_seq.nextval, '길동', '1234', '/file/1231234123_reort.ppt');
 
 select *  from report;
+
+
+
+
