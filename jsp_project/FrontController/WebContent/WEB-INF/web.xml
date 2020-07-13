@@ -7,7 +7,7 @@
   </welcome-file-list>
   
   <!-- SimpleController 서블릿 등록 -->
-  <servlet>
+ <!--  <servlet>
   	<servlet-name>SimpleContoller</servlet-name>
   	<servlet-class>controller.SimpleController</servlet-class>
   </servlet>
@@ -16,7 +16,17 @@
   	<servlet-name>SimpleContoller</servlet-name>
   	<url-pattern>/simple</url-pattern>
   </servlet-mapping>
-  
+   -->
+   
+   <!-- FrontController 등록 -->
+   <servlet>
+   	<servlet-name>FrontController</servlet-name>
+   	<servlet-class>controller.FrontController</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   	<servlet-name>FrontController</servlet-name>
+   	<url-pattern>/</url-pattern>
+   </servlet-mapping>
   
   
   
