@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>INDEX</h1>
-	<ul>    <!-- http://localhost:8080/fc/index -->
+	<ul>    <!-- http://localhost:8080/fc/index.jsp -->
 		<li><a href="index">index</a></li>
 		<li><a href="greeting">greeting</a></li>
 		<li><a href="date">date</a></li>

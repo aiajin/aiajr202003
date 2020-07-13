@@ -1,0 +1,7 @@
+#Command Propertise
+/=service.IndexServiceImpl
+/index=service.IndexServiceImpl
+/greeting=service.GreetingServiceImpl
+/date=service.DateServiceImpl
+#손흥민 이름을 출력하는 요청
+/test=service.TestService
