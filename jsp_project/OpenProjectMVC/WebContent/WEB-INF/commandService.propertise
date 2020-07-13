@@ -1,0 +1,4 @@
+#Command Propertise
+#uri=Class Full Name
+/=service.IndexServiceImpl
+/index=service.IndexServiceImpl
