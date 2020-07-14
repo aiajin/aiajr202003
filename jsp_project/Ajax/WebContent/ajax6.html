@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style></style>
+</head>
+<body>
+	<form id="my-form">
+		<table>
+			<tr>
+				<td><label for="name">Name</label></td>
+				<td><input id="name" name="name" type="text" /></td>
+			</tr>
+			<tr>
+				<td><label for="price">Region</label></td>
+				<td><input id="price" name="price" type="text" /></td>
+			</tr>
+		</table>
+		<input type="submit" value="Get Ajax String" />
+	</form>
+	<div id="wrap"></div>
+</body>
+</html>
+<script>
+	$(document).ready(function() {
+		
+		$('#my-form').submit(function(){
+			
+			var param1 = $(this).serialize();
+			$('#wrap').append('<h1>'+param1+'</h1>');
+
+			var param2 = $(this).serializeArray();
+			$('#wrap').append('<h1>'+param2[1].name+'</h1>');
+			
+			
+			return false;
+		});
+
+	});
+</script>
+
+
+
+
+
+
+
+
