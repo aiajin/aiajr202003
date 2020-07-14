@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.Service;
 
-public class MeberRegServiceImpl implements Service {
+public class MemberRegServiceImpl implements Service {
 
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
