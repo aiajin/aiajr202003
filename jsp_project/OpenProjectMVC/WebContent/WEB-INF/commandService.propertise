@@ -2,3 +2,5 @@
 #uri=Class Full Name
 #/=service.IndexServiceImpl index.html
 /index.do=service.IndexServiceImpl
+# 회원 가입 페이지
+/member/memberRegForm.do=member.service.MeberRegServiceImpl

@@ -22,6 +22,22 @@
 2. Dao 에 기능 추가
 3. View 생성 => JSP
 5. 설정 파일에 사용자 요청 URI 와 실행 클래스 등록
+
+회원가입
+1. 가입 폼 페이지
+	Service , view
+
+2. 회원 데이터 처리 ( 가입 처리 )
+	Servcie, dao(insert), view
+
+
+
+
+
+
+
+
+
    
    
    
