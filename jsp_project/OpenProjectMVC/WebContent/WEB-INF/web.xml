@@ -13,8 +13,8 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>FrontColtroller</servlet-name>
-  	<url-pattern>/</url-pattern>
-  	<!-- <url-pattern>*.do</url-pattern> -->
+  	<!-- <url-pattern>/</url-pattern> -->
+  	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   
 </web-app>
