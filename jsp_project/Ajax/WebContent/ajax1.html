@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style></style>
+</head>
+<body>
+	<h1>메뉴</h1>
+</body>
+</html>
+<script>
+
+	$(document).ready(function(){
+		
+		
+		
+			
+			$.ajax('data.html',{
+				success: function(data){
+					$('body').html(data);
+				}
+			});
+			
+	
+			
+		
+		
+		
+		
+		
+	});
+
+</script>
+
+
+
+
+
+
+
+
