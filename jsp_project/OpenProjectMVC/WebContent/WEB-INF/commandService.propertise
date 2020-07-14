@@ -4,3 +4,5 @@
 /index.do=service.IndexServiceImpl
 # 회원 가입 페이지
 /member/memberRegForm.do=member.service.MemberRegFormServiceImpl
+# 회원 가입 처리
+/member/memberReg.do=member.service.MemberRegServiceImpl

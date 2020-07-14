@@ -19,7 +19,7 @@
 	<div>
 		<h1 class="subtitle">회원 가입</h1>
 		<hr>
-		<form action="login.jsp" method="post">
+		<form action="memberReg.do" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>아이디(email)</td>

@@ -15,7 +15,6 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import dao.ReportDao;
 import jdbc.ConnectionProvider;
 import member.dao.MemberDao;
 import member.model.Member;
@@ -115,6 +114,7 @@ public class MemberRegServiceImpl implements Service {
 				resultCnt = dao.insertMember(conn, member);
 				
 				request.setAttribute("member", member);
+				request.setAttribute("result", resultCnt);
 				
 				
 	
@@ -124,6 +124,9 @@ public class MemberRegServiceImpl implements Service {
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO: handle exception
 			e.printStackTrace();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
