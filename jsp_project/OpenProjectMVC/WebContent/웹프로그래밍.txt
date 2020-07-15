@@ -35,7 +35,23 @@
 
 회원 리스트
 
-Service -> Dao -> ListView -> view
+Service
+ : 리스트 페이지에 전달할 데이터를 생성하고, MemberListView 객체를 생성하고 View로 공유
+   전체 회원수, 
+   현재 페이지 번호, 
+   회원 정보 리스트, 
+   전체 페이지 수, 
+   시작 row index, 
+   축출 할 로우 개수
+
+-> Dao
+ : 전체 회원 수 select , 페이지 당 노출할 게시물 Select
+
+-> ListView
+ : 리스트에 전달할 데이터, 전체 페이지 수 만드는 메서드 필요
+ 
+-> view
+ : 각 페이지 별 노출할 회원 정보를 출력, 페이징
 
 
 
