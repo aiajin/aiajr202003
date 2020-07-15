@@ -46,7 +46,7 @@
 				<td>${member.uname}</td>
 				<td>${member.upw}</td>
 				<td><img alt="프사 " src="<c:url value="${member.uphoto}"/>">  </td>
-				<td>수정 | 삭제</td>
+				<td>수정 | <a href="javascript:memberDel(${member.idx})">삭제</a></td>
 			</tr>
 		</c:forEach>
 		</c:if>
@@ -78,7 +78,14 @@
 </html>
 
 
-
+<script>
+	function memberDel(idx){
+		if(confirm('선택하신 회원 정보를 삭제하시겠습니까?')){
+			location.href = 'memberDelete.do?idx='+idx;
+		}
+		
+	}
+</script>
 
 
 
