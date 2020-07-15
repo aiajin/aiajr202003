@@ -152,4 +152,77 @@ public class MemberDao {
 		return result;
 	}
 
+	public Member selectByIdx(Connection conn, int idx) throws SQLException {
+
+		Member member = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs;	
+		
+		try {
+			String sql = "select * from member where idx=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new Member();
+				member.setIdx(rs.getInt("idx"));
+				member.setUid(rs.getString("uid"));
+				member.setUpw(rs.getString("upw"));
+				member.setUname(rs.getString("uname"));
+				member.setUphoto(rs.getString("uphoto"));
+			}
+			
+		} finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		
+		return member;
+	}
+
+	public int editMember(Connection conn, Member member) throws SQLException {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = "update member set "
+				   + " upw=?, uname=?, uphoto=? "
+				   + " where idx=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member.getUpw());
+			pstmt.setString(2, member.getUname());
+			pstmt.setString(3, member.getUphoto());
+			pstmt.setInt(4, member.getIdx());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		
+		return result;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

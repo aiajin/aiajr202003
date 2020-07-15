@@ -12,3 +12,7 @@
 /member/memberList.do=member.service.MemberListServiceImpl
 #회원 삭제
 /member/memberDelete.do=member.service.MemberDeleteServiceImpl
+#회원 수정 폼
+/member/memberEditForm.do=member.service.MemberEditFormServiceImpl
+#회원 수정 
+/member/memberEdit.do=member.service.MemberEditServiceImpl

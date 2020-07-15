@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jdbc.ConnectionProvider;
 import member.dao.MemberDao;
+import member.model.Member;
 import service.Service;
 
 public class MemberDeleteServiceImpl implements Service {
@@ -16,7 +17,7 @@ public class MemberDeleteServiceImpl implements Service {
 
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
-
+		
 		String msg = "";
 
 		Connection conn = null;
