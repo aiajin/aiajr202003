@@ -26,7 +26,11 @@ public class MemberListView {
 			pageTotalCount = 0;
 		} else {
 			pageTotalCount = memberTotalCount/memberCountPerpage;
-			pageTotalCount = memberTotalCount%memberCountPerpage>0?++memberTotalCount:memberTotalCount;
+			System.out.println(memberTotalCount%memberCountPerpage);
+			if(memberTotalCount%memberCountPerpage > 0) {
+				pageTotalCount ++;
+			}
+			System.out.println(pageTotalCount);
 		}
 	}
 

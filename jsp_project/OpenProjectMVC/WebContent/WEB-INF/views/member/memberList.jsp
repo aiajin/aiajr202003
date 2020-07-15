@@ -59,6 +59,14 @@
 
 
 		</table>
+		
+		<div class="paging">
+			<c:forEach begin="1" end="${listView.pageTotalCount}" var="i">
+			
+			<a class="paging_num ${i == listView.currentPageNumber ? 'now_page' : 'tset'}" href="memberList.do?page=${i}" >${i}</a>
+			
+			</c:forEach>
+		</div>
 
 
 

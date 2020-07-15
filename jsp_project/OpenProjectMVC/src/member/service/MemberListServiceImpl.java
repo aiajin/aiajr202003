@@ -36,7 +36,7 @@ public class MemberListServiceImpl implements Service {
 			int totalCnt =  dao.selectTotalCount(conn);
 			
 			// 한 페이지 당 노출할 게시물의 개수
-			final int MEMBER_CNT_PER_PAGE = 30;
+			final int MEMBER_CNT_PER_PAGE = 3;
 			
 			// 현재 페이지 번호
 			int currentPageNumber = 1;

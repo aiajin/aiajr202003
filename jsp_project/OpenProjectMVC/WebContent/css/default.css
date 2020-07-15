@@ -61,6 +61,37 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 
+div.paging{
+	overflow: hidden;
+	margin-top : 20px;
+}
+
+div.paging>a.paging_num {
+	
+	display: block;
+	
+	float : left;
+	
+	width : 30px;
+	height : 30px;
+	
+	text-align: center;
+	line-height: 30px;
+	
+	border : 2px solid #666;
+	
+	border-radius: 50%;
+	
+	padding : 5px;
+	margin : 0 10px;
+}
+
+.now_page {
+	background-color:olive;
+	color : #FFF;
+	font-weight: bold;
+	
+}
 
 
 
