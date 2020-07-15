@@ -6,3 +6,5 @@
 /member/memberRegForm.do=member.service.MemberRegFormServiceImpl
 # 회원 가입 처리
 /member/memberReg.do=member.service.MemberRegServiceImpl
+# 회원 가입시 아이디 체크
+/member/idCheck.do=member.service.IdCheckServiceImpl

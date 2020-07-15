@@ -30,6 +30,8 @@
 2. 회원 데이터 처리 ( 가입 처리 )
 	Servcie, dao(insert), view
 
+3. 아이디 체크
+   Service, Dao(select) , view(html X -> text) Y | N
 
 
 

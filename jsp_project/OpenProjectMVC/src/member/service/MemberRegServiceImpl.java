@@ -22,7 +22,7 @@ import service.Service;
 
 public class MemberRegServiceImpl implements Service {
 
-	MemberDao dao;
+MemberDao dao;
 	
 	@Override
 	public String getViewPage(
