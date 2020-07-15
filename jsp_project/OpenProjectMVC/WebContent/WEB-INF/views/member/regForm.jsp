@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +18,9 @@
 	.check_not {
 		color : red;
 	}
+	#idchk {
+		display: none;
+	}
 </style>
 </head>
 <body>
@@ -26,11 +30,11 @@
 	<div>
 		<h1 class="subtitle">회원 가입</h1>
 		<hr>
-		<form action="memberReg.do" method="post" enctype="multipart/form-data">
+		<form id="regForm" action="memberReg.do" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>아이디(email)</td>
-					<td> <input type="email" name="uid" id="uid" required>
+					<td> <input type="email" name="uid" id="uid" >
 						 <span  id="checkmsg"></span>
 						 <input type="checkbox" name="idchk" id="idchk">
 					 </td>
@@ -64,6 +68,18 @@
 <script>
 	
 	$(document).ready(function(){
+		
+		$('#regForm').submit(function(){
+			
+			if(!$('#idchk').prop('checked')){
+				alert('아이디 중복 체크는 필수 항목 입니다');
+				$('#uid').focus();
+				return false;
+			}
+			
+			
+			
+		});
 		
 		$('#uid').focusin(function(){
 			

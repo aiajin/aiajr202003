@@ -33,7 +33,9 @@
 3. 아이디 체크
    Service, Dao(select) , view(html X -> text) Y | N
 
+회원 리스트
 
+Service -> Dao -> ListView -> view
 
 
 
