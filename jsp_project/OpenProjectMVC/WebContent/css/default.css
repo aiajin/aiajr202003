@@ -42,8 +42,18 @@ hr {
 	margin : 15px 0;
 }
 
-table.table td {
+table.table {
+	
+	width : 80%;
+	border : 1px solid #DDD;
+	border-collapse: collapse;;
+	
+}
+
+table.table td, table.table th {
 	padding : 5px;
+	border: 1px solid #DDD;
+	text-align: center;
 }
 
 input[type=text], input[type=password], input[type=email] {
