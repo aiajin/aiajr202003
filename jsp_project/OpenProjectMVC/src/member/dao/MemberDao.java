@@ -80,7 +80,7 @@ public class MemberDao {
 		try {
 			stmt = conn.createStatement();
 			
-			rs = stmt.executeQuery("select count(*) from member");
+			rs = stmt.executeQuery("select count(*) from project.member");
 			
 			if(rs.next()) {
 				resultCnt = rs.getInt(1);
@@ -102,7 +102,7 @@ public class MemberDao {
 		
 		List<Member> memberList = new ArrayList<Member>();
 		
-		String sql = "select * from member order by uname limit ?, ?";
+		String sql = "select * from project.member order by uname limit ?, ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

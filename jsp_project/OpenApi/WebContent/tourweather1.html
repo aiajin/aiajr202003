@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+<script>
+	var apiURL = 'http://apis.data.go.kr/1360000/TourStnInfoService/getTourStnVilageFcst';
+	var params = {
+			serviceKey : '7SfUZOq52SpD4qLwR2jTusLrmCPg3R4Io3gDfvTUjTkMyDrR6sD9O3sCmy%2BesjmLaG8fYt3vstEIpHB8c4iX0Q%3D%3D',
+			pageNo : 1,
+			numOfRows : 10,
+			dataType : 'XML',
+			CURRENT_DATE : '2020071623',
+			HOUR : 24,
+			COURSE_ID : 1
+	}
+	$(document).ready(function(){
+		$.ajax({
+			url : apiURL,
+			type : 'get',
+			data : params,
+			success : function(data){
+				$('body').html(data);
+			}
+		});
+	});
+	
+
+</script>
+</body>
+</html>
