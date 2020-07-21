@@ -25,7 +25,14 @@
 			dataType : 'XML',
 			contentType: 'text/xml; charset=utf-8',
 			success : function(data){
-				$('body').html(new XMLSerializer().serializeToString(data));
+				
+				$(data).find('item').each(function(index, item){
+					var caname = $(this).find('courseAreaName').text();
+					var cname = $(this).find('courseName').text();
+					$('body').append('<div>''</div>');
+				});
+				
+				//$('body').html(new XMLSerializer().serializeToString(data));
 				
 			},
 			error:function(request,status,error){
