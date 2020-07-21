@@ -60,7 +60,11 @@ public class MemberLoginServiceImpl implements Service {
 				}
 				
 				// 로그인 이 필요했던 이전 페이지
-				response.sendRedirect(rediectUri) ;
+				String result = "<script>"
+						+ "alert('로그인되었습니다.');"
+						+ "location.href='"+rediectUri+"'"
+						+ "</script>";
+				request.setAttribute("result", result);
 					
 			} else {
 				String result = "<script>"
@@ -72,9 +76,6 @@ public class MemberLoginServiceImpl implements Service {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

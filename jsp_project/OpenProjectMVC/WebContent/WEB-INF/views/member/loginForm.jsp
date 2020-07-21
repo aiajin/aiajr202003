@@ -32,7 +32,7 @@
 			<table class="table">
 				<tr>
 					<td> ID </td>
-					<td> <input type="text" name="uid" value="${cookie.uid}"> </td>
+					<td> <input type="text" name="uid" value="${cookie.uid.value}"> </td>
 				</tr>
 				<tr>
 					<td> PW </td>
