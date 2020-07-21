@@ -23,7 +23,7 @@ public class MemberDao {
 		int resultCnt = 0;
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO member (uid, upw, uname, uphoto ) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO project.member (uid, upw, uname, uphoto ) VALUES (?,?,?,?)";
 
 		try {
 
@@ -52,7 +52,7 @@ public class MemberDao {
 		ResultSet rs;	
 		
 		try {
-			String sql = "select count(*) from member where uid=?";
+			String sql = "select count(*) from project.member where uid=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			
@@ -135,7 +135,7 @@ public class MemberDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = "delete from member where idx=?";
+		String sql = "delete from project.member where idx=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -160,7 +160,7 @@ public class MemberDao {
 		ResultSet rs;	
 		
 		try {
-			String sql = "select * from member where idx=?";
+			String sql = "select * from project.member where idx=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			
@@ -190,7 +190,7 @@ public class MemberDao {
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = "update member set "
+		String sql = "update project.member set "
 				   + " upw=?, uname=?, uphoto=? "
 				   + " where idx=?";
 		try {
@@ -218,7 +218,7 @@ public class MemberDao {
 		Member member = null;
 		
 		try {
-			String sql = "select * from member where uid=? and upw=?";
+			String sql = "select * from project.member where uid=? and upw=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, uid);
 			pstmt.setString(2, pw);
@@ -241,6 +241,39 @@ public class MemberDao {
 		}
 		
 		return member;
+	}
+
+	public List<Member> selectTotalList(Connection conn) throws SQLException {
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		List<Member> memberList = new ArrayList<Member>();
+		
+		String sql = "select * from project.member order by uname";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Member member = new Member();
+				member.setIdx(rs.getInt("idx"));
+				member.setUid(rs.getString("uid"));
+				member.setUpw(rs.getString("upw"));
+				member.setUname(rs.getString("uname"));
+				member.setUphoto(rs.getString("uphoto"));
+				
+				memberList.add(member);
+			}
+			
+		} finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		
+		return memberList;
 	}
 
 	
