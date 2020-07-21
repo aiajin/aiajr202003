@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        div#memberlist {
+            overflow: hidden;
+        }
+        div.card {
+            float: left;
+            width: 33%;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+	<h1>회원 리스트</h1>
+	<hr>
+    
+
+
+<script>
+
+	$(document).ready(function(){
+
+            $.ajax({
+                url : 'http://localhost:8080/op/member/memberListToXML.do',
+                type : 'get',                                
+                success : function(data){
+                    //alert(data);
+                    $(data).find('member').each(function(index, item){
+                        var idx = $(this).find('idx').text();
+                        var uid = $(this).find('uid').text();                        
+                        var uname = $(this).find('uname').text();                        
+                        var upw = $(this).find('upw').text();                        
+                        var uphoto = $(this).find('photo').text();    
+                        
+                        var html = '';
+                        html += '<div class="card">';
+                        html += idx + '<br>' + uid + '<br>' + uname + '<br>' + upw + '<br>' + '<img src="http://localhost:8080/op/'+uphoto+'">';
+                        html += '</div>';
+                        
+                        $('body').append(html);
+                    });
+                }
+
+            });
+          
+	});
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+
+
+ 
+  
+    
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
