@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+	<header>
+		<resultCode>00</resultCode>
+		<resultMsg>NORMAL_SERVICE</resultMsg>
+	</header>
+	<body>
+		<dataType>XML</dataType>
+		<items>
+			<item>
+				<courseAreaId>4700000000</courseAreaId>
+				<courseAreaName>경상북도</courseAreaName>
+				<courseId>1</courseId>
+				<courseName>남호고택에서의 하룻밤</courseName>
+				<pop>0</pop>
+				<rhm>90</rhm>
+				<sky>1</sky>
+				<spotAreaId>102</spotAreaId>
+				<spotAreaName>봉화</spotAreaName>
+				<spotName>(봉화)춘양목 송이마을</spotName>
+				<th3>19</th3>
+				<thema>문화/예술</thema>
+				<tm>2020-07-18 21:00</tm>
+				<wd>130</wd>
+				<ws>0</ws>
+			</item>
+			<item>
+				<courseAreaId>4700000000</courseAreaId>
+				<courseAreaName>경상북도</courseAreaName>
+				<courseId>1</courseId>
+				<courseName>남호고택에서의 하룻밤</courseName>
+				<pop>0</pop>
+				<rhm>90</rhm>
+				<sky>1</sky>
+				<spotAreaId>104</spotAreaId>
+				<spotAreaName>봉화</spotAreaName>
+				<spotName>(봉화)계서당(성이성 생가)</spotName>
+				<th3>21</th3>
+				<thema>종교/역사/전통</thema>
+				<tm>2020-07-18 21:00</tm>
+				<wd>126</wd>
+				<ws>0</ws>
+			</item>
+			<item>
+				<courseAreaId>4700000000</courseAreaId>
+				<courseAreaName>경상북도</courseAreaName>
+				<courseId>1</courseId>
+				<courseName>남호고택에서의 하룻밤</courseName>
+				<pop>0</pop>
+				<rhm>90</rhm>
+				<sky>1</sky>
+				<spotAreaId>104</spotAreaId>
+				<spotAreaName>봉화</spotAreaName>
+				<spotName>(봉화)계서당(성이성 생가)</spotName>
+				<th3>21</th3>
+				<thema>자연/힐링</thema>
+				<tm>2020-07-18 21:00</tm>
+				<wd>126</wd>
+				<ws>0</ws>
+			</item>
+			<item>
+				<courseAreaId>4700000000</courseAreaId>
+				<courseAreaName>경상북도</courseAreaName>
+				<courseId>1</courseId>
+				<courseName>남호고택에서의 하룻밤</courseName>
+				<pop>0</pop>
+				<rhm>90</rhm>
+				<sky>1</sky>
+				<spotAreaId>104</spotAreaId>
+				<spotAreaName>봉화</spotAreaName>
+				<spotName>(봉화)계서당(성이성 생가)</spotName>
+				<th3>21</th3>
+				<thema>체험/학습/산업</thema>
+				<tm>2020-07-18 21:00</tm>
+				<wd>126</wd>
+				<ws>0</ws>
+			</item>
+			<item>
+				<courseAreaId>4700000000</courseAreaId>
+				<courseAreaName>경상북도</courseAreaName>
+				<courseId>1</courseId>
+				<courseName>남호고택에서의 하룻밤</courseName>
+				<pop>0</pop>
+				<rhm>90</rhm>
+				<sky>1</sky>
+				<spotAreaId>103</spotAreaId>
+				<spotAreaName>봉화</spotAreaName>
+				<spotName>(봉화)지림사</spotName>
+				<th3>20</th3>
+				<thema>문화/예술</thema>
+				<tm>2020-07-18 21:00</tm>
+				<wd>130</wd>
+				<ws>0</ws>
+			</item>
+			<item>
+				<courseAreaId>4700000000</courseAreaId>
+				<courseAreaName>경상북도</courseAreaName>
+				<courseId>1</courseId>
+				<courseName>남호고택에서의 하룻밤</courseName>
+				<pop>0</pop>
+				<rhm>90</rhm>
+				<sky>1</sky>
+				<spotAreaId>103</spotAreaId>
+				<spotAreaName>봉화</spotAreaName>
+				<spotName>(봉화)지림사</spotName>
+				<th3>20</th3>
+				<thema>종교/역사/전통</thema>
+				<tm>2020-07-18 21:00</tm>
+				<wd>130</wd>
+				<ws>0</ws>
+			</item>
+			<item>
+				<courseAreaId>4700000000</courseAreaId>
+				<courseAreaName>경상북도</courseAreaName>
+				<courseId>1</courseId>
+				<courseName>남호고택에서의 하룻밤</courseName>
+				<pop>0</pop>
+				<rhm>90</rhm>
+				<sky>1</sky>
+				<spotAreaId>103</spotAreaId>
+				<spotAreaName>봉화</spotAreaName>
+				<spotName>(봉화)지림사</spotName>
+				<th3>20</th3>
+				<thema>자연/힐링</thema>
+				<tm>2020-07-18 21:00</tm>
+				<wd>130</wd>
+				<ws>0</ws>
+			</item>
+			<item>
+				<courseAreaId>4700000000</courseAreaId>
+				<courseAreaName>경상북도</courseAreaName>
+				<courseId>1</courseId>
+				<courseName>남호고택에서의 하룻밤</courseName>
+				<pop>0</pop>
+				<rhm>90</rhm>
+				<sky>1</sky>
+				<spotAreaId>103</spotAreaId>
+				<spotAreaName>봉화</spotAreaName>
+				<spotName>(봉화)지림사</spotName>
+				<th3>20</th3>
+				<thema>체험/학습/산업</thema>
+				<tm>2020-07-18 21:00</tm>
+				<wd>130</wd>
+				<ws>0</ws>
+			</item>
+			<item>
+				<courseAreaId>4700000000</courseAreaId>
+				<courseAreaName>경상북도</courseAreaName>
+				<courseId>1</courseId>
+				<courseName>남호고택에서의 하룻밤</courseName>
+				<pop>0</pop>
+				<rhm>90</rhm>
+				<sky>1</sky>
+				<spotAreaId>104</spotAreaId>
+				<spotAreaName>봉화</spotAreaName>
+				<spotName>(봉화)계서당(성이성 생가)</spotName>
+				<th3>21</th3>
+				<thema>문화/예술</thema>
+				<tm>2020-07-18 21:00</tm>
+				<wd>126</wd>
+				<ws>0</ws>
+			</item>
+			<item>
+				<courseAreaId>4700000000</courseAreaId>
+				<courseAreaName>경상북도</courseAreaName>
+				<courseId>1</courseId>
+				<courseName>남호고택에서의 하룻밤</courseName>
+				<pop>0</pop>
+				<rhm>90</rhm>
+				<sky>1</sky>
+				<spotAreaId>102</spotAreaId>
+				<spotAreaName>봉화</spotAreaName>
+				<spotName>(봉화)춘양목 송이마을</spotName>
+				<th3>19</th3>
+				<thema>종교/역사/전통</thema>
+				<tm>2020-07-18 21:00</tm>
+				<wd>130</wd>
+				<ws>0</ws>
+			</item>
+		</items>
+		<numOfRows>10</numOfRows>
+		<pageNo>1</pageNo>
+		<totalCount>256</totalCount>
+	</body>
+</response>
