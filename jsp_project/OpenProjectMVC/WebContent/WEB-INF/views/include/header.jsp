@@ -8,6 +8,8 @@
 		<li><a href="${pageContext.request.contextPath}/member/memberRegForm.do">회원가입</a></li>
 		
 		<li><a href="<c:url value="/member/memberList.do"/>">회원 리스트</a></li>
+		<li><a href="<c:url value="/member/memberListToJson.do"/>">member-JSON</a></li>
+		<li><a href="<c:url value="/member/memberListToXML.do"/>">member-XML</a></li>
 		
 		<c:if test="${!empty loginInfo}">
 		<li><a href="<c:url value="/login/logout.do"/>">로그아웃</a></li>
