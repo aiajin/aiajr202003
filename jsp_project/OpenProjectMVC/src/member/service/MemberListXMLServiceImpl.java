@@ -28,7 +28,6 @@ MemberDao dao;
 		// view 로 전달할 결과 데이터
 		//MemberListView listView = null;
 		List<Member> list = null;
-		String listJson = null;
 		
 		Connection conn = null;
 		
