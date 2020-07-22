@@ -1,4 +1,4 @@
-<%@page import="service.EmpListService"%>
+<%@page import="app.service.EmpListService"%>
 <%@page import="dao.EmpDao"%>
 <%@page import="guestbook.jdbc.ConnectionProvider"%>
 <%@page import="java.util.ArrayList"%>
