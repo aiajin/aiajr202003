@@ -1,15 +1,14 @@
-package member.service;
+package app.service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import app.service.Service;
-
-public class MemberRegFormServiceImpl implements Service {
+public class IndexServiceImpl implements Service {
 
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
-		return "/WEB-INF/views/member/regForm.jsp";
+		String page = "/WEB-INF/views/index.jsp";
+		return page;
 	}
 
 }

@@ -1,4 +1,4 @@
-package jdbc;
+package app.jdbc;
 
 import java.sql.DriverManager;
 
@@ -43,7 +43,7 @@ public class DBCPInit extends HttpServlet {
 			//String jdbcDriver = "jdbc:mysql://localhost:3306/project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
 			String jdbcDriver = "jdbc:mysql://aia.cek50lbziasl.ap-northeast-2.rds.amazonaws.com:3306/project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
 			String username = "bit";
-			String pw = "bit";
+			String pw = "bits";
 			
 			
 			//커넥션풀이 새로운 커넥션을 생성할 때 사용할 커넥션팩토리를 생성.

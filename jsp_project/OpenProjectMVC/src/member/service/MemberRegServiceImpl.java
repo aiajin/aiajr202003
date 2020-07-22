@@ -15,10 +15,10 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import jdbc.ConnectionProvider;
+import app.jdbc.ConnectionProvider;
+import app.service.Service;
 import member.dao.MemberDao;
 import member.model.Member;
-import service.Service;
 
 public class MemberRegServiceImpl implements Service {
 

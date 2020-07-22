@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbc.ConnectionProvider;
+import app.jdbc.ConnectionProvider;
+import app.service.Service;
 import member.dao.MemberDao;
 import member.model.Member;
-import service.Service;
 
 public class MemberEditFormServiceImpl implements Service {
 

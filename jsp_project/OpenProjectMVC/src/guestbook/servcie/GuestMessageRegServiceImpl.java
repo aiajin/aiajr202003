@@ -1,23 +1,16 @@
-package service;
+package guestbook.servcie;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class NullServiceImpl implements Service {
+import app.service.Service;
+
+public class GuestMessageRegServiceImpl implements Service {
 
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
-		// viewpage
-		String viewPage = "/WEB-INF/views/null.jsp";
-		return viewPage;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
-
-
-
-
-
-
-
-

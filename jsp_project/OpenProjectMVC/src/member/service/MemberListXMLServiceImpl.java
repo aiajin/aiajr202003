@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import jdbc.ConnectionProvider;
+import app.jdbc.ConnectionProvider;
+import app.service.Service;
 import member.dao.MemberDao;
 import member.model.Member;
 import member.model.MemberListView;
-import service.Service;
 
 public class MemberListXMLServiceImpl implements Service {
 

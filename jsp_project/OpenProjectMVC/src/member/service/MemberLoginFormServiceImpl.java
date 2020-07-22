@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbc.ConnectionProvider;
+import app.jdbc.ConnectionProvider;
+import app.service.Service;
 import member.dao.MemberDao;
-import service.Service;
 
 public class MemberLoginFormServiceImpl implements Service {
 

@@ -9,7 +9,7 @@
   <!-- FrontController 등록 -->
   <servlet>
   	<servlet-name>FrontColtroller</servlet-name>
-  	<servlet-class>controller.FrontController</servlet-class>
+  	<servlet-class>app.controller.FrontController</servlet-class>
   	<load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -22,10 +22,20 @@
   <!-- DBCP 등록 : 초기화 -->
   <servlet>
   	<servlet-name>DBCPInit</servlet-name>
-  	<servlet-class>jdbc.DBCPInit</servlet-class>
+  	<servlet-class>app.jdbc.DBCPInit</servlet-class>
   	<load-on-startup>1</load-on-startup>
   </servlet>
   
+  
+  <!-- charEncoding : utf-8 설정 -->
+  <filter>
+  	<filter-name>CharEncoding</filter-name>
+  	<filter-class>app.filter.CharacterEncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>CharEncoding</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
   
   
   

@@ -4,7 +4,7 @@
 ##########################################################################################
 #/=service.IndexServiceImpl index.html
 # Index
-/index.do=service.IndexServiceImpl
+/index.do=app.service.IndexServiceImpl
 
 ##########################################################################################
 # 회원 가입 페이지
