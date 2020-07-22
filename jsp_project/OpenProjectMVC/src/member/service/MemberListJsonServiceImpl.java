@@ -2,7 +2,6 @@ package member.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +12,6 @@ import com.google.gson.Gson;
 import jdbc.ConnectionProvider;
 import member.dao.MemberDao;
 import member.model.Member;
-import member.model.MemberListView;
 import service.Service;
 
 public class MemberListJsonServiceImpl implements Service {
@@ -28,7 +26,8 @@ MemberDao dao;
 		// view 로 전달할 결과 데이터
 		//MemberListView listView = null;
 		List<Member> list = null;
-		String listJson = null;
+		// JSON 문자열
+		String listJson = null;// {"name":"son"}
 		
 		Connection conn = null;
 		
@@ -40,6 +39,7 @@ MemberDao dao;
 			
 			Gson gson = new Gson();
 			
+			// Java Object -> JSON
 			listJson = gson.toJson(list);
 			
 			
