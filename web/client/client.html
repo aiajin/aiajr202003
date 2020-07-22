@@ -13,6 +13,10 @@
             width: 33%;
             border: 1px solid #ddd;
         }
+        
+        img {
+            width : 50px;
+        }
     </style>
 </head>
 <body>
@@ -26,7 +30,7 @@
 	$(document).ready(function(){
 
             $.ajax({
-                url : 'http://localhost:8080/op/member/memberListToXML.do',
+                url : 'http://localhost:8080/opmvc/member/memberListToXML.do',
                 type : 'get',                                
                 success : function(data){
                     //alert(data);
@@ -39,7 +43,7 @@
                         
                         var html = '';
                         html += '<div class="card">';
-                        html += idx + '<br>' + uid + '<br>' + uname + '<br>' + upw + '<br>' + '<img src="http://localhost:8080/op/'+uphoto+'">';
+                        html += idx + '<br>' + uid + '<br>' + uname + '<br>' + upw + '<br>' + '<img src="http://localhost:8080/opmvc/'+uphoto+'">';
                         html += '</div>';
                         
                         $('body').append(html);
