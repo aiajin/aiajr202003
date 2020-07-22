@@ -10,8 +10,7 @@ public class Message {
 	private String message;
 	private Date regdate;
 
-	Message(int mid, String uname, String pw, String message, Date regdate) {
-		super();
+	public Message(int mid, String uname, String pw, String message, Date regdate) {
 		this.mid = mid;
 		this.uname = uname;
 		this.pw = pw;

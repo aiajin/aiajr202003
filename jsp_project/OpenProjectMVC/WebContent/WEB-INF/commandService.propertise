@@ -36,3 +36,12 @@
 /login/login.do=member.service.MemberLoginServiceImpl
 # 로그아웃 처리
 /login/logout.do=member.service.MemberLogoutServiceImpl
+
+##########################################################################################
+# 방명록 작성 폼
+/guestbook/writeForm.do=guestbook.servcie.GuestMessageRegFormServiceImpl
+# 방명록 작성
+/guestbook/write.do=guestbook.servcie.GuestMessageRegServiceImpl
+
+# 방명록 리스트
+/guestbook/list.do=guestbook.servcie.GuestMessageListServiceImpl

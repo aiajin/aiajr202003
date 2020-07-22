@@ -60,11 +60,11 @@ public class GuestMessageListServiceImpl implements Service {
 
 			if (messageTotalCount > 0) {
 
-				// 시작 행, 마지마 행
-				startRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE + 1;
-				endRow = startRow + MESSAGE_COUNT_PER_PAGE - 1;
+				// 시작 행, 마지막 행
+				startRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE;
+				// endRow = startRow + MESSAGE_COUNT_PER_PAGE - 1;
 
-				messageList = dao.selectMessageList(conn, startRow, endRow);
+				messageList = dao.selectMessageList(conn, startRow, MESSAGE_COUNT_PER_PAGE);
 
 			} else {
 				pageNumber = 0;
@@ -91,8 +91,12 @@ public class GuestMessageListServiceImpl implements Service {
 			}
 
 		}
+		
+		System.out.println(messageListView);
+		
+		request.setAttribute("listView", messageListView);
 
-		return "/WEB-INF/guest/GuestBookList.jsp";
+		return "/WEB-INF/views/guest/list.jsp";
 	}
 
 }
