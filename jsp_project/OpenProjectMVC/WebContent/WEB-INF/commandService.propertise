@@ -45,3 +45,11 @@
 
 # 방명록 리스트
 /guestbook/list.do=guestbook.servcie.GuestMessageListServiceImpl
+# 방명록 confirm password
+/guestbook/confirmpw.do=guestbook.servcie.GuestMessageConfirmPWServiceImpl
+# 방명록 메시지 수정 Form
+/guestbook/editForm.do=guestbook.servcie.GuestMessageEditFormServiceImpl
+# 방명록 메시지 수정
+/guestbook/edit.do=guestbook.servcie.GuestMessageEditServiceImpl
+# 방명록 메시지 삭제
+/guestbook/delete.do=guestbook.servcie.GuestMessageDeleteServiceImpl
