@@ -76,8 +76,8 @@ div.msg_box>div.control {
 					<div class="uname">${message.uname}</div>
 					<div class="message">${message.message}</div>
 					<div class="control">
-						<a href="deleteMessageConfirm.jsp?mid=${message.mid}">수정</a>
-						<a href="deleteMessageConfirm.jsp?mid=${message.mid}">삭제</a>
+						<a href="confirmpw.do?mid=${message.mid}&action=edit">수정</a>
+						<a href="javascript:memberDel(${message.mid})">삭제</a>
 					</div>
 				</div>
 
@@ -105,16 +105,11 @@ div.msg_box>div.control {
 
 
 <script>
+	
 	function memberDel(idx) {
 		if (confirm('선택하신 회원 정보를 삭제하시겠습니까?')) {
-			location.href = 'delete.do?idx=' + idx;
+			location.href = 'confirmpw.do?action=delete&mid=' + idx;
 		}
 
 	}
 </script>
-
-
-
-
-
-
