@@ -1,11 +1,18 @@
 #Command Propertise
 #uri=Class Full Name
 
+
+##########################################################################################
+# main
 ##########################################################################################
 #/=service.IndexServiceImpl index.html
 # Index
 /index.do=app.service.IndexServiceImpl
 
+
+
+##########################################################################################
+# 회원
 ##########################################################################################
 # 회원 가입 페이지
 /member/memberRegForm.do=member.service.MemberRegFormServiceImpl
@@ -14,7 +21,6 @@
 # 회원 가입시 아이디 체크
 /member/idCheck.do=member.service.IdCheckServiceImpl
 
-##########################################################################################
 # 회원 리스트 출력 
 /member/memberList.do=member.service.MemberListServiceImpl
 # 회원 리스트 출력 JSON
@@ -29,6 +35,10 @@
 # 회원 수정 
 /member/memberEdit.do=member.service.MemberEditServiceImpl
 
+
+
+##########################################################################################
+# login
 ##########################################################################################
 # 로그인 폼
 /login/loginForm.do=member.service.MemberLoginFormServiceImpl
@@ -37,6 +47,10 @@
 # 로그아웃 처리
 /login/logout.do=member.service.MemberLogoutServiceImpl
 
+
+
+##########################################################################################
+# guestbook
 ##########################################################################################
 # 방명록 작성 폼
 /guestbook/writeForm.do=guestbook.servcie.GuestMessageRegFormServiceImpl
@@ -53,3 +67,12 @@
 /guestbook/edit.do=guestbook.servcie.GuestMessageEditServiceImpl
 # 방명록 메시지 삭제
 /guestbook/delete.do=guestbook.servcie.GuestMessageDeleteServiceImpl
+
+
+
+##########################################################################################
+# Board 게시판
+##########################################################################################
+# Board Write Form
+/board/writeForm.do=board.service.BoardWriteFormService
+/board/write.do=board.service.BoardWriteService
