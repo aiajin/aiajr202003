@@ -162,4 +162,29 @@ public class MessageDao {
 		return resultCnt;
 	}
 
+	public int editMessage(Connection conn, Message message) throws SQLException {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = "update project.guestbook_message set guest_name=?, password=?, message=? where message_id=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, message.getUname());
+			pstmt.setString(2, message.getPw());
+			pstmt.setString(3, message.getMessage());
+			pstmt.setInt(4, message.getMid());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		
+		return result;
+	}
+
+
 }
