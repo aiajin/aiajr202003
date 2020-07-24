@@ -18,7 +18,7 @@
 		<c:if test="${empty loginInfo}">
 		<li><a href="<c:url value="/login/loginForm.do"/>">로그인</a></li>
 		</c:if>
-		${param.page}
+		
 		<li><a href="<c:url value="/member/mypage/mypage.jsp"/>">마이페이지</a></li>
 		<li><a href="<c:url value="/guestbook/list.do"/>">방명록(비회원)</a></li>
 		<li><a href="<c:url value="/board/list.jsp"/>">방명록(회원제)</a></li>
