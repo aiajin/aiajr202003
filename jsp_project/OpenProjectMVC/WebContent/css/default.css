@@ -7,6 +7,7 @@
 
 #header {
 	padding: 15px 20px;
+	
 }
 
 #nav {
@@ -14,11 +15,12 @@
 	border-top: 1px solid #DDD;
 	overflow: hidden;
 	list-style: none;
+	font-size: 14px;
 }
 
 #nav>li {
 	float: left;
-	padding: 5px 20px;
+	padding: 15px 20px;
 }
 
 footer {
@@ -34,6 +36,7 @@ footer {
 
 .subtitle{
 	padding : 15px 0;
+	font-size: 1.2em;
 }
 
 hr {
@@ -54,6 +57,8 @@ table.table td, table.table th {
 	padding : 5px;
 	border: 1px solid #DDD;
 	text-align: center;
+	
+	font-size: 14px;
 }
 
 input[type=text], input[type=password], input[type=email] {
@@ -71,7 +76,7 @@ div.paging>a.paging_num {
 	display: block;
 	
 	float : left;
-	
+
 	width : 30px;
 	height : 30px;
 	
@@ -84,6 +89,7 @@ div.paging>a.paging_num {
 	
 	padding : 5px;
 	margin : 0 10px;
+	
 }
 
 .now_page {
@@ -91,6 +97,10 @@ div.paging>a.paging_num {
 	color : #FFF;
 	font-weight: bold;
 	
+}
+
+a {
+	text-decoration: none;	
 }
 
 

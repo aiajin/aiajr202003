@@ -11,12 +11,13 @@ import app.service.Service;
 import guestbook.dao.MessageDao;
 import guestbook.model.Message;
 
-public class GuestMessageDeleteServiceImpl implements Service {
+public class GuestMessageEditFormServiceImpl implements Service {
 
 	MessageDao dao;
-	
+
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
+
 		Connection conn = null;
 		Message message = null;
 
@@ -38,8 +39,6 @@ public class GuestMessageDeleteServiceImpl implements Service {
 				throw new Exception("비밀번호 불일치");
 			}
 			
-			dao.deleteMessage(conn, mid);
-			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -59,7 +58,7 @@ public class GuestMessageDeleteServiceImpl implements Service {
  
 		request.setAttribute("message", message);
 
-		return "/WEB-INF/views/guest/delete.jsp";
+		return "/WEB-INF/views/guest/editForm.jsp";
 	}
 
 }
