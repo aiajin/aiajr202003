@@ -2,8 +2,6 @@ package board.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,19 +13,8 @@ import board.dao.BoardDao;
 import board.model.Board;
 import board.model.WriteRequest;
 
+public class BoardWriteServiceImpl implements Service {
 
-public class BoardWriteService implements Service {
-
-	private static BoardWriteService instance = new BoardWriteService();
-
-	public static BoardWriteService getInstance() {
-		return instance;
-	}
-
-	private BoardWriteService() {
-
-	}
-	
 	BoardDao dao;
 
 	@Override
@@ -40,11 +27,7 @@ public class BoardWriteService implements Service {
 				request.getParameter("writer_id"), 
 				request.getParameter("writer_name"));
 		
-		System.out.println(writeRequest);
-		
 		Board board = writeRequest.toBoard();
-		
-		System.out.println(board);
 
 		Connection conn = null;
 

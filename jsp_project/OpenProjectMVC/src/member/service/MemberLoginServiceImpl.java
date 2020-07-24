@@ -47,7 +47,7 @@ public class MemberLoginServiceImpl implements Service {
 				LoginInfo loginInfo = new LoginInfo(member.getUid(), member.getUname(), member.getUphoto());
 				
 				request.getSession().setAttribute("loginInfo", loginInfo);
-
+				
 				// 쿠키 설정에 사용한 변수
 				String cookieName = "uid";
 				String cookiepath = request.getContextPath();
