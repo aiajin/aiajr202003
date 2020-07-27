@@ -58,9 +58,9 @@
                 success: function(res) {
                     $('#content').html(JSON.stringify(res));
                     alert(JSON.stringify(res));
-                    alert(res.properties.nickname);
-                    alert(res.properties.profile_image);
-                    alert(res.properties.thumbnail_image);
+                    alert(res.propertise.nickname);
+                    alert(res.propertise.profile_image);
+                    alert(res.propertise.thumbnail_image);
                     alert(res.kakao_account.email);
                 },
                 fail: function(error) {
