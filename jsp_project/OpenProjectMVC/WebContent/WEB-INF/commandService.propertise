@@ -74,5 +74,5 @@
 # Board 게시판
 ##########################################################################################
 # Board Write Form
-/board/writeForm.do=board.service.BoardWriteFormService
-/board/write.do=board.service.BoardWriteService
+/board/writeForm.do=board.service.BoardWriteFormServiceImpl
+/board/write.do=board.service.BoardWriteServiceImpl
