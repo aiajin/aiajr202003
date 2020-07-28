@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="memberDao" class="di.dao.MemberDao">
+	</bean>
+	
+	<bean id="memberregSvc" class="di.service.MemberRegisterService2">
+		<property name="dao">
+			<ref bean="memberDao"/>
+		</property>
+	</bean>
+	
+	<bean id="memberPwSvc" class="di.service.ChangePasswordService2">
+		<property name="dao" ref="memberDao"/>
+	</bean>
+	
+
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Java 코드의 애노테이션을 적용하기위한 설정 -->
+	<context:annotation-config />
+
+	<bean id="dao" class="di.dao.MemberDao"/>
+	
+	<bean id="memberregSvc" class="di.service.MemberRegisterService2"/>
+	
+	<bean id="memberPwSvc" class="di.service.ChangePasswordService2"/>
+	
+
+</beans>
