@@ -12,7 +12,10 @@
 	<ul> 
 		<li><a href="<c:url value='/hello'/>">/hello</a></li>
 		<li><a href="bye">/bye</a></li>
-	</ul>	
+		
+		<!-- /mvc/login/login -->
+		<li><a href="<c:url value='/login/login'/>">/login/login(GET)</a></li>
+	</ul>	 
 
 
 
