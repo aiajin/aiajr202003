@@ -8,7 +8,7 @@ import di.domain.Member;
 import di.exception.IdPasswordNotMatchingException;
 import di.exception.MemberNotFoundException;
 
-@Component("memberPwSvc1")
+@Component("memberPwSvc")
 public class ChangePasswordService3 {
 	
 	@Autowired

@@ -77,7 +77,7 @@ public class MainForSpring5 {
 		}
 		
 		ChangePasswordService3 changePwdSvc = 
-				ctx.getBean("memberPwSvc1", ChangePasswordService3.class);
+				ctx.getBean("changePasswordService3", ChangePasswordService3.class);
 		
 		try {
 			changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
