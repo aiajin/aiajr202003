@@ -27,7 +27,7 @@ public class LoginController {
 	public String login(HttpServletRequest request,
 			@RequestParam("uid") String userId,
 			@RequestParam("upw") String userPw,
-			@ModelAttribute("login") LoginRequest loginRequest,
+			@ModelAttribute("login") LoginRequest loginRequest, // loginRequest
 			Model model
 			) {	
 		

@@ -14,6 +14,15 @@
 		주소 : ${orderCommand.address.address1} ${orderCommand.address.address2} (${orderCommand.address.zipcode} )  
 	</div>
 	
+	<c:forEach items="${orderCommand.orderItems}" var="item">
+	<div>
+		상품 명 : ${item.itemId} / 
+		수량 : ${item.number} / 
+		주의사항 : ${item.remark}
+	</div>
+	
+	</c:forEach>
+	
 
 
 
