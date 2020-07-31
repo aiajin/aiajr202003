@@ -16,7 +16,7 @@ public class SearchController {
 
 	@RequestMapping("/search")
 	public String search(
-			@RequestParam(name = "query", required = false) String query,
+			@RequestParam(value = "query", required = false) String query,
 			@RequestParam(name = "page", defaultValue = "1") int pageNumber,
 			Model model
 			) {

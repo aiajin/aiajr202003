@@ -1,0 +1,10 @@
+Spring Open Project 
+
+Model2 에서 구현한 구조와 비슷하게 구성이 됩니다.
+
+구현 순서.
+1. spring Legacy Project의 템플릿 프로젝트를 생성합니다.
+2. 프로젝트 환경설정을 해줍니다.
+   1) java 버전 설정
+   2) maven 설정 파일에서 spring framework 버전 설정
+   3) 
