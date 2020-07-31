@@ -15,6 +15,9 @@
 		
 		<!-- /mvc/login/login -->
 		<li><a href="<c:url value='/login/login'/>">/login/login(GET)</a></li>
+		
+		<li><a href="<c:url value="/search" />">/search</a></li>
+		<li><a href="<c:url value="/order/order" />">/order/order</a></li>
 	</ul>	 
 
 
