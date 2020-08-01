@@ -17,7 +17,6 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 
 	<div>
-		${ }
 	</div>
 
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
