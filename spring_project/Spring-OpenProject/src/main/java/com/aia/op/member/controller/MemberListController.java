@@ -16,12 +16,9 @@ public class MemberListController {
 	@Autowired
 	MemberListService listService;
 	
-	@RequestMapping("/member/list")
+	@RequestMapping("/member/memberList")
 	public String getMemberList(Model model, HttpServletRequest request, HttpServletResponse response) {
-		
 		model.addAttribute("listView", listService.getView(request, response));
-		
 		return "/member/memberList";
 	}
-
 }
