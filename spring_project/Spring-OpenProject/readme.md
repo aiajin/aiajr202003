@@ -6,7 +6,7 @@ written by JIN (jin.ryoo@gmail.com)
 * Spring MVC module
 * Mybatis
 
-### 프로젝트 설정 파일
+## 프로젝트 설정 파일
 * pom.xml ( Maven 빌드 도구 설정 ) 
     * /pom.xml 
     * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/pom.xml)
@@ -20,7 +20,7 @@ written by JIN (jin.ryoo@gmail.com)
     * /src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml
     * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml)
 
-#### 구현 기능
+## 구현 기능
 
 * 회원 리스트
     * controller  
