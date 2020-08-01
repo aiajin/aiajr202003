@@ -1,12 +1,12 @@
 # OPEN PROJECT
 written by JIN (jin.ryoo@gmail.com)
 
-#### 구현 스택
+## 구현 스택
 * Spring Framework
 * Spring MVC module
 * Mybatis
 
-#### 프로젝트 설정 파일
+### 프로젝트 설정 파일
 * pom.xml ( Maven 빌드 도구 설정 ) 
     * /pom.xml 
     * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/pom.xml)
