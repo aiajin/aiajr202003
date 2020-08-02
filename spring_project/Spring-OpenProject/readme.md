@@ -37,9 +37,37 @@ written by JIN (jin.ryoo@gmail.com)
         * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/webapp/WEB-INF/views/member/memberList.jsp)
 * 회원가입
     * controller
+      * /src/main/java/com/aia/op/member/controller/MemberRegController.java
+      * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/java/com/aia/op/member/controller/MemberRegController.java)
+      * /src/main/java/com/aia/op/member/controller/IdCheckController.java
+      * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/java/com/aia/op/member/controller/IdCheckController.java)
     * Service
+      * /src/main/java/com/aia/op/member/service/MemberRegService.java
+      * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/java/com/aia/op/member/service/MemberRegService.java)
+      * /src/main/java/com/aia/op/member/service/IdCheckService.java
+      * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/java/com/aia/op/member/service/IdCheckService.java)
     * dao
+        * /src/main/java/com/aia/op/member/dao/MemberDao.java
+        * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/java/com/aia/op/member/dao/MemberDao.java)
     * view ( JSP )
+      * /src/main/webapp/WEB-INF/views/member/loginForm.jsp
+      * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/webapp/WEB-INF/views/member/loginForm.jsp)
+      * /src/main/webapp/WEB-INF/views/member/memberReg.jsp
+      * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/webapp/WEB-INF/views/member/memberReg.jsp)
+      * /src/main/webapp/WEB-INF/views/member/idCheck.jsp
+      * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/webapp/WEB-INF/views/member/memberReg.jsp)
+    * servlet-context.xml
+      * /src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml
+      * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/webapp/WEB-INF/views/member/idCheck.jsp)
+      ```
+      <!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->
+      <beans:bean id="multipartResolver"
+         class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+         <beans:property name="defaultEncoding">
+            <beans:value>utf-8</beans:value>
+         </beans:property>
+      </beans:bean>
+      ```
 * 로그인
     * controller
     * Service
