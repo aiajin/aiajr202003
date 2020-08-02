@@ -48,7 +48,7 @@
 				<td>${member.upw}</td>
 				<td><img alt="프사 " src="${imagePath}/${member.uphoto}">  </td>
 				<td>
-				<a href="memberEditForm.do?idx=${member.idx}">수정</a> 
+				<a href="memberEdit?idx=${member.idx}">수정</a> 
 				| 
 				<a href="javascript:memberDel(${member.idx})">삭제</a></td>
 			</tr>
@@ -67,7 +67,7 @@
 		<div class="paging">
 			<c:forEach begin="1" end="${listView.pageTotalCount}" var="i">
 			
-			<a class="paging_num ${i == listView.currentPageNumber ? 'now_page' : ''}" href="memberList.do?page=${i}" >${i}</a>
+			<a class="paging_num ${i == listView.currentPageNumber ? 'now_page' : ''}" href="memberList?page=${i}" >${i}</a>
 			
 			</c:forEach>
 		</div>
@@ -85,7 +85,7 @@
 <script>
 	function memberDel(idx){
 		if(confirm('선택하신 회원 정보를 삭제하시겠습니까?')){
-			location.href = 'memberDelete.do?idx='+idx;
+			location.href = 'memberDelete?idx='+idx;
 		}
 		
 	}
