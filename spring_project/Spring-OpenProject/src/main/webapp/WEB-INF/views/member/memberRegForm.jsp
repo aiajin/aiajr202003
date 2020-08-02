@@ -30,8 +30,8 @@
 	<div>
 		<h1 class="subtitle">회원 가입</h1>
 		<hr>
-		<form id="regForm" action="memberReg.do" method="post" enctype="multipart/form-data">
-			<table>
+		<form id="regForm" method="post" enctype="multipart/form-data">
+			<table class="table">
 				<tr>
 					<td>아이디(email)</td>
 					<td> <input type="email" name="uid" id="uid" >
@@ -102,7 +102,7 @@
 			
 			// 비동기 통신
 			$.ajax({
-				url : 'idCheck.do',
+				url : 'idCheck',
 				data : { uid : $(this).val()},
 				success : function(data){
 					if(data == 'Y'){

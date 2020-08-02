@@ -22,14 +22,14 @@
 		<hr>
 		<h3>
 		
-		<c:if test="${result gt 0 && member ne null}">
+		<c:if test="${result gt 0 }">
 			<div>
 				회원가입 완료
 			</div>
 			${member}
 		</c:if>
 		
-		<c:if test="${not (result gt 0 && member ne null)}">
+		<c:if test="${result lt 0 }">
 			회원가입 실패
 		</c:if>
 		

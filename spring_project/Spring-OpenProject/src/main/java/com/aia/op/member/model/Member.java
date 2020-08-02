@@ -19,6 +19,11 @@ public class Member {
 		this.uphoto = uphoto;
 		this.regdate = regdate;
 	}
+	
+	// MemberRegRequest -> Member
+	public Member(String uid, String upw, String uname) {
+		this(0, uid, upw, uname, null, null);
+	}
 
 	public Member() {
 	}
