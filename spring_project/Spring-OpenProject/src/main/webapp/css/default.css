@@ -54,15 +54,23 @@ table.table {
 }
 
 table.table td, table.table th {
-	padding : 5px;
+	padding : 15px;
 	border: 1px solid #DDD;
-	text-align: center;
 	
 	font-size: 14px;
 }
 
+table.table tr>td:nth-child(1){
+	text-align: center;
+	width : 200px;	
+	font-weight: bold;
+}
+
 input[type=text], input[type=password], input[type=email] {
 	padding : 3px;
+	width : 50%;
+	height : 30px;
+	font-size: 24px;
 }
 
 
