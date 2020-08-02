@@ -56,7 +56,7 @@
 		
 		<c:if test="${empty listView.memberList }">
 			<tr>
-				<th>조회된 회원이 없습니다.</th>
+				<th colspan="6">조회된 회원이 없습니다.</th>
 			</tr>
 		</c:if>
 
