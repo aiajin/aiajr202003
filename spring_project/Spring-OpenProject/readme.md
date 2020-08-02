@@ -67,6 +67,12 @@ written by JIN (jin.ryoo@gmail.com)
             <beans:value>utf-8</beans:value>
          </beans:property>
       </beans:bean>
+      
+      <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+      <resources mapping="/resources/**" location="/resources/" />
+      <resources mapping="/css/**" location="/css/" />
+      <resources mapping="/js/**" location="/js/" />
+      <resources mapping="/upload/**" location="/upload/" />
       ```
 * 로그인
     * controller
