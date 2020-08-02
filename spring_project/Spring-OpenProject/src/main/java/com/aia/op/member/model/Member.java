@@ -80,6 +80,11 @@ public class Member {
 	public java.util.Date getToDate() {// ${member.toDate}
 		return new java.util.Date(regdate.getTime());
 	}
+	
+	// Member -> LoginInfo : 로그인 처리시 저장할 데이터
+	public LoginInfo toLoginInfo() {
+		return new LoginInfo(uid, uname, uphoto) ;
+	}
 
 	@Override
 	public String toString() {

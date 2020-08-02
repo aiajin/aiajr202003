@@ -22,11 +22,11 @@
 	<div>
 		<h1 class="subtitle">로그인</h1>
 		<hr>
-		<form action="login.do" method="post">
+		<form method="post">
 		
 			<input type="text" name="redirecUri" 
 			
-			value="<%= request.getHeader("referer")%>" style=" width : 50% ;" >			
+			value="${header.referer}" style=" width : 50% ;" >			
 			
 			
 			<table class="table">
@@ -36,7 +36,7 @@
 				</tr>
 				<tr>
 					<td> PW </td>
-					<td> <input type="password" name="pw"> </td>
+					<td> <input type="password" name="upw"> </td>
 				</tr>				
 				<tr>
 					<td></td>
