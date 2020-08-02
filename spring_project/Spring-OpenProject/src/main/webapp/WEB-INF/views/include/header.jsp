@@ -16,7 +16,7 @@
 		</c:if>
 		
 		<c:if test="${empty loginInfo}">
-		<li><a href="<c:url value="/login/loginForm"/>">로그인</a></li>
+		<li><a href="<c:url value="/login/login"/>">로그인</a></li>
 		</c:if>
 		
 		<li><a href="<c:url value="/member/mypage/mypage"/>">마이페이지</a></li>
