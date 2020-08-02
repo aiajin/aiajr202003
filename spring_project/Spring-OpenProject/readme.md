@@ -23,7 +23,7 @@ written by JIN (jin.ryoo@gmail.com)
 ## 구현 기능
 
 * 회원 리스트
-    * controller  
+    * controller
         * /src/main/java/com/aia/op/member/controller/MemberListController.java
         * [view-source](https://github.com/aiajin/aiajr202003/blob/master/spring_project/Spring-OpenProject/src/main/java/com/aia/op/member/controller/MemberListController.java)
     * Service
