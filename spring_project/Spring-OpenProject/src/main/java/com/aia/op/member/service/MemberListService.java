@@ -8,17 +8,20 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.aia.op.jdbc.ConnectionProvider;
 import com.aia.op.member.dao.MemberDao;
 import com.aia.op.member.model.Member;
 import com.aia.op.member.model.MemberListView;
 
-@org.springframework.stereotype.Service
+@Service
 public class MemberListService  {
 
+	@Autowired
 	MemberDao dao;
 	
-
 	public MemberListView getView(
 			HttpServletRequest request, 
 			HttpServletResponse response) {
@@ -30,8 +33,6 @@ public class MemberListService  {
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = MemberDao.getInstance();
-			
 			// 전체 게시물 개수 구하기
 			int totalCnt =  dao.selectTotalCount(conn);
 			
