@@ -8,16 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.aia.op.member.model.Member;
 
+@Repository
 public class MemberDao {
-
-	private MemberDao() {
-	}
-	private static MemberDao dao = new MemberDao();
-	public static MemberDao getInstance() {
-		return dao;
-	}
 
 	public int insertMember(Connection conn, Member member) throws SQLException {
 		int resultCnt = 0;
