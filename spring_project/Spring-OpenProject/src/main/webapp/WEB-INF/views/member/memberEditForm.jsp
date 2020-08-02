@@ -31,9 +31,9 @@
 		<h1 class="subtitle">회원 수정</h1>
 		<hr>
 		<!-- 이 페이지는 데이터 베이스에 저장된 데이터를 value 값에 세팅해야합니다. -->
-		<form id="editForm" action="memberEdit.do" method="post" enctype="multipart/form-data">
+		<form id="editForm" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="idx" value="${member.idx}">
-			<table>
+			<table class="table">
 				<tr>
 					<td>아이디(email) </td>
 					<td> <input type="email" name="uid" id="uid" value="${member.uid}" readonly  >아이디는 수정이 불가합니다.</td>
