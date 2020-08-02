@@ -29,7 +29,7 @@
 			${member}
 		</c:if>
 		
-		<c:if test="${result lt 0 }">
+		<c:if test="${result lt 1 }">
 			회원가입 실패
 		</c:if>
 		
