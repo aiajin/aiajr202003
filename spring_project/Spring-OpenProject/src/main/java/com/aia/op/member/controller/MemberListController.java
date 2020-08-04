@@ -1,5 +1,7 @@
 package com.aia.op.member.controller;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,7 +19,7 @@ public class MemberListController {
 	MemberListService listService;
 	
 	@RequestMapping("/member/memberList")
-	public String getMemberList(Model model, HttpServletRequest request, HttpServletResponse response) {
+	public String getMemberList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		model.addAttribute("listView", listService.getView(request, response));
 		return "/member/memberList";
 	}
