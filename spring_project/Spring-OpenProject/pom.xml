@@ -114,17 +114,23 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 
-		<!-- 
-				### 데이터 베이스 사용 설정  
-				1. Mysql Connector
-				2. commons-dbcp2
-				3. commons-pool2
-				4. commons-logging  
-		-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+
+
+
+		<!-- ### 데이터 베이스 사용 설정 1. Mysql Connector 2. commons-dbcp2 3. commons-pool2 
+			4. commons-logging -->
 		<!-- mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -153,13 +159,16 @@
 			<version>1.2</version>
 		</dependency>
 
+		<!-- HikariCP Pool  -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>3.4.5</version>
+		</dependency>
 
 
-		<!-- 
-				### 파일 업로드 사용 설정  
-				1. commons-fileupload
-				2. commons-io
-		 -->
+
+		<!-- ### 파일 업로드 사용 설정 1. commons-fileupload 2. commons-io -->
 
 		<!-- commons-fileupload : 파일 업로드 -->
 		<dependency>
@@ -174,6 +183,7 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.7</version>
 		</dependency>
+
 
 
 

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.aia.op.member.model.Member;
 import com.aia.op.member.model.MemberRegRequest;
 import com.aia.op.member.service.MemberRegService;
 
@@ -26,11 +27,13 @@ public class MemberRegController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String getMemberReg(
 			MemberRegRequest regRequest,
+			/* Member member, */
 			HttpServletRequest request,
 			Model model
 			) {
 		
 		System.out.println("controller : "+regRequest);
+		/* System.out.println("member : "+member); */
 		
 		model.addAttribute("result", regService.memberReg(regRequest, request));
 		
