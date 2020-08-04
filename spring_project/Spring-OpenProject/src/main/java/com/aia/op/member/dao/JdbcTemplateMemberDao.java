@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,40 +24,18 @@ public class JdbcTemplateMemberDao {
 		return jdbcTemplate.queryForObject("select count(*) from project.member", Integer.class);
 	}
 
-	public List<Member> selectList(Connection conn, int startRow, int count) throws SQLException {
+	public List<Member> selectList(int startRow, int count) throws SQLException {
 		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 		
-		List<Member> memberList = new ArrayList<Member>();
+//		List<Member> memberList = new ArrayList<Member>();
+//		String sql = "select * from project.member order by uname limit ?, ?";
+//		memberList = jdbcTemplate.query(sql,new Object[] {startRow, count}, new MemberRowMapper());
+//		return memberList;
 		
-		String sql = "select * from project.member order by uname limit ?, ?";
+		return jdbcTemplate.query("select * from project.member order by uname limit ?, ?",new Object[] {startRow, count}, new MemberRowMapper());
 		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, count);
-			
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				Member member = new Member();
-				member.setIdx(rs.getInt("idx"));
-				member.setUid(rs.getString("uid"));
-				member.setUpw(rs.getString("upw"));
-				member.setUname(rs.getString("uname"));
-				member.setUphoto(rs.getString("uphoto"));
-				
-				memberList.add(member);
-			}
-			
-		} finally {
-			if(pstmt != null) {
-				pstmt.close();
-			}
-		}
 		
-		return memberList;
+		
 	}
 
 	
