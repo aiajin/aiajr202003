@@ -49,6 +49,8 @@ public class MemberListService {
 		String searchType = request.getParameter("searchType");
 		String keyword = request.getParameter("keyword");
 		
+		
+		// 검색을 위한 데이터가 있을 때만 Map에 추가
 		if(searchType != null && !searchType.isEmpty()) {
 			search.put("searchType", searchType);
 		}
@@ -89,6 +91,7 @@ public class MemberListService {
 
 			System.out.println(startRow);
 			
+			// Map에 페이징 데이터 주가
 			search.put("startRow", startRow);
 			search.put("count", MEMBER_CNT_PER_PAGE);
 
