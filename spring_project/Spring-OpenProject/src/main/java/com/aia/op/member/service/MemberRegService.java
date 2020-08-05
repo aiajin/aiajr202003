@@ -7,11 +7,13 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.aia.op.jdbc.ConnectionProvider;
+import com.aia.op.member.dao.MemberDaoInterface;
 import com.aia.op.member.dao.MybatisMemberDao;
 import com.aia.op.member.model.Member;
 import com.aia.op.member.model.MemberRegRequest;
@@ -22,18 +24,28 @@ public class MemberRegService {
 //	@Autowired
 //	MemberDao dao;
 	
+//	@Autowired
+//	MybatisMemberDao dao;
+	
+	private MemberDaoInterface dao;
+	
 	@Autowired
-	MybatisMemberDao dao;
+	private SqlSessionTemplate sessionTemplate;
+	
 	
 	public int memberReg(
 			MemberRegRequest regRequest,
 			HttpServletRequest request
 			) {
 		
+		dao= sessionTemplate.getMapper(MemberDaoInterface.class);
+		
 		int result = 0;
 		
 		// Dao 메서드에 전달할 객체 : 입력할 데이터를 모두 설정하는 절차가 필요합니다.
 		Member member = regRequest.toMember();
+		
+		System.out.println("입력 전 IDX ===> " + member.getIdx());
 		
 		
 		try {
@@ -69,9 +81,8 @@ public class MemberRegService {
 		
 			result = dao.insertMember(member);
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("입력 후 IDX ===> " + member.getIdx());
+			
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

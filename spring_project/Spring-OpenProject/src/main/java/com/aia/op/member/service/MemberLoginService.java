@@ -1,8 +1,5 @@
 package com.aia.op.member.service;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -10,8 +7,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aia.op.jdbc.ConnectionProvider;
-import com.aia.op.member.dao.MemberDao;
 import com.aia.op.member.dao.MemberDaoInterface;
 import com.aia.op.member.model.LoginInfo;
 import com.aia.op.member.model.LoginRequest;

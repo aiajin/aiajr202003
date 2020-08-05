@@ -5,13 +5,104 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- sql 설정 : sql문, 반환 타입, 파라미터 설정 -->
 <mapper namespace="com.aia.op.member.dao.MemberDaoInterface">
 
+	<!-- select의 결과를 객체에 바인딩 역할 : 테이블의 컬럼명과 java beans의 변수의 이름 이 틀린경우 -->
+	<resultMap id="resultMember"
+		type="com.aia.op.member.model.Member">
+		<id property="idx" column="idx" />
+		<result property="uid" column="uid" />
+		<!-- <result property="upw" column="upw"/> -->
+		<result property="uname" column="uname" />
+		<result property="uphoto" column="uphoto" />
+
+	</resultMap>
+
+
+
+
 	<select id="selectByIdpw"
-			resultType="com.aia.op.member.model.Member"
-	>
-	
-	select * from project.member where uid=#{param1} and upw=#{param2}
-	
+		resultType="com.aia.op.member.model.Member">
+
+		select * from project.member where uid=#{param1} and upw=#{param2}
+
 	</select>
+
+	<!-- 검색 : id, name, id or name map.put("searchType", "id") name, both map.put("keyword". 
+		"cool") -->
+	<select id="selectBykeyword" parameterType="map"
+		resultMap="resultMember">
+
+		select * from project.member
+
+		<where>
+
+			<if test="searchType != null and keyword != null">
+				<if test="searchType == 'both'">
+					<!-- uid like concat('%',#{keyword},'%') or uname like concat('%',#{keyword},'%') -->
+
+					<include refid="whereID" />
+					<include refid="whereName" />
+
+
+				</if>
+				<if test="searchType == 'id'">
+					<!-- uid like concat('%',#{keyword},'%') -->
+
+					<include refid="whereID" />
+
+
+				</if>
+				<if test="searchType == 'name'">
+					<!-- uname like concat('%',#{keyword},'%') -->
+
+					<include refid="whereName" />
+
+				</if>
+			</if>
+		</where>
+
+	</select>
+
+
+	<sql id="whereID">
+		or uid like concat('%',#{keyword},'%')
+	</sql>
+
+	<sql id="whereName">
+		or uname like concat('%',#{keyword},'%')
+	</sql>
+
+
+
+
+	<insert id="insertMember"
+			parameterType="com.aia.op.member.model.Member"
+			useGeneratedKeys="true"
+			keyProperty="idx"
+			
+		>
+
+		INSERT INTO project.member (uid, upw, uname, uphoto )
+		VALUES (#{uid},#{upw},#{uname},#{uphoto})
+
+	</insert>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
