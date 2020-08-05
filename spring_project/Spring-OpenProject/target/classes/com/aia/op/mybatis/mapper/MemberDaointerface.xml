@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		type="com.aia.op.member.model.Member">
 		<id property="idx" column="idx" />
 		<result property="uid" column="uid" />
-		<!-- <result property="upw" column="upw"/> -->
+		<result property="upw" column="upw"/>
 		<result property="uname" column="uname" />
 		<result property="uphoto" column="uphoto" />
 
@@ -26,41 +26,75 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
-	<!-- 검색 : id, name, id or name map.put("searchType", "id") name, both map.put("keyword". 
-		"cool") -->
-	<select id="selectBykeyword" parameterType="map"
-		resultMap="resultMember">
-
-		select * from project.member
-
-		<where>
-
-			<if test="searchType != null and keyword != null">
-				<if test="searchType == 'both'">
-					<!-- uid like concat('%',#{keyword},'%') or uname like concat('%',#{keyword},'%') -->
-
-					<include refid="whereID" />
-					<include refid="whereName" />
-
-
-				</if>
-				<if test="searchType == 'id'">
-					<!-- uid like concat('%',#{keyword},'%') -->
-
-					<include refid="whereID" />
-
-
-				</if>
-				<if test="searchType == 'name'">
-					<!-- uname like concat('%',#{keyword},'%') -->
-
-					<include refid="whereName" />
-
-				</if>
+	<!-- 검색 : id, name, id or name 
+	
+	map.put("searchType", "id") name, both 
+	map.put("keyword", "cool") 
+	
+	-->
+	
+	<!-- map => HashMap -->
+	<select id="totalCount" parameterType="map" resultType="int">
+	<!-- #{search.searchType} -->
+	
+	select count(*) from project.member
+	
+	<where>
+		<if test="searchType != null">
+			<if test="searchType == 'both'">
+				<include refid="whereID"/>
+				<include refid="whereName"/>
 			</if>
-		</where>
-
+			<if test="searchType == 'id'">
+				<include refid="whereID"/>
+			</if>
+			<if test="searchType == 'name'">
+				<include refid="whereName"/>
+			</if>
+		</if>
+	</where>
+	
+	
 	</select>
+	
+	
+	<select id="selectList"
+			parameterType="map"
+			resultMap="resultMember"
+	>
+	
+	select * from project.member
+	
+	<where>
+		<if test="searchType != null">
+			<if test="searchType == 'both'">
+				<include refid="whereID"/>
+				<include refid="whereName"/>
+			</if>
+			<if test="searchType == 'id'">
+				<include refid="whereID"/>
+			</if>
+			<if test="searchType == 'name'">
+				<include refid="whereName"/>
+			</if>
+		</if>
+	</where>
+	
+	limit #{startRow}, #{count}
+	
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 	<sql id="whereID">

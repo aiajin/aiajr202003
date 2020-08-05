@@ -14,6 +14,12 @@
 		width :50px;
 		height : 50px;
 	}
+	
+	div.searchBox {
+		border : 1px solid #DDD;
+		padding : 20px;
+		width : 80%
+	}
 </style>
 </head>
 <body>
@@ -27,6 +33,18 @@
 
 		<div>전체회원 ${listView.memberTotalCount} 명</div>
 		<hr>
+		
+		<div class="searchBox">
+		<form>
+			<select name="searchType">
+				<option value="id">ID</option>
+				<option value="name">NAME</option>
+				<option value="both">ID + NAME</option>
+			</select>
+			<input type="text" name="keyword">
+			<input type="submit" value="검색">
+		</form>		
+		</div>
 
 		<table class="table">
 			<tr>
@@ -67,7 +85,8 @@
 		<div class="paging">
 			<c:forEach begin="1" end="${listView.pageTotalCount}" var="i">
 			
-			<a class="paging_num ${i == listView.currentPageNumber ? 'now_page' : ''}" href="memberList?page=${i}" >${i}</a>
+			<a class="paging_num ${i == listView.currentPageNumber ? 'now_page' : ''}" 
+			href="memberList?page=${i}&searchType=${param.searchType}&keyword=${param.keyword}" >${i}</a>
 			
 			</c:forEach>
 		</div>

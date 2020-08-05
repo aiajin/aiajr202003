@@ -19,7 +19,11 @@ public class MemberListController {
 	MemberListService listService;
 	
 	@RequestMapping("/member/memberList")
-	public String getMemberList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	public String getMemberList(
+			Model model, 
+			HttpServletRequest request, 
+			HttpServletResponse response) throws SQLException {
+		
 		model.addAttribute("listView", listService.getView(request, response));
 		return "/member/memberList";
 	}
