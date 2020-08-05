@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql 설정 : sql문, 반환 타입, 파라미터 설정 -->
+<mapper namespace="com.aia.op.member.dao.MemberDaoInterface">
+
+	<select id="selectByIdpw"
+			resultType="com.aia.op.member.model.Member"
+	>
+	
+	select * from project.member where uid=#{param1} and upw=#{param2}
+	
+	</select>
+
+
+
+</mapper>

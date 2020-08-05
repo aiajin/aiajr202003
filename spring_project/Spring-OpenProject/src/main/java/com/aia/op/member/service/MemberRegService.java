@@ -12,15 +12,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.aia.op.jdbc.ConnectionProvider;
-import com.aia.op.member.dao.MemberDao;
+import com.aia.op.member.dao.MybatisMemberDao;
 import com.aia.op.member.model.Member;
 import com.aia.op.member.model.MemberRegRequest;
 
 @Service
 public class MemberRegService {
 
+//	@Autowired
+//	MemberDao dao;
+	
 	@Autowired
-	MemberDao dao;
+	MybatisMemberDao dao;
 	
 	public int memberReg(
 			MemberRegRequest regRequest,
@@ -32,11 +35,9 @@ public class MemberRegService {
 		// Dao 메서드에 전달할 객체 : 입력할 데이터를 모두 설정하는 절차가 필요합니다.
 		Member member = regRequest.toMember();
 		
-		Connection conn;
 		
 		try {
 			
-			conn = ConnectionProvider.getConnection();
 			
 			MultipartFile file = regRequest.getPhoto();
 			
@@ -66,7 +67,7 @@ public class MemberRegService {
 				member.setUphoto("defalult.png");
 			}
 		
-			result = dao.insertMember(conn, member);
+			result = dao.insertMember(member);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

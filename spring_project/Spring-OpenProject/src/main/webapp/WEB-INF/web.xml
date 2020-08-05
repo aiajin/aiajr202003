@@ -48,11 +48,11 @@
 	</servlet-mapping>
 
 
-<!-- 	<servlet>
+	<servlet>
 		<servlet-name>DBCPInit</servlet-name>
 		<servlet-class>com.aia.op.jdbc.DBCPInit</servlet-class>
 		<load-on-startup>1</load-on-startup>
-	</servlet> -->
+	</servlet>
 
 
 
