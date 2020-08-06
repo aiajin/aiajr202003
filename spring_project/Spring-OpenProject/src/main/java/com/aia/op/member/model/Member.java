@@ -2,6 +2,8 @@ package com.aia.op.member.model;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Member {
 
 	private int idx;
@@ -9,6 +11,7 @@ public class Member {
 	private String upw;
 	private String uname;
 	private String uphoto;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date regdate;
 
 	public Member(int idx, String uid, String upw, String uname, String uphoto, Date regdate) {
@@ -67,7 +70,7 @@ public class Member {
 	public void setUphoto(String uphoto) {
 		this.uphoto = uphoto;
 	}
-
+	
 	public Date getRegdate() {
 		return regdate;
 	}
@@ -77,6 +80,7 @@ public class Member {
 	}
 
 	// java.sql.Date -> java.util.Date
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	public java.util.Date getToDate() {// ${member.toDate}
 		return new java.util.Date(regdate.getTime());
 	}
