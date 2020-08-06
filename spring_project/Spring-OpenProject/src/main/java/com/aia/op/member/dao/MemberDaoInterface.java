@@ -11,6 +11,9 @@ public interface MemberDaoInterface {
 	
 	public Member selectByIdpw(String uid, String pw);
 	
+	// 회원 전체 리스트 반환
+	public List<Member> selectTotalList();
+	
 	// 전체 XML 회원 리스트
 	public List<MemberXML> selectTotalListXml();
 	
@@ -25,6 +28,8 @@ public interface MemberDaoInterface {
 	
 	// 전체 게시물의  List<Member> 로 반환
 	public List<Member> selectList(Map search);
+	
+	
 	
 	
 	

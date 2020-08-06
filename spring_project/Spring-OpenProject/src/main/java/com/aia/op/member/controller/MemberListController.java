@@ -1,6 +1,7 @@
 package com.aia.op.member.controller;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.aia.op.member.model.Member;
 import com.aia.op.member.model.MemberXmlList;
+import com.aia.op.member.service.MemberListJsonService;
 import com.aia.op.member.service.MemberListService;
 import com.aia.op.member.service.MemberListXmlService;
 
@@ -23,6 +26,9 @@ public class MemberListController {
 	
 	@Autowired
 	MemberListXmlService xmlService;
+	
+	@Autowired
+	MemberListJsonService jsonService;
 	
 	
 	
@@ -42,6 +48,17 @@ public class MemberListController {
 		
 		return xmlService.getXmlList();
 	}
+	
+	@RequestMapping("/member/memberList.json")
+	@ResponseBody
+	public List<Member> getMemberJson(){
+		return jsonService.getMemberList();		
+	}
+	
+	
+	
+	
+	
 	
 	
 	

@@ -11,10 +11,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<id property="idx" column="idx" />
 		<result property="uid" column="uid" />
 		<result property="upw" column="upw" />
-		<result property="uname" column="uname" />
-		<result property="uphoto" column="uphoto" />
-
+		<!-- <result property="uname" column="uname" />
+		<result property="uphoto" column="uphoto" /> -->
 	</resultMap>
+	
+	<select id="selectTotalList"
+			resultMap="resultMember"
+	>
+	select * from project.member order by idx desc
+	</select>
 	
 	
 	<select id="selectTotalListXml"
