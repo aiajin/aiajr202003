@@ -20,7 +20,7 @@ public class IdCheckController {
 			@RequestParam("uid") String uid
 			) {
 		
-		return idCheckService.checkId(uid);
+		return idCheckService.checkId(uid); // "Y" "N"
 	}
 
 }

@@ -9,7 +9,7 @@
 		
 		<li><a href="<c:url value="/member/memberList"/>">회원 리스트</a></li>
 		<li><a href="<c:url value="/member/memberListToJson.do"/>">member-JSON</a></li>
-		<li><a href="<c:url value="/member/memberListToXML.do"/>">member-XML</a></li>
+		<li><a href="<c:url value="/member/memberList.xml"/>">member-XML</a></li>
 		
 		<c:if test="${!empty loginInfo}">
 		<li><a href="<c:url value="/login/logout"/>">로그아웃</a></li>

@@ -10,99 +10,93 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		type="com.aia.op.member.model.Member">
 		<id property="idx" column="idx" />
 		<result property="uid" column="uid" />
-		<result property="upw" column="upw"/>
+		<result property="upw" column="upw" />
 		<result property="uname" column="uname" />
 		<result property="uphoto" column="uphoto" />
 
 	</resultMap>
+	
+	
+	<select id="selectTotalListXml"
+			resultType="com.aia.op.member.model.MemberXML"
+	>
+	select * from project.member order by idx desc
+	</select>
 
 
+	<select id="selectByIdx" 
+			resultType="com.aia.op.member.model.Member"
+	>
+	
+	select * from project.member where idx=#{id}
+	
+	
+	</select>
 
 
 	<select id="selectByIdpw"
 		resultType="com.aia.op.member.model.Member">
 
-		select * from project.member where uid=#{param1} and upw=#{param2}
+		select * from project.member where uid=#{param1} and
+		upw=#{param2}
 
 	</select>
 
-	<!-- 검색 : id, name, id or name 
-	
-	map.put("searchType", "id") name, both 
-	map.put("keyword", "cool") 
-	
-	-->
-	
+	<!-- 검색 : id, name, id or name map.put("searchType", "id") name, both map.put("keyword", 
+		"cool") -->
+
 	<!-- map => HashMap -->
 	<select id="totalCount" parameterType="map" resultType="int">
-	<!-- #{search.searchType} -->
-	
-	select count(*) from project.member
-	
-	<where>
-		<if test="searchType != null">
-			<if test="searchType == 'both'">
-				<include refid="whereID"/>
-				<include refid="whereName"/>
-			</if>
-			<if test="searchType == 'id'">
-				<include refid="whereID"/>
-			</if>
-			<if test="searchType == 'name'">
-				<include refid="whereName"/>
-			</if>
-		</if>
-	</where>
-	
-	
+		<!-- #{search.searchType} -->
+
+		select count(*) from project.member
+
+		<include refid="lsitSearch" />
+
+
 	</select>
-	
-	
-	<select id="selectList"
-			parameterType="map"
-			resultMap="resultMember"
-	>
-		
+
+
+	<select id="selectList" parameterType="map"
+		resultMap="resultMember">
+
 		select * from project.member
-		
-		<include refid="lsitSearch"/>
-		
+
+		<include refid="lsitSearch" />
+
 		limit #{startRow}, #{count}
-		
-		</select>
-	
-	
-	
-	
-	
-	
-	
+
+	</select>
+
+
 	<sql id="lsitSearch">
-		
+
 		<where>
 			<if test="searchType != null">
 				<if test="searchType == 'both'">
-					<include refid="whereID"/>
-					<include refid="whereName"/>
+					<include refid="whereID" />
+					<include refid="whereName" />
 				</if>
 				<if test="searchType == 'id'">
-					<include refid="whereID"/>
+					<include refid="whereID" />
 				</if>
 				<if test="searchType == 'name'">
-					<include refid="whereName"/>
+					<include refid="whereName" />
 				</if>
 			</if>
 		</where>
-	
+
 	</sql>
-	
-	
-	
-	
+
+
+
+
 
 
 	<sql id="whereID">
 		or uid like concat('%',#{keyword},'%')
+
+
 	</sql>
 
 	<sql id="whereName">
@@ -111,20 +105,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-	<!--  insert 시 자동 증가하는 idx 값을 파라미터로 전달하는 Member 객체의 idx에 저장 해주는 설정 -->
+	<!-- insert 시 자동 증가하는 idx 값을 파라미터로 전달하는 Member 객체의 idx에 저장 해주는 설정 -->
 	<insert id="insertMember"
-			parameterType="com.aia.op.member.model.Member"
-			useGeneratedKeys="true"
-			keyProperty="idx"
-		>
+		parameterType="com.aia.op.member.model.Member" useGeneratedKeys="true"
+		keyProperty="idx">
 
-		INSERT INTO project.member (uid, upw, uname, uphoto )
+
+<![CDATA[      
+		INSERT INTO project.member (uid, upw, uname, uphoto
+		)
 		VALUES (#{uid},#{upw},#{uname},#{uphoto})
+		
+		]]>
 
 	</insert>
 
-
-
+	
+	
+	<!-- 
+	
+	<![CDATA[ idx<10 and idx>1   ]]> 
+	
+	엘리먼트 <> 를 엘리먼트의 시작과 끝으로 인식하지 않도록 처리
+	즉 테그(엘리먼트로) 로 인식하는것을 무시하는것
+	
+	-->
 
 
 

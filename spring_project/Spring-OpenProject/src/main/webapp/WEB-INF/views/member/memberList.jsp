@@ -17,8 +17,24 @@
 	
 	div.searchBox {
 		border : 1px solid #DDD;
-		padding : 20px;
-		width : 80%
+		padding : 15px;
+		width : 80%;
+		margin : 10px 0;
+	}
+	div.searchBox>form>select {
+		height: 40px;
+		padding : 5px;
+		font-size: 24px;
+		vertical-align: middle;
+	}
+	div.searchBox>form>input {
+		vertical-align: middle;
+	}
+	div.searchBox>form>input[type=submit], div.searchBox>form>input[type=button]  {
+		height: 40px;
+		padding : 5px;
+		font-size: 24px;
+		vertical-align: middle;
 	}
 </style>
 </head>
@@ -35,15 +51,16 @@
 		<hr>
 		
 		<div class="searchBox">
-		<form>
-			<select name="searchType">
-				<option value="id">ID</option>
-				<option value="name">NAME</option>
-				<option value="both">ID + NAME</option>
-			</select>
-			<input type="text" name="keyword">
-			<input type="submit" value="검색">
-		</form>		
+			<form>
+				<select name="searchType">
+					<option value="id">ID</option>
+					<option value="name">NAME</option>
+					<option value="both">ID + NAME</option>
+				</select>
+				<input type="text" name="keyword">
+				<input type="submit" value="검색">
+				<input type="button" value="전체리스트 보기" onclick="memberList();">
+			</form>		
 		</div>
 
 		<table class="table">
@@ -68,7 +85,11 @@
 				<td>
 				<a href="memberEdit?idx=${member.idx}">수정</a> 
 				| 
-				<a href="javascript:memberDel(${member.idx})">삭제</a></td>
+				<a href="javascript:memberDel(${member.idx})">삭제</a>
+				|
+				<a href="view/${member.idx}">정보보기</a>
+				
+				</td>
 			</tr>
 		</c:forEach>
 		</c:if>
@@ -107,6 +128,10 @@
 			location.href = 'memberDelete?idx='+idx;
 		}
 		
+	}
+	
+	function memberList(){
+		location.href='memberList';
 	}
 </script>
 
