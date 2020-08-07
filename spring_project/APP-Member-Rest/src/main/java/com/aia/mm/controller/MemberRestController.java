@@ -2,6 +2,8 @@ package com.aia.mm.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,9 +34,13 @@ public class MemberRestController {
 	
 	// 회원 가입
 	@PostMapping	// POST | /members
-	public int reg(MemberRegRequest regRequest) {
+	public int reg(
+			MemberRegRequest regRequest,
+			HttpServletRequest request
+			) {
+		System.out.println(regRequest);
 		
-		return regService.regMember(regRequest);
+		return regService.regMember(regRequest, request);
 	}
 	
 	// 한명의 회원의 정보 보기

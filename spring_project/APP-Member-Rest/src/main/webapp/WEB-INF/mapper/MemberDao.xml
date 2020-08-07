@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectList"
 			resultType="com.aia.mm.model.Member"
 	>
-		select * from project.member order by uname
+		select * from project.member order by idx desc
 	</select>
 	
 	<insert id="insertMember"
