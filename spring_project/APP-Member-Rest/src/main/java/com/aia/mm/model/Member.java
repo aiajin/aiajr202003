@@ -1,28 +1,19 @@
-package com.aia.op.member.model;
+package com.aia.mm.model;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.util.Date;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"idx", "uid", "upw", "uname", "uphoto", "regdate"})
-public class MemberXML {
+public class Member {
 
 	private int idx;
 	private String uid;
 	private String upw;
 	private String uname;
-	private String uphoto;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-	private LocalDate regdate;
-	
-	public MemberXML(int idx, String uid, String upw, String uname, String uphoto, LocalDate regdate) {
+	private String uphoto;	
+	private Date regdate;
+
+	public Member(int idx, String uid, String upw, String uname, String uphoto, Date regdate) {
 		this.idx = idx;
 		this.uid = uid;
 		this.upw = upw;
@@ -30,13 +21,13 @@ public class MemberXML {
 		this.uphoto = uphoto;
 		this.regdate = regdate;
 	}
-
+	
 	// MemberRegRequest -> Member
-	public MemberXML(String uid, String upw, String uname) {
+	public Member(String uid, String upw, String uname) {
 		this(0, uid, upw, uname, null, null);
 	}
 
-	public MemberXML() {
+	public Member() {
 	}
 
 	public int getIdx() {
@@ -78,26 +69,26 @@ public class MemberXML {
 	public void setUphoto(String uphoto) {
 		this.uphoto = uphoto;
 	}
-
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-	public LocalDate getRegdate() {
+	
+	public Date getRegdate() {
 		return regdate;
 	}
-
-	public void setRegdate(LocalDate regdate) {
+	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 
 	// java.sql.Date -> java.util.Date
-//	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-//	public Date getToDate() {// ${member.toDate}
-//		return new Date(regdate.getTime());
-//	}
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
+	public java.util.Date getToDate() {// ${member.toDate}
+		return new java.util.Date(regdate.getTime());
+	}
 	
 	// Member -> LoginInfo : 로그인 처리시 저장할 데이터
-	public LoginInfo toLoginInfo() {
-		return new LoginInfo(uid, uname, uphoto) ;
-	}
+//	public LoginInfo toLoginInfo() {
+//		return new LoginInfo(uid, uname, uphoto) ;
+//	}
 
 	@Override
 	public String toString() {

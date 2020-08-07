@@ -10,8 +10,7 @@ public class Member {
 	private String uid;
 	private String upw;
 	private String uname;
-	private String uphoto;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
+	private String uphoto;	
 	private Date regdate;
 
 	public Member(int idx, String uid, String upw, String uname, String uphoto, Date regdate) {
@@ -74,7 +73,8 @@ public class Member {
 	public Date getRegdate() {
 		return regdate;
 	}
-
+	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}

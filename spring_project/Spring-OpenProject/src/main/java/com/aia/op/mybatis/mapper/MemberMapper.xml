@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="insertMember"
 			parameterType="com.aia.op.member.model.Member"
-	>
+	>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 	
 	INSERT INTO project.member (uid, upw, uname, uphoto ) 
 	VALUES (#{uid},#{upw},#{uname},#{uphoto})

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 필수 : interface의 full name으로 설정 -->
+<mapper namespace="com.aia.mm.dao.MemberDao">
+
+	<select id="selectList"
+			resultType="com.aia.mm.model.Member"
+	>
+		select * from project.member order by uname
+	</select>
+	
+	<insert id="insertMember"
+			parameterType="com.aia.mm.model.Member"
+	>
+		insert into project.member (uid, upw, uname, uphoto)
+		values (#{uid}, #{upw}, #{uname}, #{uphoto})
+	
+	</insert>
+
+</mapper>
+
+
+
+
+
+
