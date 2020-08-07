@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+	#memberList {
+		overflow: hidden;
+	}
+	div.card {
+		width : 33%;
+		float: left;
+		
+		border : 1px solid #DDD;
+		
+	}
+	
+	div.card>ul>li {
+		list-style: none;
+		
+		font-size: 12px;
+	}
+</style>
+</head>
+<body>
+	<h1>회원 리스트</h1>
+	<hr>
+	<h1>회원가입</h1>
+	<form id="regForm" onsubmit="return false;">
+		<input type="text" name="uid" id="uid"><br>
+		<input type="text" name="upw" id="upw"><br>
+		<input type="text" name="uname" id="uname"><br>
+		<input type="file" name="photo" id="photo"><br>
+		<input type="submit" value="회원가입" onclick="regSubmit(); "><br>
+	</form>
+	<hr>
+	<div id="memberList"></div>
+	
+	<script>
+	
+	$(document).ready(function(){
+		
+		memberList();
+		
+	});
+	
+	function regSubmit(){
+		
+		$.ajax({
+			url : 'http://localhost:8080/mm/members',
+			type : 'post',
+			data : {
+					uid: $('#uid').val(), 
+					upw: $('#upw').val(), 
+					uname: $('#uname').val()
+					},
+			success : function(data){
+				alert(data);
+			}
+		});
+		
+	}
+	
+	function memberList() {
+		
+		$.ajax({
+			url: 'http://localhost:8080/mm/members' ,
+			type: 'get',
+			success: function(data){
+				//alert(JSON.stringify(data));
+				
+				//$('#memberList').html(JSON.stringify(data));
+				
+				var html = '';
+				
+				for(var i=0; i<data.length; i++){
+					html += '<div class="card">';
+					html += '	<ul>';
+					html += '		<li>idx : '+data[i].idx+'</li>';
+					html += '		<li>uid : '+data[i].uid+'</li>';
+					html += '		<li>upw : '+data[i].upw+'</li>';
+					html += '		<li>uName : '+data[i].uname+'</li>';
+					html += '		<li>uPhoto :'+data[i].uphoto+'</li>';
+					html += '		<li><input type="button" value="수정"> <input type="button" value="삭제"></li>';
+					html += '	</ul>';
+					html += '</div>';
+				}
+				
+				$('#memberList').html(html);
+				
+			} 
+		});
+	}
+	
+	
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>
