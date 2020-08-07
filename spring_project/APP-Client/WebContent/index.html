@@ -24,16 +24,27 @@
 </style>
 </head>
 <body>
-	<h1>회원 리스트</h1>
+	<h1>회원수정</h1>
+	<form id="editForm" onsubmit="return false;">
+		Idx <input type="text" name="idx" id="idx" readonly><br>
+		아이디 <input type="text" name="uid" id="euid" readonly><br>
+		비밀번호 <input type="password" name="upw" id="eupw"><br>
+		이름 <input type="text" name="uname" id="euname"><br>
+		사진 <input type="file" name="photo" id="ephoto"><br>
+		현재 사진 <input type="text" name="oldfile" id="oldfile"><br>
+		<input type="submit" value="회원수정" onclick="editSubmit(); "><br>
+	</form>
 	<hr>
 	<h1>회원가입</h1>
 	<form id="regForm" onsubmit="return false;">
-		<input type="text" name="uid" id="uid"><br>
-		<input type="text" name="upw" id="upw"><br>
-		<input type="text" name="uname" id="uname"><br>
-		<input type="file" name="photo" id="photo"><br>
+		아이디 <input type="text" name="uid" id="uid"><br>
+		비밀번호 <input type="text" name="upw" id="upw"><br>
+		이름 <input type="text" name="uname" id="uname"><br>
+		사진 <input type="file" name="photo" id="photo"><br>
 		<input type="submit" value="회원가입" onclick="regSubmit(); "><br>
 	</form>
+	<hr>
+	<h1>회원 리스트</h1>
 	<hr>
 	<div id="memberList"></div>
 	
@@ -45,6 +56,53 @@
 		
 	});
 	
+	function editSubmit(){
+
+		var regFormData = new FormData();
+		regFormData.append('uid', $('#uid').val());
+		regFormData.append('upw', $('#upw').val());
+		regFormData.append('uname', $('#uname').val());
+		regFormData.append('oldFile', $('#oldfile').val());
+		// 파일 첨부
+		if($('#photo')[0].files[0] != null){
+			regFormData.append('photo',$('#photo')[0].files[0]);
+		}
+		
+		$.ajax({
+			url : 'http://localhost:8080/mm/members/'+$('#idx').val(),
+			type : 'PUT',
+			processData: false, // File 전송시 필수
+			contentType: false, // multipart/form-data
+			data : regFormData,
+			/* data : {
+					uid: $('#uid').val(), 
+					upw: $('#upw').val(), 
+					uname: $('#uname').val()
+					}, */
+			success : function(data){
+				alert(data); 
+				memberList();
+				document.getElementById('editForm').reset();
+			}
+		});
+		
+	}
+	
+	function editForm(idx){
+		$.ajax({
+			url : 'http://localhost:8080/mm/members/'+idx,
+			type : 'GET',
+			success : function(data){
+				$('#idx').val(data.idx);
+				$('#euid').val(data.uid);
+				$('#euname').val(data.uname);
+				$('#oldfile').val(data.uphoto);
+				$('#eupw').focus();
+			}
+			
+		});
+	}
+	
 	function regSubmit(){
 		
 		var regFormData = new FormData();
@@ -52,7 +110,9 @@
 		regFormData.append('upw', $('#upw').val());
 		regFormData.append('uname', $('#uname').val());
 		// 파일 첨부
-		regFormData.append('photo',$('#photo')[0].files[0]);
+		if($('#photo')[0].files[0] != null){
+			regFormData.append('photo',$('#photo')[0].files[0]);
+		}
 		
 		$.ajax({
 			url : 'http://localhost:8080/mm/members',
@@ -68,7 +128,7 @@
 			success : function(data){
 				alert(data); 
 				memberList();
-				//$('#regForm').reset();
+				document.getElementById('regForm').reset();
 			}
 		});
 		
@@ -94,7 +154,8 @@
 					html += '		<li>upw : '+data[i].upw+'</li>';
 					html += '		<li>uName : '+data[i].uname+'</li>';
 					html += '		<li>uPhoto :'+data[i].uphoto+'</li>';
-					html += '		<li><input type="button" value="수정"> <input type="button" value="삭제"></li>';
+					html += '		<li><input type="button" value="수정" onclick="editForm('+data[i].idx+')"> ';
+					html += '		<input type="button" value="삭제"></li>';
 					html += '	</ul>';
 					html += '</div>';
 				}
