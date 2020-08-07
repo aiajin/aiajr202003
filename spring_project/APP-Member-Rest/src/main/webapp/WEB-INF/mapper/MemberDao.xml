@@ -5,6 +5,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace 필수 : interface의 full name으로 설정 -->
 <mapper namespace="com.aia.mm.dao.MemberDao">
 
+	<delete id="deleteMember">
+		delete from project.member  where idx=#{idx} 
+	</delete>
+
+	<update id="editMember"
+			parameterType="com.aia.mm.model.Member"
+	>
+	
+	update project.member set upw=#{upw} , uname=#{uname} , uphoto=#{uphoto} where idx=#{idx}
+	
+	</update>
+
 
 	<select id="selectByIdx"
 			resultType="com.aia.mm.model.Member"

@@ -1,0 +1,34 @@
+Spring RESTFul 개발
+
+1. Spring MVC 프로젝트 생성
+
+2. Maven Lib 의존 설정 
+   1. DB
+   2. Mybatis
+   3. Jackson databind
+   4. fileupload
+
+3. Spring Container 설정
+   
+   1. root-context.xml : 기본(공통) 설정
+      - dataSource
+      - SqlSessionFactory
+      - SqlSessionTemplate
+
+   2. servlet-context.xml : MVC 관련 설정
+      - Fileupload -> multipartResolver
+      
+
+
+
+
+4. Rest api 설계
+   1. resource URI  : /members/{idx}
+   2. 기능 정의
+	회원 리스트 : GET | 	      /members
+	회원 가입    : POST |     /members
+	회원 정보    : GET | 	      /members/{idx}
+	회원 수정    : PUT |       /members/{idx}
+	회원 삭제    : DELETE |   /members/{idx}
+
+4. Controller 구현

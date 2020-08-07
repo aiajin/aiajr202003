@@ -56,21 +56,37 @@
 		
 	});
 	
+	function deleteMember(idx){
+		if(confirm('정말 삭제하시겠습니까?')){
+			
+			$.ajax({
+				url : 'http://localhost:8080/mm/members/' + idx,
+				type : 'DELETE',
+				success : function(data){
+					alert(data);
+					memberList();
+				}
+			});
+			
+		}
+	}
+	
+	
 	function editSubmit(){
 
 		var regFormData = new FormData();
-		regFormData.append('uid', $('#uid').val());
-		regFormData.append('upw', $('#upw').val());
-		regFormData.append('uname', $('#uname').val());
+		regFormData.append('uid', $('#euid').val());
+		regFormData.append('upw', $('#eupw').val());
+		regFormData.append('uname', $('#euname').val());
 		regFormData.append('oldFile', $('#oldfile').val());
 		// 파일 첨부
 		if($('#photo')[0].files[0] != null){
-			regFormData.append('photo',$('#photo')[0].files[0]);
+			regFormData.append('photo',$('#ephoto')[0].files[0]);
 		}
 		
 		$.ajax({
 			url : 'http://localhost:8080/mm/members/'+$('#idx').val(),
-			type : 'PUT',
+			type : 'POST',
 			processData: false, // File 전송시 필수
 			contentType: false, // multipart/form-data
 			data : regFormData,
@@ -155,7 +171,7 @@
 					html += '		<li>uName : '+data[i].uname+'</li>';
 					html += '		<li>uPhoto :'+data[i].uphoto+'</li>';
 					html += '		<li><input type="button" value="수정" onclick="editForm('+data[i].idx+')"> ';
-					html += '		<input type="button" value="삭제"></li>';
+					html += '		<input type="button" value="삭제" onclick="deleteMember('+data[i].idx+')"></li>';
 					html += '	</ul>';
 					html += '</div>';
 				}

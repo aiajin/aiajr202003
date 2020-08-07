@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aia.mm.model.Member;
 import com.aia.mm.model.MemberEditRequest;
 import com.aia.mm.model.MemberRegRequest;
+import com.aia.mm.service.MemberDeleteService;
+import com.aia.mm.service.MemberEditService;
 import com.aia.mm.service.MemberListService;
+import com.aia.mm.service.MemberRegService;
 import com.aia.mm.service.MemberViewService;
 
 @RestController
@@ -31,6 +34,12 @@ public class MemberRestController {
 	
 	@Autowired
 	private MemberViewService viewService;
+	
+	@Autowired
+	private MemberEditService editService;
+	
+	@Autowired
+	private MemberDeleteService deleteService;
 	
 	// 회원의 리스트 : Json 으로 응답
 	@GetMapping     // GET | /members
@@ -59,20 +68,25 @@ public class MemberRestController {
 	}
 	
 	// 한명의 회원 정보 수정
-	@PutMapping("/{idx}")   // PUT | /members/{idx}
+	//@PutMapping("/{idx}")   // PUT | /members/{idx}
+	@PostMapping("/{idx}")
 	public int edit(
 			@PathVariable("idx") int idx,
 			MemberEditRequest editRequest,
 			HttpServletRequest request
 			) {
 		
-		return 0;
+		editRequest.setIdx(idx);
+		
+		return editService.editMember(editRequest, request);
 	}
 	
 	// 회원 삭제
 	@DeleteMapping("/{idx}")
-	public int delete() {
-		return 0;
+	public int delete(
+			@PathVariable("idx") int idx
+			) {
+		return deleteService.deleteMember(idx);
 	}
 	
 	
