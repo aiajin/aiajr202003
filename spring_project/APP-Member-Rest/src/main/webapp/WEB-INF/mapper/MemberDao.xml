@@ -5,6 +5,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace 필수 : interface의 full name으로 설정 -->
 <mapper namespace="com.aia.mm.dao.MemberDao">
 
+
+	<select id="selectByIdx"
+			resultType="com.aia.mm.model.Member"
+	>
+	
+	select * from project.member where idx=#{idx}
+	
+	</select>
+
 	<select id="selectList"
 			resultType="com.aia.mm.model.Member"
 	>
