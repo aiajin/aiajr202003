@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql 설정 : sql문, 반환 타입, 파라미터 설정 -->
+<mapper namespace="com.aia.op.guestbook.dao.GuestBookDao">
+
+	<resultMap  id="messageMap" type="com.aia.op.guestbook.model.Message">
+		<id property="mid" column="message_id"/>
+		<result property="uname" column="guest_name"/>
+		<result property="pw" column="password"/>		
+	</resultMap>
+
+	<select id="selectTotalCount" resultType="int">
+	select count(*) from project.guestbook_message
+	</select>
+	
+	<select id="selectMessageList" resultMap="messageMap" >
+	select message_id, guest_name, password, message, regdate from project.guestbook_message  limit #{param1}, #{param2}
+	</select>
+
+</mapper>
