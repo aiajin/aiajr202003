@@ -31,6 +31,23 @@
 			<beans:value>utf-8</beans:value>
 		</beans:property>
 	</beans:bean>
+	
+	<!--  Intercepter  설정 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/mypage/**"/>
+			<beans:bean class="com.aia.op.intercepter.AuthCheckIntercepter"/>
+		</interceptor>
+	</interceptors>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	
