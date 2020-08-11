@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service("mailSenderService")
 public class MailSenderService {
+	
 	@Autowired
 	private JavaMailSender sender;
 
@@ -25,7 +26,7 @@ public class MailSenderService {
 			message.setSubject("[안내] 회원가입을 축하합니다.", "UTF-8");
 			String htmlMsg = "<h1>회원가입을 축하합니다.</h1>";
 			message.setText(htmlMsg, "UTF-8", "html");
-			message.setFrom(new InternetAddress("ryuyj@nate.com"));
+			message.setFrom(new InternetAddress("ryuyj@nate.com")); // Gmail에서는 from mail의 설정이 안된다. 
 			message.addRecipient(RecipientType.TO, new InternetAddress(email, "고객님", "utf-8"));
 
 			sender.send(message);
@@ -51,7 +52,7 @@ public class MailSenderService {
 			String htmlMsg = "<h1>회원가입을 축하합니다.</h1>";
 
 			htmlMsg += "<h3>인증을 위해 아래 링크를 클랙해주세요.</h3>";
-			htmlMsg += "<h3><a href=\"http://localhost:8080/mm/member/verify?id=" + getuId + "&code=" + code
+			htmlMsg += "<h3><a href=\"http://localhost:8080/op/member/verify?id=" + getuId + "&code=" + code
 					+ "\" >인증하기</a></h3>";
 
 			message.setText(htmlMsg, "UTF-8", "html");

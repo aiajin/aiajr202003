@@ -1,9 +1,17 @@
 package com.aia.op.member.model;
 
 import java.sql.Date;
+import java.util.Random;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+
+/*
+	2020.08.11
+	verify 컬럼 추가, 	code 추가
+	verify : 인증 여부 코드
+	code : 난수 코드
+*/
 public class Member {
 
 	private int idx;
@@ -13,10 +21,11 @@ public class Member {
 	private String uphoto;
 	// 이메일 인증코드
 	private String code;
+	// 이메일 인증여부 확인
+	private char verify;
 	private Date regdate;
 
 	public Member(int idx, String uid, String upw, String uname, String uphoto, String code, Date regdate) {
-		super();
 		this.idx = idx;
 		this.uid = uid;
 		this.upw = upw;
@@ -24,6 +33,8 @@ public class Member {
 		this.uphoto = uphoto;
 		this.code = code;
 		this.regdate = regdate;
+		// 2020.08.11 추가
+		getRandomSting();
 	}
 
 	// MemberRegRequest -> Member
@@ -32,6 +43,8 @@ public class Member {
 	}
 
 	public Member() {
+		// 2020.08.11 추가
+		getRandomSting();
 	}
 
 	public int getIdx() {
@@ -78,13 +91,6 @@ public class Member {
 		return regdate;
 	}
 
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	public void setRegdate(Date regdate) {
@@ -107,5 +113,47 @@ public class Member {
 		return "Member [idx=" + idx + ", uid=" + uid + ", upw=" + upw + ", uname=" + uname + ", uphoto=" + uphoto
 				+ ", regdate=" + regdate + "]";
 	}
+	
+	
+
+	// 2020.08.11 추가
+	public char getVerify() {
+		return verify;
+	}	
+	// 2020.08.11 추가
+	public void setVerify(char verify) {
+		this.verify = verify;
+	}
+	// 2020.08.11 추가
+	public String getCode() {
+		return code;
+	}
+	// 2020.08.11 추가
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	// 2020.08.11 추가
+	// 영문 + 숫자 난수 발생
+	private void getRandomSting() {
+		
+		Random r = new Random(System.nanoTime());
+		StringBuffer sb = new StringBuffer();
+		
+		for(int i=0 ; i<20 ; i++ ) {
+			if(r.nextBoolean()) {
+				sb.append(r.nextInt(10));
+			} else {
+				sb.append((char)(r.nextInt(26)+97));
+			}
+		}
+		
+		System.out.println("난수 코드 생성 : " + sb) ;
+		
+		setCode(sb.toString());
+		
+		//return  sb.toString();		
+	}
+	
 
 }

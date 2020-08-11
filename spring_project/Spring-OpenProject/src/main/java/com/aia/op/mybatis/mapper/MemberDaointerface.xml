@@ -113,9 +113,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<![CDATA[      
-		INSERT INTO project.member (uid, upw, uname, uphoto
+		INSERT INTO project.member (uid, upw, uname, uphoto, code
 		)
-		VALUES (#{uid},#{upw},#{uname},#{uphoto})
+		VALUES (#{uid},#{upw},#{uname},#{uphoto},#{code})
 		
 		]]>
 
@@ -126,5 +126,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<![CDATA[ idx<10 and idx>1 ]]> 
 	엘리먼트 <> 를 엘리먼트의 시작과 끝으로 인식하지 않도록 처리 
 		즉 테그(엘리먼트로) 로 인식하는것을 무시하는것 -->
+		
+		
+	
+	<update id="verify">
+		update project.member set verify='Y' 
+		where uid=#{param1} and code=#{param2} 
+	</update>
+	
+	<select id="selectMemberById" resultMap="resultMember">
+		select * from project.member where uid=#{id}
+	</select>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 </mapper>

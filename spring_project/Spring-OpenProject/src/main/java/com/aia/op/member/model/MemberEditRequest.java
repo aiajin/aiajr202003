@@ -59,8 +59,9 @@ public class MemberEditRequest {
 		this.oldFile = oldFile;
 	}
 	
+	//2020.08.11 변경
 	public Member toMember() {
-		return new Member(idx, uid, upw, uname, oldFile.length()>0?oldFile:null, null);
+		return new Member(idx, uid, upw, uname, oldFile.length()>0?oldFile:null, null, null);
 	}
 
 	

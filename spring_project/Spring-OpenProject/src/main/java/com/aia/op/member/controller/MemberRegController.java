@@ -25,14 +25,14 @@ public class MemberRegController {
 	@Autowired
 	MemberRegService regService;
 	
-	@Autowired
-	private Sha256 sha256;
+//	@Autowired
+//	private Sha256 sha256;
 	
-	@Autowired
-	private AES256Util aes256Util;
+//	@Autowired
+//	private AES256Util aes256Util;
 	
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+//	@Autowired
+//	private BCryptPasswordEncoder passwordEncoder;
 
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -51,25 +51,25 @@ public class MemberRegController {
 		System.out.println("controller : "+regRequest);
 		
 		
-		System.out.println("SHA 암호화");
-		System.out.println(sha256.encrypt(regRequest.getUpw()));
-		System.out.println(sha256.encrypt(regRequest.getUpw()).length() );
-		
-		System.out.println("----------------------------------------------");
-		System.out.println("AES 암호화");
-		System.out.println(aes256Util.encrypt(regRequest.getUpw()));
-		System.out.println(aes256Util.encrypt(regRequest.getUpw()).length());
-		
-		System.out.println("----------------------------------------------");
-		System.out.println("Spring Security 암호화");
-		System.out.println(passwordEncoder.encode(regRequest.getUpw()));
-		System.out.println(passwordEncoder.encode(regRequest.getUpw()).length());
+//		System.out.println("SHA 암호화");
+//		System.out.println(sha256.encrypt(regRequest.getUpw()));
+//		System.out.println(sha256.encrypt(regRequest.getUpw()).length() );
+//		
+//		System.out.println("----------------------------------------------");
+//		System.out.println("AES 암호화");
+//		System.out.println(aes256Util.encrypt(regRequest.getUpw()));
+//		System.out.println(aes256Util.encrypt(regRequest.getUpw()).length());
+//		
+//		System.out.println("----------------------------------------------");
+//		System.out.println("Spring Security 암호화");
+//		System.out.println(passwordEncoder.encode(regRequest.getUpw()));
+//		System.out.println(passwordEncoder.encode(regRequest.getUpw()).length());
 		
 		
 		
 		/* System.out.println("member : "+member); */
 		
-		//model.addAttribute("result", regService.memberReg(regRequest, request));
+		model.addAttribute("result", regService.memberReg(regRequest, request));
 		
 		return "member/memberReg";
 	}

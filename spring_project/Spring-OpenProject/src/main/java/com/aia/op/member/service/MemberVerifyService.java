@@ -9,6 +9,7 @@ import com.aia.op.member.model.Member;
 
 @Service("verifyService")
 public class MemberVerifyService {
+	
 	@Autowired
 	private MailSenderService mailService;
 
