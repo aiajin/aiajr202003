@@ -12,7 +12,10 @@
 		and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+		<param-value>
+		/WEB-INF/spring/root-context.xml
+		/WEB-INF/spring/spring-security.xml
+		</param-value>
 	</context-param>
 
 	<!-- 파일 업로드 경로 : 회원 가입 시 회원 사진 업로드 경로 -->
@@ -46,19 +49,12 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
-
+	
 	<servlet>
 		<servlet-name>DBCPInit</servlet-name>
 		<servlet-class>com.aia.op.jdbc.DBCPInit</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
-
-
-
-
-
 
 
 

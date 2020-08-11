@@ -28,6 +28,12 @@ public interface MemberDaoInterface {
 	
 	// 전체 게시물의  List<Member> 로 반환
 	public List<Member> selectList(Map search);
+
+	// 회원 이메일 인증 처리
+	public int verify(String id, String code);
+
+	
+	public Member selectMemberById(String email);
 	
 	
 	

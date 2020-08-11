@@ -40,6 +40,15 @@
 		</interceptor>
 	</interceptors>
 	
+	<!-- 암호화 클래스 등록 -->
+	<beans:bean id="sha256" class="com.aia.op.util.Sha256" />
+	
+	<beans:bean id="aes256util"
+				class="com.aia.op.util.AES256Util"
+	>
+		<beans:constructor-arg value="0000000000000001" />
+	</beans:bean>
+	
 	
 	
 	

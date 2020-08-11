@@ -10,21 +10,25 @@ public class Member {
 	private String uid;
 	private String upw;
 	private String uname;
-	private String uphoto;	
+	private String uphoto;
+	// 이메일 인증코드
+	private String code;
 	private Date regdate;
 
-	public Member(int idx, String uid, String upw, String uname, String uphoto, Date regdate) {
+	public Member(int idx, String uid, String upw, String uname, String uphoto, String code, Date regdate) {
+		super();
 		this.idx = idx;
 		this.uid = uid;
 		this.upw = upw;
 		this.uname = uname;
 		this.uphoto = uphoto;
+		this.code = code;
 		this.regdate = regdate;
 	}
-	
+
 	// MemberRegRequest -> Member
 	public Member(String uid, String upw, String uname) {
-		this(0, uid, upw, uname, null, null);
+		this(0, uid, upw, uname, null, null, null);
 	}
 
 	public Member() {
@@ -69,11 +73,19 @@ public class Member {
 	public void setUphoto(String uphoto) {
 		this.uphoto = uphoto;
 	}
-	
+
 	public Date getRegdate() {
 		return regdate;
 	}
-	
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
@@ -84,10 +96,10 @@ public class Member {
 	public java.util.Date getToDate() {// ${member.toDate}
 		return new java.util.Date(regdate.getTime());
 	}
-	
+
 	// Member -> LoginInfo : 로그인 처리시 저장할 데이터
 	public LoginInfo toLoginInfo() {
-		return new LoginInfo(uid, uname, uphoto) ;
+		return new LoginInfo(uid, uname, uphoto);
 	}
 
 	@Override
