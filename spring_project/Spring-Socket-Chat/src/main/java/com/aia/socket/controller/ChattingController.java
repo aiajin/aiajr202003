@@ -19,6 +19,8 @@ public class ChattingController {
 		
 		mv.setViewName("chat/chat");
 		mv.addObject("user", uid);
+		mv.addObject("articleId", "12345");
+		mv.addObject("articleOwner", "jin");
 		
 		session.setAttribute("user", uid);
 		
