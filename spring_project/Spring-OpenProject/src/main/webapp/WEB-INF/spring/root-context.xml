@@ -10,13 +10,25 @@
 	
 	<!-- <mvc:interceptors></mvc:interceptors> -->
 	
-	<bean id="dataSource"
+	<bean id="hikariConfig" 
+		  class="com.zaxxer.hikari.HikariConfig"
+		  p:driverClassName="com.mysql.cj.jdbc.Driver"
+		  p:jdbcUrl="jdbc:mysql://aia.cek50lbziasl.ap-northeast-2.rds.amazonaws.com:3306/project?serverTimezone=UTC"
+		  p:username="bit"
+		  p:password="bit12345"
+	/>
+	
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+	
+	<!-- <bean id="dataSource"
 			class="com.zaxxer.hikari.HikariDataSource"
 			p:driverClassName="com.mysql.cj.jdbc.Driver"
 			p:jdbcUrl="jdbc:mysql://aia.cek50lbziasl.ap-northeast-2.rds.amazonaws.com:3306/project?serverTimezone=UTC"
 			p:username="bit"
 			p:password="bit12345"
-	/>
+	/> -->
 	
 <!-- 	<bean id="dataSource"
 			class="com.zaxxer.hikari.HikariDataSource"
