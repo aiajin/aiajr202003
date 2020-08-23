@@ -31,11 +31,28 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
+	
+	
+	
+	
+	<logger name="org.springframework.jdbc">
+		<level value="DEBUG" />
+	</logger>
+
+
+	<logger name="com.zaxxer.hikari">
+		<level value="DEBUG" />
+	</logger>
+
+	<logger name="com.zaxxer.hikari.HikariConfig">
+		<level value="DEBUG" />
+	</logger>
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="DEBUG" />
 		<appender-ref ref="console" />
 	</root>
+	
 	
 </log4j:configuration>

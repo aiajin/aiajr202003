@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 필수 : interface의 full name으로 설정 -->
+<mapper namespace="com.aia.demo.dao.MemberDao">
+
+	<delete id="deleteMember">
+		delete from project.member  where idx=#{idx} 
+	</delete>
+
+	<update id="editMember"
+			parameterType="com.aia.demo.model.Member"
+	>
+	
+	update project.member set upw=#{upw} , uname=#{uname} , uphoto=#{uphoto} where idx=#{idx}
+	
+	</update>
+
+
+	<select id="selectByIdx"
+			resultType="com.aia.demo.model.Member"
+	>
+	
+	select * from project.member where idx=#{idx}
+	
+	</select>
+
+	<select id="selectList"
+			resultType="com.aia.demo.model.Member"
+	>
+		select * from project.member order by idx desc
+	</select>
+	
+	<insert id="insertMember"
+			parameterType="com.aia.demo.model.Member"
+	>
+		insert into project.member (uid, upw, uname, uphoto)
+		values (#{uid}, #{upw}, #{uname}, #{uphoto})
+	
+	</insert>
+
+</mapper>
+
+
+
+
+
+

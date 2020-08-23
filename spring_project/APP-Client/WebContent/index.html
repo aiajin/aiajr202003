@@ -169,7 +169,7 @@
 					html += '		<li>uid : '+data[i].uid+'</li>';
 					html += '		<li>upw : '+data[i].upw+'</li>';
 					html += '		<li>uName : '+data[i].uname+'</li>';
-					html += '		<li>uPhoto :'+data[i].uphoto+'</li>';
+					html += '		<li>uPhoto :<img src=\"http://localhost:8080/mm/upload/'+data[i].uphoto+'\"></li>';
 					html += '		<li><input type="button" value="수정" onclick="editForm('+data[i].idx+')"> ';
 					html += '		<input type="button" value="삭제" onclick="deleteMember('+data[i].idx+')"></li>';
 					html += '	</ul>';

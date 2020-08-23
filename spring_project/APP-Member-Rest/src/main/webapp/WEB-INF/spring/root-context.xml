@@ -5,14 +5,30 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="dataSource"
+	
+	<bean id="hikariConfig" 
+		  class="com.zaxxer.hikari.HikariConfig"
+		  p:driverClassName="com.mysql.cj.jdbc.Driver"
+		  p:jdbcUrl="jdbc:mysql://aia.cek50lbziasl.ap-northeast-2.rds.amazonaws.com:3306/project?serverTimezone=UTC"
+		  p:username="bit"
+		  p:password="bit12345"
+		  p:maximumPoolSize="5"
+		  p:idleTimeout="1000"
+		  p:connectionTimeout="3000"
+		  p:minimumIdle="5"
+	/>
+	
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+	
+	<!-- <bean id="dataSource"
 			class="com.zaxxer.hikari.HikariDataSource"
 			p:driverClassName="com.mysql.cj.jdbc.Driver"
 			p:jdbcUrl="jdbc:mysql://aia.cek50lbziasl.ap-northeast-2.rds.amazonaws.com:3306/project?serverTimezone=UTC"
 			p:username="bit"
 			p:password="bit12345"
-	/>	
-	
+	/> -->
 	<!--  
 		sqlSessionFactory 생성
 		

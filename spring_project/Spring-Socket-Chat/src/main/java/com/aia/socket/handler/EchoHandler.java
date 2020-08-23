@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 
 public class EchoHandler extends TextWebSocketHandler {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(EchoHandler.class);
 
 	private List<WebSocketSession> sessionList = new ArrayList<WebSocketSession>();
 	private Map<String, WebSocketSession> sessionMap = new HashMap<String, WebSocketSession>();
@@ -53,7 +53,13 @@ public class EchoHandler extends TextWebSocketHandler {
 		
 		WebSocketSession ws = sessionMap.get(msg.getTo());
 		
-		ws.sendMessage(new TextMessage(chatMember + "|" + msg.getMessage()));
+		// 전달 메시지
+		TextMessage sendMsg = new TextMessage(gson.toJson(msg));
+		
+		// 상대방에게 메시지 전달
+		ws.sendMessage(sendMsg);
+		// 자신에게 메시지 전달
+		session.sendMessage(sendMsg);
 
 //		for (WebSocketSession webSocketSession : sessionList) {
 //			webSocketSession.sendMessage(new TextMessage(chatMember + "|" + message.getPayload()));

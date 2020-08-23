@@ -6,6 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.text_right {
+		text-align: right;
+	}
+	
+	.text_left {
+		text-align: left;
+	}
+	.chattingBox {
+		padding : 15px;
+		border : 1px solid #AAA;
+		margin: 10px 0;
+	}
+</style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
@@ -18,9 +32,6 @@
 <body>
 
 	<h1>Chatting Page (id: ${user})</h1>
-	<div>
-		<input type="button" id="chattinglistbtn" value="채팅 참여자 리스트">
-	</div>
 	<br>
 	<div>
 		<div>
@@ -57,6 +68,8 @@
 		var msg = {
 			user : '${user}',
 			to : 'jin', // 현재 페이지 작성자의 id를 작성
+			articleId : '${articleId}',
+			articleOwner : '${articleOwner}',
 			message : $("#message").val()
 		};
 		
@@ -65,43 +78,47 @@
 
 	//evt 파라미터는 websocket이 보내준 데이터다.
 	function onMessage(evt) { //변수 안에 function자체를 넣음.
-		var data = evt.data;
+		var data = evt.data; // 전달 받은 데이터
+		
+		//alert(data);
+		
+		msgData = JSON.parse(data); 
+		
 		var sessionid = null;
 		var message = null;
-
-		//문자열을 splite//
-		var strArray = data.split('|');
-
-		for (var i = 0; i < strArray.length; i++) {
-			console.log('str[' + i + ']: ' + strArray[i]);
-		}
-
+		
 		//current session id//
 		var currentuser_session = $('#sessionuserid').val();
 		console.log('current session id: ' + currentuser_session);
+		
+		var target = $('#chattingBox-'+msgData.messageId+'-'+msgData.user);
+		
+		if(target.length==0){
+			$('<div id=\"chattingBox-'+msgData.messageId+'-'+msgData.user+'\" class=\"chattingBox\"></div>').html('<h1>'+msgData.user+' : '+msgData.articleOwner+'</h1>').appendTo('body');
+			$('#chattingBox-'+msgData.messageId+'-'+msgData.user).append('<hr>')
+		}
 
-		sessionid = strArray[0]; //현재 메세지를 보낸 사람의 세션 등록//
-		message = strArray[1]; //현재 메세지를 저장//
+			
 
 		//나와 상대방이 보낸 메세지를 구분하여 영역을 나눈다.//
-		if (sessionid == currentuser_session) {
-			var printHTML = "<div class='well'>";
+		if (msgData.user == currentuser_session) {
+			var printHTML = "<div class='well text_right'>";
 			printHTML += "<div class='alert alert-info'>";
-			printHTML += "<strong>[" + sessionid + "] -> " + message
+			printHTML += "<strong>[" + msgData.user + "] -> " + msgData.message
 					+ "</strong>";
 			printHTML += "</div>";
 			printHTML += "</div>";
 
-			$("#chatdata").append(printHTML);
+			$('#chattingBox-'+msgData.messageId+'-'+msgData.user).append(printHTML);
 		} else {
-			var printHTML = "<div class='well'>";
+			var printHTML = "<div class='well text_left'>";
 			printHTML += "<div class='alert alert-warning'>";
-			printHTML += "<strong>[" + sessionid + "] -> " + message
+			printHTML += "<strong>[" + msgData.user + "] -> " + msgData.message
 					+ "</strong>";
 			printHTML += "</div>";
 			printHTML += "</div>";
 
-			$("#chatdata").append(printHTML);
+			$('#chattingBox-'+msgData.messageId+'-'+msgData.user).append(printHTML);
 		}
 
 		console.log('chatting data: ' + data);
