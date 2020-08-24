@@ -104,3 +104,8 @@ hs_err_pid*
 
 # End of https://www.gitignore.io/api/java,eclipse
 *.exe
+spring_project/Spring-Socket-Chat/target/m2e-wtp/web-resources/META-INF/maven/com.aia/socket/pom.properties
+spring_project/Spring-OpenProject/target/m2e-wtp/web-resources/META-INF/maven/com.aia/op/pom.properties
+*.properties
+*.properties
+*.properties
