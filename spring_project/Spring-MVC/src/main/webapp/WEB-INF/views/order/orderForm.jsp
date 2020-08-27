@@ -10,7 +10,7 @@
 <body>
 	<h1>주문</h1>
 	<hr>
-	<form method="post" id="form">
+	<form method="post" id="form" onsubmit="return false;">
 		<table>
 			<tr>
 				<td>상품1- ID</td>
@@ -93,15 +93,35 @@
             alert(1);
             
             var params = $("#form").serialize();
+            
+            // 방법 1
             var param = $("#form").serializeArray();
             console.log(params);
             console.log(param);
             
             
+            // 방법 2
+            var regFormData = new FormData();
+            for(var i=0; i<param.length;i++){
+                regFormData.append(param[i].name, param[i].value);    
+            }
+            
+            // 방법 3
+            var formData = new FormData(document.getElementById('form'));
+            
+            console.log(formData);
+            
+            
+            
+            
+            
             $.ajax({
                 url:'http://localhost:8080/mvc/order/order',
                 type: 'post',
-                data: param,
+    			processData: false, // File 전송시 필수
+    			contentType: false, // multipart/form-data
+                //data: regFormData,
+                data: formData,
                 success:function(data){
                     console.log(data);
                 }
