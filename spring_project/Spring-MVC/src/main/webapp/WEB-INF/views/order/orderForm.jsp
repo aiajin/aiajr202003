@@ -5,11 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
 	<h1>주문</h1>
 	<hr>
-	<form method="post">
+	<form method="post" id="form">
 		<table>
 			<tr>
 				<td>상품1- ID</td>
@@ -84,7 +85,39 @@
 
 
 
+<script>
+	$(document).ready(function(){
+		
+        $("#form").submit(function(){
+            
+            alert(1);
+            
+            var params = $("#form").serialize();
+            var param = $("#form").serializeArray();
+            console.log(params);
+            console.log(param);
+            
+            
+            $.ajax({
+                url:'http://localhost:8080/mvc/order/order',
+                type: 'post',
+                data: param,
+                success:function(data){
+                    console.log(data);
+                }
+            });
+            
+            
+            
+            return false;
 
+        });
+        
+		
+		
+		
+	});
+</script>
 
 
 
