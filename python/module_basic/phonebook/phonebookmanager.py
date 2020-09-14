@@ -27,6 +27,10 @@ class PhoneInfo:
     def checkInfo(self, keyword):
         return self.name==keyword
 
+    def __eq__(self, keyword):
+        return self.name==keyword
+
+
     # __str__() 함수 재정의
     def __str__(self):
         return '--- 정보출력 시작 -------------------\n이름 : {}\n전화번호 : {}\n생일 : {}\n--- 정보출력 종료 -------------------'.format(
