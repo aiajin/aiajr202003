@@ -15,5 +15,6 @@ tag_list = re.findall(r'(<span id=\"team_.+\">)(.+)(<\/span>)', html_contents)
 
 # 순위 는 index로 표현하기 위해 enumerate 사용
 for index, result in enumerate(tag_list, start=1):
-    print(result);
+    #print(result);
     #print(index, '위 ', result[1].split('>')[1])
+    print(index, '위 ', result[1])

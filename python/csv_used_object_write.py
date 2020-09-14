@@ -17,7 +17,8 @@ with open("07_24_05_P.csv") as smaple_data:
         else:
             # 일반 데이터는 sample_list 객체에 저장, 데이터 저장 시 ","로 분리
             shop = data.split(",")
-            if len(shop) == 28 and shop[18] == '커피숍':
+            #print(shop[18])
+            if len(shop) == 28 and shop[17] == '커피숍':
                 # 업태 필드가 "커피숍" 것만 new_shop_list에 저장
                 new_shop_list.append(shop)
         line_counter += 1
@@ -32,3 +33,4 @@ with open("new_shop_coffe.csv", "w", encoding='utf-8') as new_shop_coffe:
         new_shop_coffe.write(",".join(shop).strip('\n')+"\n")
 
     print('파일 작성 완료')
+print('커피숍의 개수 :', len(new_shop_list))

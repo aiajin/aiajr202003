@@ -11,7 +11,7 @@ with open("new_shop_coffe.csv", "r", encoding="utf-8") as p_file:
     for row in csv_data:                # 읽어 온 데이터를 한 줄씩 처리
         if rownum == 0:
             header = row                # 첫 번째 줄은 데이터 필드로 따로 저장
-        location = row[12]
+        location = row[14]
         # '소재지 주소' 필드 데이터 추출, 한글 처리로 유니코드 데이터를 UTF-8로 변환
         if location.find(u"서울특별시") != -1:
             # "행정구역" 데이터에 서울특별시가 들어가 있으면 seoul_location_data List에 추가

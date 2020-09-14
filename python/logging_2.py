@@ -8,7 +8,7 @@ stream_hander = logging.StreamHandler()
 logger.addHandler(stream_hander)
 
 # 출력 레벨 설정
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 logger.debug("틀렸습니다!")
 logger.info("확인해주세요!")

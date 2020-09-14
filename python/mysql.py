@@ -3,7 +3,7 @@ import pymysql
 project_db = pymysql.connect(
     user='bit',
     passwd='bit',
-    host='127.0.0.1',
+    host='aia.cek50lbziasl.ap-northeast-2.rds.amazonaws.com',
     db='project',
     charset='utf8'
 )
